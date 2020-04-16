@@ -1,0 +1,22 @@
+{
+  "name": "nog-react",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build:function-library": "lerna run --scope function-library build",
+    "start:demo": "lerna run --scope demo-app start",
+    "start:app": "lerna run --scope app start",
+    "start:admin": "lerna run --scope admin-app start",
+    "test": "lerna run --parallel test",
+    "watch": "lerna run --parallel watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "lerna": "^3.20.2"
+  }
+}

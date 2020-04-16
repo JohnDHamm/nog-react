@@ -1,0 +1,31 @@
+# Nog React monorepo
+
+## packages:
+### admin app
+This app is for admin purposes and could include dashboard functionality.
+
+### app
+This will be the main Nog web app.
+
+### demo app
+This is the Nog demo app for testing, marketing and research. It will probably not contain all future functionality of the Nog web app.
+
+### function-library
+Shareable functions.
+
+
+## commands:
+Run these in the root directory on the command line.
+
+```yarn watch``` - watches packages for changes - includes: function-library
+
+```yarn start:admin``` - starts the admin app on port 3002
+
+```yarn start:app``` - starts the app on port 3000
+
+```yarn start:demo``` - starts the demo app on port 3001
+
+```yarn test``` - runs all Jest tests in all packages
+
+```yarn build:function-library``` - builds the function-library package
+
