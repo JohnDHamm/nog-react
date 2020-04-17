@@ -1,14 +1,18 @@
 import React from "react";
+import { StyledWrapper, StyledText } from "./TestComponent.styles"
 
-interface TestProps {
+interface TestComponentProps {
   text: string;
+  alt?: boolean;
 }
 
-const TestComponent = (props: TestProps) => {
+const TestComponent = (props: TestComponentProps) => {
   return (
-    <div style={{ border: "1px solid white", borderRadius: "5px", color: "navy", padding: "1rem", backgroundColor: "#BADA55"}}>
-      Test Component - {props.text}
-    </div>
+    <StyledWrapper alt={props.alt}>
+      <StyledText alt={props.alt}>
+        {props.text}
+      </StyledText>
+    </StyledWrapper>
   )
 }
 

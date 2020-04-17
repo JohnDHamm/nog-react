@@ -15,12 +15,11 @@
     "react-dom": "^16.13.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.0",
-    "awesome-typescript-loader": "^5.2.1",
-    "babel-loader": "^8.1.0",
-    "source-map-loader": "^0.2.4",
+    "@types/styled-components": "^5.1.0",
     "typescript": "^3.8.3"
   },
   "license": "MIT",
-  "dependencies": {}
+  "dependencies": {
+    "styled-components": "^5.1.0"
+  }
 }

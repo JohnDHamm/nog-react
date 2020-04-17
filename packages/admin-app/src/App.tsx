@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import { testFunction } from "function-library";
+import { TestComponent } from "ui-library"
 
 function App() {
   return (
@@ -9,7 +10,8 @@ function App() {
         <p>
           Nog Admin App
         </p>
-        <p>{testFunction("your worship")} What can I do to please you today?</p>
+        <p>{testFunction("your highness")} What can I do for you today?</p>
+        <TestComponent text="admin test" />
       </header>
     </div>
   );

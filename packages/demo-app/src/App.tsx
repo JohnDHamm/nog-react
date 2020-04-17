@@ -9,8 +9,9 @@ function App() {
     <div className="App">
       <header className="App-header">
         <p>Nog Demo App</p>
-        <p>{testFunction("Johnny")}</p>
-        <TestComponent text="bam!" />
+        <p>{testFunction("Johnathon")}</p>
+        <TestComponent text="test in demo" />
+        <TestComponent text="test in demo - alt style" alt={true} />
       </header>
     </div>
   );
