@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 
 import { testFunction } from "function-library"
+import { TestComponent } from "ui-library"
 
 function App() {
   return (
@@ -10,7 +11,8 @@ function App() {
         <p>
           Nog App
         </p>
-        <p>{testFunction("Dave")} How you doing?</p>
+        <p>{testFunction("David")} How you doin?</p>
+        <TestComponent text="test in app" />
       </header>
     </div>
   );
