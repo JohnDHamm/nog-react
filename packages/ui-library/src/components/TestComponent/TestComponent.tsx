@@ -1,7 +1,7 @@
 import React from "react";
 import { StyledWrapper, StyledText } from "./TestComponent.styles"
 
-interface TestComponentProps {
+export interface TestComponentProps {
   text: string;
   alt?: boolean;
 }
