@@ -10,6 +10,9 @@ This will be the main Nog web app.
 ### demo app
 This is the Nog demo app for testing, marketing and research. It will probably not contain all future functionality of the Nog web app.
 
+### ui-library
+Components for use in apps.
+
 ### function-library
 Shareable functions.
 
@@ -29,3 +32,4 @@ Run these in the root directory on the command line.
 
 ```yarn build:function-library``` - builds the function-library package
 
+```yarn build:ui-library``` - builds the function-library package

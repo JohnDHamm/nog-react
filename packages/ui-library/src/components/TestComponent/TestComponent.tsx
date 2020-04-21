@@ -3,13 +3,13 @@ import { StyledWrapper, StyledText } from "./TestComponent.styles"
 
 export interface TestComponentProps {
   text: string;
-  alt?: boolean;
+  altStyle?: boolean;
 }
 
 const TestComponent = (props: TestComponentProps) => {
   return (
-    <StyledWrapper alt={props.alt}>
-      <StyledText alt={props.alt}>
+    <StyledWrapper altStyle={props.altStyle}>
+      <StyledText altStyle={props.altStyle}>
         {props.text}
       </StyledText>
     </StyledWrapper>
