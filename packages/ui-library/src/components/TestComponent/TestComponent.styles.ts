@@ -1,13 +1,13 @@
 import styled from "styled-components"
 
-export const StyledWrapper = styled.div<{alt?: boolean}>`
+export const StyledWrapper = styled.div<{altStyle?: boolean}>`
   border: 1px solid #fff;
   border-radius: 5px;
-  background-color: ${props => props.alt ? "darkgrey" : "#bada55"};
+  background-color: ${props => props.altStyle ? "darkgrey" : "#bada55"};
   padding: 0.5rem 1rem;
 `
 
-export const StyledText = styled.span<{alt?: boolean}>`
+export const StyledText = styled.span<{altStyle?: boolean}>`
   font-size: 1.5rem;
-  color: ${props => !props.alt ? "navy" : "white"};
+  color: ${props => !props.altStyle ? "navy" : "white"};
 `

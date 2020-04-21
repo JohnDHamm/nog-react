@@ -11,7 +11,7 @@ function App() {
         <p>Nog Demo App</p>
         <p>{testFunction("Johnathon")}</p>
         <TestComponent text="test in demo" />
-        <TestComponent text="test in demo - alt style" alt={true} />
+        <TestComponent text="test in demo - alt style" altStyle={true} />
       </header>
     </div>
   );
