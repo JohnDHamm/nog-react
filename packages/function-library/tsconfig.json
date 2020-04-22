@@ -15,7 +15,7 @@
     "module": "ESNext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "jsx": "preserve"
+    "jsx": "react"
   },
   "include": [
     "src"
