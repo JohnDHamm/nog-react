@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 
-import { testFunction } from "function-library"
+import { sayHello } from "function-library"
 import { TestComponent } from "ui-library"
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
         <p>
           Nog App
         </p>
-        <p>{testFunction("David")} How you doin?</p>
+        <p>{sayHello("David")} How you doin?</p>
         <TestComponent text="test in app" />
       </header>
     </div>
