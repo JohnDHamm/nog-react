@@ -10,8 +10,8 @@ import {
 
 interface UsageProps {
   text: string;
-  format?: "comment" | undefined;
-  indent?: boolean | undefined;
+  format?: "code" | "comment";
+  indent?: boolean;
 }
 
 interface FunctionStoryWrapperProps {
@@ -22,9 +22,9 @@ interface FunctionStoryWrapperProps {
   usage?: Array<UsageProps>;
 }
 
-const renderUsageLine = (line: UsageProps) => {
+const renderUsageLine = ({ text, format = "code", indent = false }: UsageProps) => {
   return (
-    <UsageLine format={line.format} indent={line.indent}>{line.text}</UsageLine>
+    <UsageLine format={format} indent={indent}>{text}</UsageLine>
   )
 }
 
