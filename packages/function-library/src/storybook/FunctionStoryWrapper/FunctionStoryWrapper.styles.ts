@@ -30,7 +30,7 @@ export const UsageCode = styled.div`
   font-family: 'Courier New', Courier, monospace;
 `
 
-export const UsageLine = styled.p<{ format: "comment" | undefined, indent: boolean | undefined }>`
+export const UsageLine = styled.p<{ format: "code" | "comment", indent: boolean }>`
   color: ${props => props.format === "comment" ? "#999" : "yellow"};
   padding-left: ${props => props.indent ? "1.25rem" : 0};
 `
