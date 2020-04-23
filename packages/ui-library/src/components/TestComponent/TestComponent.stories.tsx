@@ -36,7 +36,7 @@ export const Default = () => (
 export const AlternateStyle = () => (
   ComponentStoryWrapper({
     name: "TestComponent",
-    subName: "alternate styling",
+    subName: "alternate style",
     component: <TestComponent text="This has alternate styling." altStyle />,
     componentProps: componentProps
   })

@@ -30,6 +30,8 @@ Run these in the root directory on the command line.
 
 ```yarn watch``` - watches packages for changes - includes: function-library, ui-library
 
+```yarn storybook``` - runs Storybook - includes ui-library and function-library stories
+
 ```yarn start:admin``` - starts the admin app on port 3002
 
 ```yarn start:app``` - starts the app on port 3000
@@ -41,5 +43,3 @@ Run these in the root directory on the command line.
 ```yarn build:function-library``` - builds the function-library package
 
 ```yarn build:ui-library``` - builds the function-library package
-
-Currently, **Storybook** has been added to function-library and ui-library. Navigate to the library's directory and run ```yarn storybook```
