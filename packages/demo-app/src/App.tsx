@@ -2,7 +2,8 @@ import React from 'react';
 import './App.css';
 
 import { sayHello } from "function-library";
-import { TestComponent } from "ui-library"
+import { TestComponent } from "ui-library";
+import { Thing } from "test-lib";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <p>{sayHello("John")}</p>
         <TestComponent text="test in demo" />
         <TestComponent text="test in demo - alt style" altStyle={true} />
+        <Thing>a thing</Thing>
       </header>
     </div>
   );

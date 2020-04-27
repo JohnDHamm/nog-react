@@ -15,7 +15,8 @@
     "react-scripts": "3.4.1",
     "typescript": "~3.7.2",
     "function-library": "0.1.0",
-    "ui-library": "0.1.0"
+    "ui-library": "0.1.0",
+    "test-lib": "0.1.0"
   },
   "scripts": {
     "start": "PORT=3001 react-scripts start",
