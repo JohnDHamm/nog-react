@@ -22,7 +22,7 @@ This is the Nog demo app for testing, marketing and research. It will probably n
 Components for use in apps.
 
 ### function-library
-Shareable functions.
+Shareable functions for use in apps.
 
 
 ## commands:
@@ -38,8 +38,32 @@ Run these in the root directory on the command line.
 
 ```yarn start:demo``` - starts the demo app on port 3001
 
-```yarn test``` - runs all Jest tests in all packages
+```yarn test``` - runs (and watches) all Jest tests in all packages (libraries and apps)
 
 ```yarn build:function-library``` - builds the function-library package
 
 ```yarn build:ui-library``` - builds the function-library package
+
+
+## adding a new package:
+Follow these instructions for adding a non-CRA package with jest, React (optional), and Storybook(optional):
+
+• `cd packages`
+
+• `npx tsdx create new-library` choose template for including React or React and Storybook
+
+• `cd new-library`
+
+• (optional) `yarn add styled-components @types/styled-components` add styled-components if library will include React components
+
+• remove `./example` and `./github` folders (example app and GitHub actions not needed)
+
+• remove ```"rootDir": "./src"``` from new package's `tsconfig.json` (for running global Storybook)
+
+• add ```"watch": "tsdx watch --noClean"``` to new package's `package.json`
+
+• remove **tsdx lint hook** from new package's `package.json`
+
+
+## other dev notes:
+• using **tsdx** to create a new library with Storybook adds the `react-docgen-typescript-loader` devDependency for use with the Storybook `@storybook/addon-docs`. Currently not utilizing and could be removed in future.
