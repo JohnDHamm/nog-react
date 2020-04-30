@@ -3,6 +3,7 @@ import './App.css';
 
 import { sayHello } from 'function-library';
 import { TestComponent } from 'ui-library';
+import { DesktopWrapper } from 'design-system';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <p>{sayHello('John')}</p>
         <TestComponent text="test in demo" />
         <TestComponent text="test in demo - alt style" altStyle={true} />
+        <DesktopWrapper />
       </header>
     </div>
   );
