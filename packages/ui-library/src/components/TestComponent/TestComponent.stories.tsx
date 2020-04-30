@@ -1,43 +1,46 @@
-import React from "react";
-import TestComponent from "./TestComponent";
-import { componentStoryPath, ComponentStoryWrapper, ComponentProps } from "../../storybook";
+import React from 'react';
+import TestComponent from './TestComponent';
+import {
+  componentStoryPath,
+  ComponentStoryWrapper,
+  ComponentProps,
+} from '../../storybook';
 
 const componentProps: Array<ComponentProps> = [
   {
-    propName: "text",
-    propType: "string",
-    description: "the text that will display inside the component",
-    required: true
+    propName: 'text',
+    propType: 'string',
+    description: 'the text that will display inside the component',
+    required: true,
   },
   {
-    propName: "altStyle",
-    propType: "boolean",
-    description: "include for the alternate styling of the component",
-    required: false
-  }
-]
+    propName: 'altStyle',
+    propType: 'boolean',
+    description: 'include for the alternate styling of the component',
+    required: false,
+  },
+];
 
 export default {
   title: componentStoryPath('TestComponent'),
-  component: TestComponent
+  component: TestComponent,
 };
 
-export const Default = () => (
+export const Default = () =>
   ComponentStoryWrapper({
-    name: "TestComponent",
-    subName: "default",
-    description: "This is a description for the TestComponent for building Storybook for the ui-library.",
+    name: 'TestComponent',
+    subName: 'default',
+    description:
+      'This is a description for the TestComponent for building Storybook for the ui-library.',
     component: <TestComponent text="This is a test." />,
-    notes: "This is a note for the component.",
-    componentProps: componentProps
-  })
-);
+    notes: 'This is a note for the component.',
+    componentProps: componentProps,
+  });
 
-export const AlternateStyle = () => (
+export const AlternateStyle = () =>
   ComponentStoryWrapper({
-    name: "TestComponent",
-    subName: "alternate style",
+    name: 'TestComponent',
+    subName: 'alternate style',
     component: <TestComponent text="This has alternate styling." altStyle />,
-    componentProps: componentProps
-  })
-);
+    componentProps: componentProps,
+  });
