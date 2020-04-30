@@ -1,16 +1,16 @@
-import React from "react"
+import React from 'react';
 import {
   Args,
   Description,
   Name,
   SectionTitle,
   UsageCode,
-  UsageLine
-} from "./FunctionStoryWrapper.styles"
+  UsageLine,
+} from './FunctionStoryWrapper.styles';
 
 interface UsageProps {
   text: string;
-  format?: "code" | "comment";
+  format?: 'code' | 'comment';
   indent?: boolean;
 }
 
@@ -22,27 +22,29 @@ interface FunctionStoryWrapperProps {
   usage?: Array<UsageProps>;
 }
 
-const renderUsageLine = ({ text, format = "code", indent = false }: UsageProps) => {
+const renderUsageLine = ({
+  text,
+  format = 'code',
+  indent = false,
+}: UsageProps) => {
   return (
-    <UsageLine format={format} indent={indent}>{text}</UsageLine>
-  )
-}
+    <UsageLine format={format} indent={indent}>
+      {text}
+    </UsageLine>
+  );
+};
 
 const FunctionStoryWrapper = (props: FunctionStoryWrapperProps) => {
-  const {
-    args,
-    description,
-    name,
-    notes,
-    usage
-  } = props
+  const { args, description, name, notes, usage } = props;
 
   return (
     <>
-      <Name>{name}(<Args>{args}</Args>)</Name>
+      <Name>
+        {name}(<Args>{args}</Args>)
+      </Name>
       {description && <Description>{description}</Description>}
       <SectionTitle>Usage</SectionTitle>
-      { usage && (
+      {usage && (
         <UsageCode>
           {usage.map((line: UsageProps) => renderUsageLine(line))}
         </UsageCode>
@@ -54,7 +56,7 @@ const FunctionStoryWrapper = (props: FunctionStoryWrapperProps) => {
         </>
       )}
     </>
-  )
-}
+  );
+};
 
-export default FunctionStoryWrapper
+export default FunctionStoryWrapper;

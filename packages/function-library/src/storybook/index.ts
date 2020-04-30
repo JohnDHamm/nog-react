@@ -1,3 +1,3 @@
-import FunctionStoryWrapper from "./FunctionStoryWrapper/FunctionStoryWrapper"
+import FunctionStoryWrapper from './FunctionStoryWrapper/FunctionStoryWrapper';
 
-export { FunctionStoryWrapper }
+export { FunctionStoryWrapper };

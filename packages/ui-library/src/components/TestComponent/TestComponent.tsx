@@ -1,5 +1,5 @@
-import React from "react";
-import { StyledWrapper, StyledText } from "./TestComponent.styles"
+import React from 'react';
+import { StyledWrapper, StyledText } from './TestComponent.styles';
 
 export interface TestComponentProps {
   text: string;
@@ -9,11 +9,9 @@ export interface TestComponentProps {
 const TestComponent = (props: TestComponentProps) => {
   return (
     <StyledWrapper altStyle={props.altStyle}>
-      <StyledText altStyle={props.altStyle}>
-        {props.text}
-      </StyledText>
+      <StyledText altStyle={props.altStyle}>{props.text}</StyledText>
     </StyledWrapper>
-  )
-}
+  );
+};
 
 export default TestComponent;

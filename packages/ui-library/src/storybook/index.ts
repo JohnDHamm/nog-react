@@ -1,5 +1,8 @@
-import ComponentStoryWrapper, { ComponentProps } from "./ComponentStoryWrapper/ComponentStoryWrapper"
+import ComponentStoryWrapper, {
+  ComponentProps,
+} from './ComponentStoryWrapper/ComponentStoryWrapper';
 
-export const componentStoryPath = (path: string): string => `components/${path}`;
+export const componentStoryPath = (path: string): string =>
+  `components/${path}`;
 
-export { ComponentStoryWrapper, ComponentProps }
+export { ComponentStoryWrapper, ComponentProps };
