@@ -37,7 +37,3 @@ export const UsageLine = styled.p<{
   color: ${props => (props.format === 'comment' ? '#999' : 'yellow')};
   padding-left: ${props => (props.indent ? '1.25rem' : 0)};
 `;
-
-export const UsageResult = styled.p`
-  color: #999;
-`;

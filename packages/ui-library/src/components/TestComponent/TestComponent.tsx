@@ -6,10 +6,10 @@ export interface TestComponentProps {
   altStyle?: boolean;
 }
 
-const TestComponent = (props: TestComponentProps) => {
+const TestComponent: React.FC<TestComponentProps> = ({ altStyle, text }) => {
   return (
-    <StyledWrapper altStyle={props.altStyle}>
-      <StyledText altStyle={props.altStyle}>{props.text}</StyledText>
+    <StyledWrapper altStyle={altStyle}>
+      <StyledText altStyle={altStyle}>{text}</StyledText>
     </StyledWrapper>
   );
 };
