@@ -11,13 +11,13 @@ export const Title = styled.h3`
   color: #555;
 `;
 
-export const ColorBlock = styled.div<{ value: string; useBorder: boolean }>`
-  border: ${props => (props.useBorder ? '1px solid #ccc' : 'none')};
+export const ColorBlock = styled.div<{ value: string }>`
+  border: ${props => (props.value === '#FFF' ? '1px solid #CCC' : 'none')};
   background-color: ${props => props.value};
   height: 100px;
 `;
 
 export const ColorText = styled.p<{ value: string }>`
-  color: ${props => (props.value !== '#fff' ? props.value : '#777')};
+  color: ${props => (props.value !== '#FFF' ? props.value : '#777')};
   text-align: right;
 `;

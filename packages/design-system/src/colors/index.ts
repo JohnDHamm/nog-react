@@ -1,6 +1,6 @@
-const BADASS = '#bada55';
+const BADASS = '#BADA55';
 const BLACK = '#000';
-const WHITE = '#fff';
+const WHITE = '#FFF';
 
 export type ColorNameType = 'BADASS' | 'BLACK' | 'WHITE';
 
