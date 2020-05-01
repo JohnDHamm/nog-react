@@ -1,3 +1,4 @@
 import DesktopWrapper from './DesktopWrapper/DesktopWrapper';
+import MobileWrapper from './MobileWrapper/MobileWrapper';
 
-export { DesktopWrapper };
+export { DesktopWrapper, MobileWrapper };

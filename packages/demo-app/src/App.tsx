@@ -3,7 +3,7 @@ import './App.css';
 
 import { sayHello } from 'function-library';
 import { TestComponent } from 'ui-library';
-import { DesktopWrapper } from 'design-system';
+import { DesktopWrapper, MobileWrapper } from 'design-system';
 
 function App() {
   return (
@@ -14,10 +14,15 @@ function App() {
         <TestComponent text="test in demo" />
         <TestComponent text="test in demo - alt style" altStyle={true} />
         <DesktopWrapper>
-          <div style={{ border: '1px solid grey', padding: '1rem' }}>
+          <div style={{ border: '1px solid green', padding: '1rem' }}>
             only visible on desktop
           </div>
         </DesktopWrapper>
+        <MobileWrapper>
+          <div style={{ border: '1px solid red', padding: '1rem' }}>
+            only visible on mobile
+          </div>
+        </MobileWrapper>
       </header>
     </div>
   );
