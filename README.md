@@ -50,6 +50,8 @@ Run these in the root directory on the command line.
 
 `yarn test` - runs (and watches) all Jest tests in all packages (libraries and apps)
 
+`yarn build:design-system` - builds the design-system package
+
 `yarn build:function-library` - builds the function-library package
 
 `yarn build:ui-library` - builds the function-library package

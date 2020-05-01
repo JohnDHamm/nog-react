@@ -1,17 +1,17 @@
 import React from 'react';
-import DesktopWrapper from './DesktopWrapper';
+import MobileWrapper from './MobileWrapper';
 import CodeBlock, { CodeLine } from '../../storybook/CodeBlock/CodeBlock';
 
 const usageText: Array<CodeLine> = [
   {
-    text: "import { DesktopWrapper } from 'design-system';"
+    text: "import { MobileWrapper } from 'design-system';"
   },
   {
     text: '',
     format: 'blank'
   },
   {
-    text: '<DesktopWrapper>'
+    text: '<MobileWrapper>'
   },
   {
     text: '<div>A child element</div>',
@@ -22,24 +22,24 @@ const usageText: Array<CodeLine> = [
     indent: true
   },
   {
-    text: '</DesktopWrapper>'
+    text: '</MobileWrapper>'
   }
 ];
 
 export default {
-  title: 'design-system/layout/DesktopWrapper',
-  component: DesktopWrapper
+  title: 'design-system/layout/MobileWrapper',
+  component: MobileWrapper
 };
 
 export const Default = () => (
   <>
-    <h1 style={{ marginTop: 0, color: '#555' }}>DesktopWrapper</h1>
+    <h1 style={{ marginTop: 0, color: '#555' }}>MobileWrapper</h1>
     <p>
-      The children of a DesktopWrapper component are only visible at desktop
-      screen width (1024+ px).
+      The children of a MobileWrapper component are only visible at mobile
+      screen width (less than 1024px).
     </p>
     <p>(resize window to test)</p>
-    <DesktopWrapper>
+    <MobileWrapper>
       <div
         style={{
           border: '2px solid green',
@@ -48,9 +48,9 @@ export const Default = () => (
           marginTop: '3rem'
         }}
       >
-        This is a child of a DesktopWrapper.
+        This is a child of a MobileWrapper.
       </div>
-    </DesktopWrapper>
+    </MobileWrapper>
     <h3 style={{ color: 'grey', marginTop: '3rem' }}>Usage</h3>
     <CodeBlock code={usageText} />
   </>
