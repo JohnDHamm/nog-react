@@ -34,13 +34,17 @@ Components for use in apps.
 
 Shareable functions for use in apps.
 
+### storybook-helpers
+
+Shared components to help build Storybook stories.
+
 ## commands:
 
 Run these in the root directory on the command line.
 
-`yarn watch` - watches packages for changes - includes: function-library, ui-library, design-system
+`yarn watch` - watches packages for changes - includes: function-library, ui-library, design-system, storybook-helpers
 
-`yarn storybook` - runs Storybook - includes ui-library, function-library, design-system stories
+`yarn storybook` - runs Storybook - includes ui-library, function-library, design-system, and storybook-helpers stories
 
 `yarn start:admin` - starts the admin app on port 3002
 
@@ -53,6 +57,8 @@ Run these in the root directory on the command line.
 `yarn build:design-system` - builds the design-system package
 
 `yarn build:function-library` - builds the function-library package
+
+`yarn build:storybook-helpers` - builds the storybook-helpers package
 
 `yarn build:ui-library` - builds the function-library package
 

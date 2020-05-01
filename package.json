@@ -9,6 +9,7 @@
   "scripts": {
     "build:design-system": "lerna run --scope design-system build",
     "build:function-library": "lerna run --scope function-library build",
+    "build:storybook-helpers": "lerna run --scope storybook-helpers build",
     "build:ui-library": "lerna run --scope ui-library build",
     "start:demo": "lerna run --scope demo-app start",
     "start:app": "lerna run --scope app start",

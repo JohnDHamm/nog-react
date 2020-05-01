@@ -1,12 +1,11 @@
 import React from 'react';
 import {
-  Args,
-  Description,
-  Name,
-  SectionTitle,
-  UsageCode,
-  UsageLine,
-} from './FunctionStoryWrapper.styles';
+  StoryFunctionTitle,
+  StoryNotes,
+  StorySectionTitle
+} from 'storybook-helpers';
+
+import { UsageCode, UsageLine } from './FunctionStoryWrapper.styles';
 
 interface UsageProps {
   text: string;
@@ -25,10 +24,10 @@ interface FunctionStoryWrapperProps {
 const renderUsageLine = ({
   text,
   format = 'code',
-  indent = false,
+  indent = false
 }: UsageProps) => {
   return (
-    <UsageLine format={format} indent={indent}>
+    <UsageLine key={text} format={format} indent={indent}>
       {text}
     </UsageLine>
   );
@@ -39,15 +38,13 @@ const FunctionStoryWrapper: React.FC<FunctionStoryWrapperProps> = ({
   description,
   name,
   notes,
-  usage,
+  usage
 }) => {
   return (
     <>
-      <Name>
-        {name}(<Args>{args}</Args>)
-      </Name>
-      {description && <Description>{description}</Description>}
-      <SectionTitle>Usage</SectionTitle>
+      <StoryFunctionTitle name={name} args={args} />
+      {description && <StoryNotes notes={description} />}
+      <StorySectionTitle title="Usage" />
       {usage && (
         <UsageCode>
           {usage.map((line: UsageProps) => renderUsageLine(line))}
@@ -55,8 +52,8 @@ const FunctionStoryWrapper: React.FC<FunctionStoryWrapperProps> = ({
       )}
       {notes && (
         <>
-          <SectionTitle>Notes</SectionTitle>
-          <div>{notes}</div>
+          <StorySectionTitle title="Notes" />
+          <StoryNotes notes={notes} />
         </>
       )}
     </>

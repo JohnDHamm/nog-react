@@ -1,5 +1,5 @@
 {
-  "name": "ui-library",
+  "name": "storybook-helpers",
   "version": "0.1.0",
   "private": true,
   "license": "MIT",
@@ -25,16 +25,10 @@
   "peerDependencies": {
     "react": ">=16"
   },
-  "prettier": {
-    "printWidth": 80,
-    "semi": true,
-    "singleQuote": true,
-    "trailingComma": "es5"
-  },
   "author": "John Hamm",
-  "module": "dist/ui-library.esm.js",
+  "module": "dist/storybook-helpers.esm.js",
   "devDependencies": {
-    "@babel/core": "^7.9.0",
+    "@babel/core": "^7.9.6",
     "@storybook/addon-actions": "^5.3.18",
     "@storybook/addon-docs": "^5.3.18",
     "@storybook/addon-info": "^5.3.18",
@@ -49,15 +43,13 @@
     "react-docgen-typescript-loader": "^3.7.2",
     "react-dom": "^16.13.1",
     "react-is": "^16.13.1",
-    "ts-loader": "^7.0.1",
+    "ts-loader": "^7.0.2",
     "tsdx": "^0.13.2",
     "tslib": "^1.11.1",
     "typescript": "^3.8.3"
   },
   "dependencies": {
     "@types/styled-components": "^5.1.0",
-    "styled-components": "^5.1.0",
-    "design-system": "0.1.0",
-    "storybook-helpers": "0.1.0"
+    "styled-components": "^5.1.0"
   }
 }

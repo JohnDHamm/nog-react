@@ -1,17 +1,12 @@
 import React from 'react';
 import {
-  ComponentContainer,
-  ComponentDescription,
-  ComponentName,
-  ComponentSubName,
-  Notes,
-  NotesTitle,
-  Table,
-  TableContainer,
-  TableData,
-  TableHeader,
-  TableTitle,
-} from './ComponentStoryWrapper.styles';
+  StoryNotes,
+  StoryPropsTable,
+  StorySectionTitle,
+  StoryTitle,
+} from 'storybook-helpers';
+
+import { ComponentContainer } from './ComponentStoryWrapper.styles';
 
 export interface ComponentProps {
   propName: string;
@@ -29,57 +24,26 @@ interface ComponentStoryWrapperProps {
   componentProps?: Array<ComponentProps>;
 }
 
-const renderPropsTable = (props: Array<ComponentProps>) => {
-  return (
-    <TableContainer>
-      <TableTitle>Props</TableTitle>
-      <Table>
-        <thead>
-          <tr>
-            <TableHeader>Prop</TableHeader>
-            <TableHeader>Type</TableHeader>
-            <TableHeader>Description</TableHeader>
-            <TableHeader>Required</TableHeader>
-          </tr>
-        </thead>
-        <tbody>
-          {props.map(prop => (
-            <tr>
-              <TableData>{prop.propName}</TableData>
-              <TableData>{prop.propType}</TableData>
-              <TableData>{prop.description}</TableData>
-              <TableData>{prop.required ? '✔' : null}</TableData>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
-    </TableContainer>
-  );
-};
-
 const ComponentStoryWrapper: React.FC<ComponentStoryWrapperProps> = ({
   name,
-  component,
   subName,
   description,
-  componentProps,
+  component,
   notes,
+  componentProps,
 }) => {
   return (
     <div>
-      <ComponentName>{name}</ComponentName>
-      {subName && <ComponentSubName>/{subName}</ComponentSubName>}
-      {description && (
-        <ComponentDescription>{description}</ComponentDescription>
-      )}
+      <StoryTitle title={name} subtitle={`/${subName}`} />
+      {description && <StoryNotes notes={description} />}
       <ComponentContainer>{component}</ComponentContainer>
       {notes && (
         <>
-          <NotesTitle>Notes</NotesTitle>
-          <Notes>{notes}</Notes>
+          <StorySectionTitle title="Notes" />
+          <StoryNotes notes={notes} />
         </>
       )}
-      {componentProps && renderPropsTable(componentProps)}
+      {componentProps && <StoryPropsTable componentProps={componentProps} />}
     </div>
   );
 };
