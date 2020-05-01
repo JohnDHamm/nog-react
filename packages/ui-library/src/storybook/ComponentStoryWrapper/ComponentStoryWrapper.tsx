@@ -57,16 +57,14 @@ const renderPropsTable = (props: Array<ComponentProps>) => {
   );
 };
 
-const ComponentStoryWrapper = (props: ComponentStoryWrapperProps) => {
-  const {
-    name,
-    component,
-    subName,
-    description,
-    componentProps,
-    notes,
-  } = props;
-
+const ComponentStoryWrapper: React.FC<ComponentStoryWrapperProps> = ({
+  name,
+  component,
+  subName,
+  description,
+  componentProps,
+  notes,
+}) => {
   return (
     <div>
       <ComponentName>{name}</ComponentName>

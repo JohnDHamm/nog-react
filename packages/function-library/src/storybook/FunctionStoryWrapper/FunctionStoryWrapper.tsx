@@ -34,9 +34,13 @@ const renderUsageLine = ({
   );
 };
 
-const FunctionStoryWrapper = (props: FunctionStoryWrapperProps) => {
-  const { args, description, name, notes, usage } = props;
-
+const FunctionStoryWrapper: React.FC<FunctionStoryWrapperProps> = ({
+  args,
+  description,
+  name,
+  notes,
+  usage,
+}) => {
   return (
     <>
       <Name>
