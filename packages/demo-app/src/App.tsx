@@ -13,7 +13,11 @@ function App() {
         <p>{sayHello('John')}</p>
         <TestComponent text="test in demo" />
         <TestComponent text="test in demo - alt style" altStyle={true} />
-        <DesktopWrapper />
+        <DesktopWrapper>
+          <div style={{ border: '1px solid grey', padding: '1rem' }}>
+            only visible on desktop
+          </div>
+        </DesktopWrapper>
       </header>
     </div>
   );

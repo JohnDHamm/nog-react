@@ -13,7 +13,11 @@ const usageText: Array<CodeLine> = [
     format: 'comment'
   },
   {
-    text: "import {COLORS } from 'design-system';"
+    text: "import { COLORS } from 'design-system';"
+  },
+  {
+    text: '',
+    format: 'blank'
   },
   {
     text: '// css',

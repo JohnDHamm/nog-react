@@ -3,7 +3,7 @@ import { UsageCode, UsageLine } from './CodeBlock.styles';
 
 export interface CodeLine {
   text: string;
-  format?: 'code' | 'comment';
+  format?: 'code' | 'comment' | 'blank';
   indent?: boolean;
 }
 
