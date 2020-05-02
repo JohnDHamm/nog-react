@@ -1,23 +1,18 @@
 import React from 'react';
 import {
   StoryCodeBlock,
+  StoryCodeLineProps,
   StoryFunctionTitle,
   StoryNotes,
   StorySectionTitle
 } from 'storybook-helpers';
-
-interface CodeLineProps {
-  text: string;
-  format?: 'code' | 'comment';
-  indent?: boolean;
-}
 
 interface FunctionStoryWrapperProps {
   name: string;
   description?: string;
   args?: string;
   notes?: string;
-  usage?: Array<CodeLineProps>;
+  usage?: Array<StoryCodeLineProps>;
 }
 
 const FunctionStoryWrapper: React.FC<FunctionStoryWrapperProps> = ({

@@ -1,13 +1,18 @@
 import React from 'react';
 import { COLORS, COLOR_NAMES } from './index';
 import ColorCard from '../storybook/ColorCard/ColorCard';
-import CodeBlock, { CodeLine } from '../storybook/CodeBlock/CodeBlock';
+import {
+  StoryCodeBlock,
+  StoryCodeLineProps,
+  StorySectionTitle,
+  StoryTitle
+} from 'storybook-helpers';
 
 export default {
   title: 'design-system/colors'
 };
 
-const usageText: Array<CodeLine> = [
+const usageText: Array<StoryCodeLineProps> = [
   {
     text: '// use in a styled-component:',
     format: 'comment'
@@ -33,14 +38,16 @@ const usageText: Array<CodeLine> = [
 export const Default = () => {
   return (
     <>
-      <h1 style={{ marginTop: 0, color: '#555' }}>COLORS</h1>
-      <div style={{ display: 'flex' }}>
+      <StoryTitle title="COLORS" />
+      <div style={{ display: 'flex', marginTop: '1rem', marginBottom: '3rem' }}>
         {COLOR_NAMES.map(color => {
-          return <ColorCard colorName={color} value={COLORS[color]} />;
+          return (
+            <ColorCard key={color} colorName={color} value={COLORS[color]} />
+          );
         })}
       </div>
-      <h3 style={{ color: 'grey', marginTop: '3rem' }}>Usage</h3>
-      <CodeBlock code={usageText} />
+      <StorySectionTitle title="Usage" />
+      <StoryCodeBlock code={usageText} />
     </>
   );
 };
