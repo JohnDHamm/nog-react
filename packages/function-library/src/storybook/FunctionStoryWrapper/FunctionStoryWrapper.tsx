@@ -1,13 +1,12 @@
 import React from 'react';
 import {
+  StoryCodeBlock,
   StoryFunctionTitle,
   StoryNotes,
   StorySectionTitle
 } from 'storybook-helpers';
 
-import { UsageCode, UsageLine } from './FunctionStoryWrapper.styles';
-
-interface UsageProps {
+interface CodeLineProps {
   text: string;
   format?: 'code' | 'comment';
   indent?: boolean;
@@ -18,20 +17,8 @@ interface FunctionStoryWrapperProps {
   description?: string;
   args?: string;
   notes?: string;
-  usage?: Array<UsageProps>;
+  usage?: Array<CodeLineProps>;
 }
-
-const renderUsageLine = ({
-  text,
-  format = 'code',
-  indent = false
-}: UsageProps) => {
-  return (
-    <UsageLine key={text} format={format} indent={indent}>
-      {text}
-    </UsageLine>
-  );
-};
 
 const FunctionStoryWrapper: React.FC<FunctionStoryWrapperProps> = ({
   args,
@@ -44,11 +31,11 @@ const FunctionStoryWrapper: React.FC<FunctionStoryWrapperProps> = ({
     <>
       <StoryFunctionTitle name={name} args={args} />
       {description && <StoryNotes notes={description} />}
-      <StorySectionTitle title="Usage" />
       {usage && (
-        <UsageCode>
-          {usage.map((line: UsageProps) => renderUsageLine(line))}
-        </UsageCode>
+        <>
+          <StorySectionTitle title="Usage" />
+          <StoryCodeBlock code={usage} />
+        </>
       )}
       {notes && (
         <>
