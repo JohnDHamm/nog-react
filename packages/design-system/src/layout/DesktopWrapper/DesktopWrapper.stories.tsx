@@ -1,8 +1,14 @@
 import React from 'react';
 import DesktopWrapper from './DesktopWrapper';
-import CodeBlock, { CodeLine } from '../../storybook/CodeBlock/CodeBlock';
+import {
+  StoryCodeBlock,
+  StoryCodeLineProps,
+  StoryNotes,
+  StorySectionTitle,
+  StoryTitle
+} from 'storybook-helpers';
 
-const usageText: Array<CodeLine> = [
+const usageText: Array<StoryCodeLineProps> = [
   {
     text: "import { DesktopWrapper } from 'design-system';"
   },
@@ -33,12 +39,8 @@ export default {
 
 export const Default = () => (
   <>
-    <h1 style={{ marginTop: 0, color: '#555' }}>DesktopWrapper</h1>
-    <p>
-      The children of a DesktopWrapper component are only visible at desktop
-      screen width (1024+ px).
-    </p>
-    <p>(resize window to test)</p>
+    <StoryTitle title="DesktopWrapper" />
+    <StoryNotes notes="The children of a DesktopWrapper component are only visible at desktop screen width (1024+ px). (resize window to test)" />
     <DesktopWrapper>
       <div
         style={{
@@ -51,7 +53,8 @@ export const Default = () => (
         This is a child of a DesktopWrapper.
       </div>
     </DesktopWrapper>
-    <h3 style={{ color: 'grey', marginTop: '3rem' }}>Usage</h3>
-    <CodeBlock code={usageText} />
+    <div style={{ height: '3rem' }} />
+    <StorySectionTitle title="Usage" />
+    <StoryCodeBlock code={usageText} />
   </>
 );

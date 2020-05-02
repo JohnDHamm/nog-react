@@ -1,8 +1,14 @@
 import React from 'react';
 import MobileWrapper from './MobileWrapper';
-import CodeBlock, { CodeLine } from '../../storybook/CodeBlock/CodeBlock';
+import {
+  StoryCodeBlock,
+  StoryCodeLineProps,
+  StoryNotes,
+  StorySectionTitle,
+  StoryTitle
+} from 'storybook-helpers';
 
-const usageText: Array<CodeLine> = [
+const usageText: Array<StoryCodeLineProps> = [
   {
     text: "import { MobileWrapper } from 'design-system';"
   },
@@ -33,12 +39,8 @@ export default {
 
 export const Default = () => (
   <>
-    <h1 style={{ marginTop: 0, color: '#555' }}>MobileWrapper</h1>
-    <p>
-      The children of a MobileWrapper component are only visible at mobile
-      screen width (less than 1024px).
-    </p>
-    <p>(resize window to test)</p>
+    <StoryTitle title="MobileWrapper" />
+    <StoryNotes notes="The children of a MobileWrapper component are only visible at mobile screen width (less than 1024px). (resize window to test)" />
     <MobileWrapper>
       <div
         style={{
@@ -51,7 +53,8 @@ export const Default = () => (
         This is a child of a MobileWrapper.
       </div>
     </MobileWrapper>
-    <h3 style={{ color: 'grey', marginTop: '3rem' }}>Usage</h3>
-    <CodeBlock code={usageText} />
+    <div style={{ height: '3rem' }} />
+    <StorySectionTitle title="Usage" />
+    <StoryCodeBlock code={usageText} />
   </>
 );

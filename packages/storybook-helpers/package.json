@@ -1,5 +1,5 @@
 {
-  "name": "design-system",
+  "name": "storybook-helpers",
   "version": "0.1.0",
   "private": true,
   "license": "MIT",
@@ -14,8 +14,8 @@
   },
   "scripts": {
     "start": "tsdx watch",
-    "watch": "tsdx watch --noClean",
     "build": "tsdx build",
+    "watch": "tsdx watch --noClean",
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint",
     "prepare": "tsdx build",
@@ -26,7 +26,7 @@
     "react": ">=16"
   },
   "author": "John Hamm",
-  "module": "dist/design-system.esm.js",
+  "module": "dist/storybook-helpers.esm.js",
   "devDependencies": {
     "@babel/core": "^7.9.6",
     "@storybook/addon-actions": "^5.3.18",
@@ -50,7 +50,6 @@
   },
   "dependencies": {
     "@types/styled-components": "^5.1.0",
-    "styled-components": "^5.1.0",
-    "storybook-helpers": "0.1.0"
+    "styled-components": "^5.1.0"
   }
 }

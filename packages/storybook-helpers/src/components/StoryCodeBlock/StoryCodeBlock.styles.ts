@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
-export const UsageCode = styled.div`
+export const CodeContainer = styled.div`
   background-color: black;
   padding: 0.5rem 1rem;
   font-family: 'Courier New', Courier, monospace;
 `;
 
-export const UsageLine = styled.p<{
+export const CodeLine = styled.p<{
   format: 'code' | 'comment' | 'blank';
   indent: boolean;
 }>`
