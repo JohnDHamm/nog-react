@@ -1,19 +1,15 @@
 import React from 'react';
 import {
+  PropsTableProps,
+  StoryCodeBlock,
+  StoryCodeLineProps,
   StoryNotes,
   StoryPropsTable,
   StorySectionTitle,
-  StoryTitle,
-} from 'storybook-helpers';
+  StoryTitle
+} from '../../index';
 
 import { ComponentContainer } from './ComponentStoryWrapper.styles';
-
-export interface ComponentProps {
-  propName: string;
-  propType: 'string' | 'number' | 'boolean' | '() => fn';
-  description: string;
-  required: boolean;
-}
 
 interface ComponentStoryWrapperProps {
   name: string;
@@ -21,7 +17,8 @@ interface ComponentStoryWrapperProps {
   description?: string;
   component: JSX.Element;
   notes?: string;
-  componentProps?: Array<ComponentProps>;
+  componentProps?: Array<PropsTableProps>;
+  code?: Array<StoryCodeLineProps>;
 }
 
 const ComponentStoryWrapper: React.FC<ComponentStoryWrapperProps> = ({
@@ -31,12 +28,19 @@ const ComponentStoryWrapper: React.FC<ComponentStoryWrapperProps> = ({
   component,
   notes,
   componentProps,
+  code
 }) => {
   return (
     <div>
-      <StoryTitle title={name} subtitle={`/${subName}`} />
+      <StoryTitle title={name} subtitle={subName ? subName : ''} />
       {description && <StoryNotes notes={description} />}
       <ComponentContainer>{component}</ComponentContainer>
+      {code && (
+        <>
+          <StorySectionTitle title="Usage" />
+          <StoryCodeBlock code={code} />
+        </>
+      )}
       {notes && (
         <>
           <StorySectionTitle title="Notes" />

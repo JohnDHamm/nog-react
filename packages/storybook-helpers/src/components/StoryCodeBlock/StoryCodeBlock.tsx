@@ -7,13 +7,12 @@ export interface StoryCodeLineProps {
   indent?: boolean;
 }
 
-const renderCodeLine = ({
-  text,
-  format = 'code',
-  indent = false
-}: StoryCodeLineProps) => {
+const renderCodeLine = (
+  { text, format = 'code', indent = false }: StoryCodeLineProps,
+  idx: number
+) => {
   return (
-    <CodeLine key={text} format={format} indent={indent}>
+    <CodeLine key={idx} format={format} indent={indent}>
       {text}
     </CodeLine>
   );
@@ -24,7 +23,9 @@ interface CodeBlockProps {
 }
 
 const StoryCodeBlock: React.FC<CodeBlockProps> = ({ code }) => (
-  <CodeContainer>{code.map(line => renderCodeLine(line))}</CodeContainer>
+  <CodeContainer>
+    {code.map((line, idx) => renderCodeLine(line, idx))}
+  </CodeContainer>
 );
 
 export default StoryCodeBlock;
