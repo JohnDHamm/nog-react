@@ -10,7 +10,7 @@ const StoryTitle: React.FC<StoryTitleProps> = ({ title, subtitle }) => {
   return (
     <>
       <StyledTitle>{title}</StyledTitle>
-      {subtitle && <StyledSubTitle>{subtitle}</StyledSubTitle>}
+      {subtitle && <StyledSubTitle>/{subtitle}</StyledSubTitle>}
     </>
   );
 };

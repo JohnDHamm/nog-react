@@ -2,23 +2,25 @@ import React from 'react';
 import { Table, TableData, TableHeader } from './StoryPropsTable.styles';
 import StorySectionTitle from '../StorySectionTitle/StorySectionTitle';
 
-export interface ComponentProps {
+export interface PropsTableProps {
   propName: string;
-  propType: 'string' | 'number' | 'boolean' | '() => fn';
+  propType: string;
   description: string;
   required: boolean;
 }
 
 export interface StoryPropsTableProps {
-  componentProps: Array<ComponentProps>;
+  title?: string;
+  componentProps: Array<PropsTableProps>;
 }
 
 const StoryPropsTable: React.FC<StoryPropsTableProps> = ({
-  componentProps
+  componentProps,
+  title = 'Props'
 }) => {
   return (
     <>
-      <StorySectionTitle title="Props" />
+      <StorySectionTitle title={title} />
       <Table>
         <thead>
           <tr>

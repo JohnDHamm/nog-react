@@ -1,13 +1,18 @@
+import ComponentStoryWrapper from './components/ComponentStoryWrapper/ComponentStoryWrapper';
 import StoryCodeBlock, {
   StoryCodeLineProps
 } from './components/StoryCodeBlock/StoryCodeBlock';
 import StoryFunctionTitle from './components/StoryFunctionTitle/StoryFunctionTitle';
 import StoryNotes from './components/StoryNotes/StoryNotes';
-import StoryPropsTable from './components/StoryPropsTable/StoryPropsTable';
+import StoryPropsTable, {
+  PropsTableProps
+} from './components/StoryPropsTable/StoryPropsTable';
 import StorySectionTitle from './components/StorySectionTitle/StorySectionTitle';
 import StoryTitle from './components/StoryTitle/StoryTitle';
 
 export {
+  ComponentStoryWrapper,
+  PropsTableProps,
   StoryCodeBlock,
   StoryCodeLineProps,
   StoryFunctionTitle,
