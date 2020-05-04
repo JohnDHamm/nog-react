@@ -1,12 +1,9 @@
 import React from 'react';
 import TestComponent from './TestComponent';
-import {
-  componentStoryPath,
-  ComponentStoryWrapper,
-  ComponentProps,
-} from '../../storybook';
+import { componentStoryPath } from '../../storybook';
+import { ComponentStoryWrapper, PropsTableProps } from 'storybook-helpers';
 
-const componentProps: Array<ComponentProps> = [
+const componentProps: Array<PropsTableProps> = [
   {
     propName: 'text',
     propType: 'string',
@@ -29,7 +26,6 @@ export default {
 export const Default = () =>
   ComponentStoryWrapper({
     name: 'TestComponent',
-    subName: 'default',
     description:
       'This is a description for the TestComponent for building Storybook for the ui-library.',
     component: <TestComponent text="This is a test." />,
