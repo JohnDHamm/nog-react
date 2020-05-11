@@ -15,6 +15,7 @@ module.exports = {
     '../packages/ui-library/src/**/*.stories.tsx',
     '../packages/function-library/src/**/*.stories.tsx',
     '../packages/design-system/src/**/*.stories.tsx',
+    '../packages/demo-app/src/**/*.stories.tsx',
     '../packages/storybook-helpers/src/**/*.stories.tsx'
   ],
   addons: ['@storybook/addon-actions', '@storybook/addon-links']

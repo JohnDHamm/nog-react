@@ -4,6 +4,7 @@ import './App.css';
 import { sayHello } from 'function-library';
 import { TestComponent } from 'ui-library';
 import { DesktopWrapper, MobileWrapper } from 'design-system';
+import { ExampleComponent } from './components';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <p>{sayHello('John')}</p>
         <TestComponent text="test in demo" />
         <TestComponent text="test in demo - alt style" altStyle={true} />
+        <ExampleComponent />
         <DesktopWrapper>
           <div style={{ border: '1px solid green', padding: '1rem' }}>
             only visible on desktop
