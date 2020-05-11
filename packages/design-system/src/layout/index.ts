@@ -1,4 +1,5 @@
+import ContentContainer from './ContentContainer/ContentContainer';
 import DesktopWrapper from './DesktopWrapper/DesktopWrapper';
 import MobileWrapper from './MobileWrapper/MobileWrapper';
 
-export { DesktopWrapper, MobileWrapper };
+export { ContentContainer, DesktopWrapper, MobileWrapper };
