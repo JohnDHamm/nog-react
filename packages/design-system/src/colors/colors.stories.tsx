@@ -39,7 +39,14 @@ export const Default = () => {
   return (
     <>
       <StoryTitle title="COLORS" />
-      <div style={{ display: 'flex', marginTop: '1rem', marginBottom: '3rem' }}>
+      <div
+        style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          marginTop: '1rem',
+          marginBottom: '3rem'
+        }}
+      >
         {COLOR_NAMES.map(color => {
           return (
             <ColorCard key={color} colorName={color} value={COLORS[color]} />
