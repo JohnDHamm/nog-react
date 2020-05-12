@@ -1,13 +1,12 @@
 import React from 'react';
-import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Create, Home, Play } from './pages';
+import NavBar from './components/NavBar/NavBar';
 
 function App() {
   return (
     <Router>
-      <Link to="/">
-        <p>Nog Demo App</p>
-      </Link>
+      <NavBar />
       <Switch>
         <Route path="/create" component={Create} />
         <Route path="/play" component={Play} />

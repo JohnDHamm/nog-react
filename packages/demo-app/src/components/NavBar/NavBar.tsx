@@ -1,23 +1,26 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import {
   Logo,
   ProfileAvatar,
   ProfileText,
   Row,
-  StyledContainer,
-} from './DemoNavBar.styles';
-// import GuestAvatar from '../../assets/guest_avatar.png';
+  StyledContainer
+} from './NavBar.styles';
+
 const GuestAvatar = require('../../assets/guest_avatar.png');
 const NogLogo = require('../../assets/logo_white.svg');
 
-interface NavBarProps {
-  onLogoClick: () => void;
-}
+const NavBar: React.FC = () => {
+  const history = useHistory();
 
-const DemoNavBar: React.FC<NavBarProps> = ({ onLogoClick }) => {
+  const handleLogoClick = (): void => {
+    history.push('/');
+  };
+
   return (
     <StyledContainer>
-      <Logo src={NogLogo} alt="logo" onClick={onLogoClick} />
+      <Logo src={NogLogo} alt="Nog logo" onClick={handleLogoClick} />
       <Row>
         <ProfileText>Guest</ProfileText>
         <ProfileAvatar src={GuestAvatar} />
@@ -26,4 +29,4 @@ const DemoNavBar: React.FC<NavBarProps> = ({ onLogoClick }) => {
   );
 };
 
-export default DemoNavBar;
+export default NavBar;
