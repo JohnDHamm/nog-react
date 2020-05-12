@@ -1,13 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Info, StyledPage } from './Home.styles';
+import { CenteredContent, Info, StyledLogo, StyledPage } from './Home.styles';
 import { ContentContainer } from 'design-system';
+import Logo from '../../assets/logo_red-on-white.svg';
 
 const Home: React.FC = () => {
   return (
     <StyledPage>
       <ContentContainer>
-        <h3>Nog Logo goes here</h3>
+        <CenteredContent>
+          <StyledLogo src={Logo} alt="Nog logo" />
+        </CenteredContent>
         <Info>
           The approach will not be easy. You are required to maneuver straight
           down this trench and skim the surface to this point. The target area
@@ -20,7 +23,9 @@ const Home: React.FC = () => {
           bull’s-eye womp rats in my T-sixteen back home. They’re not much
           bigger than two meters. Man your ships! And may the Force be with you!
         </Info>
-        <Link to="/create">Start demo</Link>
+        <CenteredContent>
+          <Link to="/create">Start demo</Link>
+        </CenteredContent>
       </ContentContainer>
     </StyledPage>
   );
