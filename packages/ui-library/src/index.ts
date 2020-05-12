@@ -1,4 +1,4 @@
-import NavBar from './components/NavBar/NavBar';
+import DemoNavBar from './components/DemoNavBar/DemoNavBar';
 import TestComponent from './components/TestComponent/TestComponent';
 
-export { NavBar, TestComponent };
+export { DemoNavBar, TestComponent };

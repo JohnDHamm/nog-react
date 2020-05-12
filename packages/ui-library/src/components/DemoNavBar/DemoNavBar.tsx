@@ -1,17 +1,23 @@
 import React from 'react';
 import {
+  Logo,
   ProfileAvatar,
   ProfileText,
   Row,
   StyledContainer,
-} from './NavBar.styles';
+} from './DemoNavBar.styles';
 // import GuestAvatar from '../../assets/guest_avatar.png';
 const GuestAvatar = require('../../assets/guest_avatar.png');
+const NogLogo = require('../../assets/logo_white.svg');
 
-const NavBar: React.FC = () => {
+interface NavBarProps {
+  onLogoClick: () => void;
+}
+
+const DemoNavBar: React.FC<NavBarProps> = ({ onLogoClick }) => {
   return (
     <StyledContainer>
-      <div>Nog logo svg</div>
+      <Logo src={NogLogo} alt="logo" onClick={onLogoClick} />
       <Row>
         <ProfileText>Guest</ProfileText>
         <ProfileAvatar src={GuestAvatar} />
@@ -20,4 +26,4 @@ const NavBar: React.FC = () => {
   );
 };
 
-export default NavBar;
+export default DemoNavBar;
