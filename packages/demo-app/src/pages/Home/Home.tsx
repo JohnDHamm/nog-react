@@ -1,10 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { CenteredContent, Info, StyledLogo, StyledPage } from './Home.styles';
 import { ContentContainer } from 'design-system';
+import { Button } from 'ui-library';
 import Logo from '../../assets/logo_red-on-white.svg';
 
 const Home: React.FC = () => {
+  const history = useHistory();
+
+  const handleClick = (): void => {
+    console.log('start demo');
+    history.push('/create');
+  };
+
   return (
     <StyledPage>
       <ContentContainer>
@@ -24,7 +32,7 @@ const Home: React.FC = () => {
           bigger than two meters. Man your ships! And may the Force be with you!
         </Info>
         <CenteredContent>
-          <Link to="/create">Start demo</Link>
+          <Button onClick={handleClick}>start demo</Button>
         </CenteredContent>
       </ContentContainer>
     </StyledPage>
