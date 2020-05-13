@@ -1,27 +1,26 @@
 import React from 'react';
-import DemoNavBar from './DemoNavBar';
+import Button from './Button';
 import { componentStoryPath } from '../../storybook';
 import { ComponentStoryWrapper, PropsTableProps } from 'storybook-helpers';
 
 const componentProps: Array<PropsTableProps> = [
   {
-    propName: 'onLogoClick',
-    propType: '() => void',
-    description: 'function to call when Nog logo is clicked',
+    propName: 'onClick',
+    propType: '() => void;',
+    description: 'function to call on button click',
     required: true,
   },
 ];
-
 export default {
-  title: componentStoryPath('DemoNavBar'),
+  title: componentStoryPath('Button'),
 };
 
 export const Default = () => (
   <ComponentStoryWrapper
-    name="DemoNavBar"
-    description="Navigation bar for the demo app, includes 'guest' profile."
+    name="Button"
+    description="A button"
     component={
-      <DemoNavBar onLogoClick={(): void => console.log('logo clicked')} />
+      <Button onClick={() => console.log('button clicked')}>button</Button>
     }
     componentProps={componentProps}
   />
