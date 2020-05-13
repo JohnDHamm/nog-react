@@ -2,8 +2,9 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
+  justify-content: space-between;
   width: 456px;
-  /* border: 1px dashed red; */
+  /* border: 1px dashed green; */
 `;
 
 export const CurrentColor = styled.div<{ value: string }>`
@@ -40,4 +41,45 @@ export const ColorWell = styled.div<{ value: string }>`
   &:hover {
     cursor: pointer;
   }
+`;
+
+export const PickerContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 360px;
+  /* border: 1px dashed grey; */
+`;
+
+export const SlidersContainer = styled.div`
+  width: 270px;
+  /* border: 1px dashed red; */
+`;
+
+const Range = styled.div`
+  height: 15px;
+  width: 100%;
+`;
+
+export const HueRange = styled(Range)`
+  background: linear-gradient(90deg, #f00, #ff0, #0f0, #0ff, #00f, #f0f, #f00);
+`;
+
+export const ValueRange = styled(Range)<{ value: string }>`
+  background: linear-gradient(90deg, #000, ${props => props.value}, #fff);
+`;
+
+export const StyledInput = styled.input.attrs({
+  type: 'range',
+})`
+  width: 100%;
+  &:first-of-type {
+    margin-bottom: 1rem;
+  }
+`;
+
+export const ButtonContainer = styled.div`
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
 `;

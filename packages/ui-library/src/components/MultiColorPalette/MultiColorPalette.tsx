@@ -5,7 +5,13 @@ import {
   ColorRow,
   ColorWell,
   ColorWellsContainer,
+  HueRange,
+  PickerContainer,
+  SlidersContainer,
+  StyledInput,
+  ValueRange,
 } from './MultiColorPalette.styles';
+import Button from '../Button/Button';
 
 interface MultiColorPaletteProps {
   colors: Array<string>;
@@ -27,10 +33,11 @@ const MultiColorPalette: React.FC<MultiColorPaletteProps> = ({
   const [showColorPicker, setShowColorPicker] = React.useState<boolean>(false);
 
   const handleWellClick = (colorNum: number) => {
+    setCurrentColorNumber(colorNum);
+    onCurrentColorNumChange(colorNum);
+
     if (colors[colorNum]) {
       setCurrentColorValue(colors[colorNum]);
-      setCurrentColorNumber(colorNum);
-      onCurrentColorNumChange(colorNum);
     } else {
       setShowColorPicker(true);
     }
@@ -42,6 +49,10 @@ const MultiColorPalette: React.FC<MultiColorPaletteProps> = ({
     if (colors[currentColorNumber]) {
       setShowColorPicker(true);
     }
+  };
+
+  const handleSaveColor = () => {
+    setShowColorPicker(false);
   };
 
   return (
@@ -82,7 +93,25 @@ const MultiColorPalette: React.FC<MultiColorPaletteProps> = ({
           </ColorRow>
         </ColorWellsContainer>
       ) : (
-        <div style={{ color: 'white' }}>color picker</div>
+        <PickerContainer>
+          <SlidersContainer>
+            <HueRange />
+            <StyledInput
+              min={0}
+              max={360}
+              step={1}
+              onChange={e => console.log('hue change', e.currentTarget.value)}
+            />
+            <ValueRange value={currentColorValue} />
+            <StyledInput
+              min={0}
+              max={100}
+              step={1}
+              onChange={e => console.log('value change', e.currentTarget.value)}
+            />
+          </SlidersContainer>
+          <Button onClick={handleSaveColor}>save</Button>
+        </PickerContainer>
       )}
     </Container>
   );
