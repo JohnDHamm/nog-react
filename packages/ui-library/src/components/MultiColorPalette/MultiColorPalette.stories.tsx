@@ -26,11 +26,23 @@ const initialColors = [
   '',
 ];
 
-const StoryComponent = (): JSX.Element => (
-  <div style={{ backgroundColor: 'black', padding: '2rem', width: 'auto' }}>
-    <MultiColorPalette colors={initialColors} />
-  </div>
-);
+const StoryComponent: React.FC = (): JSX.Element => {
+  const [currentColorNum, setCurrentColorNum] = React.useState<number>(0);
+
+  return (
+    <>
+      <div style={{ backgroundColor: 'black', padding: '2rem', width: 'auto' }}>
+        <MultiColorPalette
+          colors={initialColors}
+          onCurrentColorNumChange={colorNum => setCurrentColorNum(colorNum)}
+        />
+      </div>
+      <div style={{ color: 'grey', marginTop: '1 rem', fontSize: '1.5rem' }}>
+        current color number: {currentColorNum}
+      </div>
+    </>
+  );
+};
 
 export const Default = () => (
   <ComponentStoryWrapper

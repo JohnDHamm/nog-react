@@ -9,11 +9,14 @@ import {
 
 interface MultiColorPaletteProps {
   colors: Array<string>;
-  //   onCurrentColorNumChange: () => void;
+  onCurrentColorNumChange: (colorNum: number) => void;
   //   onColorValueChange: () => void;
 }
 
-const MultiColorPalette: React.FC<MultiColorPaletteProps> = ({ colors }) => {
+const MultiColorPalette: React.FC<MultiColorPaletteProps> = ({
+  colors,
+  onCurrentColorNumChange,
+}) => {
   const firstRowColors = colors.slice(0, 8);
   const secondRowColors = colors.slice(8, 16);
 
@@ -27,8 +30,8 @@ const MultiColorPalette: React.FC<MultiColorPaletteProps> = ({ colors }) => {
     if (colors[colorNum]) {
       setCurrentColorValue(colors[colorNum]);
       setCurrentColorNumber(colorNum);
+      onCurrentColorNumChange(colorNum);
     } else {
-      console.log('empty color', colorNum);
       setShowColorPicker(true);
     }
   };
