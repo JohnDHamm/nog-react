@@ -141,6 +141,10 @@ const MultiColorPalette: React.FC<MultiColorPaletteProps> = ({
     setLuminSliderColor(hslToHex(hue, 100, 50));
   }, [currentColorNumber, currentPalette]);
 
+  React.useEffect(() => {
+    setCurrentPalette(colors);
+  }, [colors]);
+
   return (
     <>
       <Container>
