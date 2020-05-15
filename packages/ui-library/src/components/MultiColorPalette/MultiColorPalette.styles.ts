@@ -7,13 +7,17 @@ export const Container = styled.div`
   /* border: 1px dashed green; */
 `;
 
-export const CurrentColor = styled.div<{ value: string }>`
+export const CurrentColor = styled.div<{ value: string; isEditable: boolean }>`
   height: 84px;
   width: 84px;
   border: 2px solid black;
   border-radius: 50%;
   background-color: ${props => props.value};
   box-shadow: 0 0 0 2px grey;
+
+  &:hover {
+    cursor: ${props => (props.isEditable ? 'crosshair' : 'default')};
+  }
 `;
 
 export const ColorWellsContainer = styled.div`
@@ -65,7 +69,7 @@ export const HueRange = styled(Range)`
   background: linear-gradient(90deg, #f00, #ff0, #0f0, #0ff, #00f, #f0f, #f00);
 `;
 
-export const ValueRange = styled(Range)<{ value: string }>`
+export const LuminRange = styled(Range)<{ value: string }>`
   background: linear-gradient(90deg, #000, ${props => props.value}, #fff);
 `;
 
