@@ -40,12 +40,6 @@ const MultiColorPalette: React.FC<MultiColorPaletteProps> = ({
   const handleWellClick = (colorNum: number) => {
     setCurrentColorNumber(colorNum);
     onCurrentColorNumChange(colorNum);
-
-    if (colors[colorNum]) {
-      setCurrentColorValue(colors[colorNum]);
-    } else {
-      setShowColorPicker(true);
-    }
   };
 
   const handleCurrentClick = () => {
@@ -57,22 +51,19 @@ const MultiColorPalette: React.FC<MultiColorPaletteProps> = ({
   };
 
   const updateCurrentColor = () => {
-    console.log('hueSliderValue', hueSliderValue);
-    const newHex = hslToHex(hueSliderValue, 100, luminSliderValue);
-    console.log('newHex', newHex);
-    setCurrentColorValue(newHex);
+    setCurrentColorValue(hslToHex(hueSliderValue, 100, luminSliderValue));
   };
 
   const handleHueSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log('hue value', e.currentTarget.value);
-    setHueSliderValue(e.currentTarget.value);
+    const hue = e.currentTarget.value;
+    setHueSliderValue(hue);
+    setLuminSliderColor(hslToHex(hue, 100, 50));
     updateCurrentColor();
   };
 
   const handleLuminSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log('value value', e.currentTarget.value);
     setLuminSliderValue(e.currentTarget.value);
-    // updateCurrentColor();
+    updateCurrentColor();
   };
 
   const handleSaveColor = () => {
@@ -85,13 +76,23 @@ const MultiColorPalette: React.FC<MultiColorPaletteProps> = ({
   }, [colors]);
 
   React.useEffect(() => {
-    // console.log('currentColorValue', currentColorValue);
-    // console.log('HSL', hexToHsl(currentColorValue));
-    const hue = hexToHsl(currentColorValue)[0];
-    setHueSliderValue(hue);
-    setLuminSliderValue(hexToHsl(currentColorValue)[2]);
-    setLuminSliderColor(hslToHex(hue, 100, 50));
-  }, [currentColorValue]);
+    if (currentColorNumber < 8) {
+      setCurrentColorValue(colors[currentColorNumber]);
+    } else {
+      let hue;
+      if (colors[currentColorNumber]) {
+        hue = hexToHsl(colors[currentColorNumber])[0];
+        setCurrentColorValue(colors[currentColorNumber]);
+        setHueSliderValue(hue);
+        setLuminSliderValue(hexToHsl(colors[currentColorNumber])[2]);
+      } else {
+        hue = 180;
+        setHueSliderValue('180');
+        setLuminSliderValue('50');
+      }
+      setLuminSliderColor(hslToHex(hue, 100, 50));
+    }
+  }, [colors, currentColorNumber]);
 
   return (
     <>
