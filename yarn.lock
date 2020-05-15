@@ -1138,6 +1138,14 @@
   resolved "https://registry.yarnpkg.com/@csstools/normalize.css/-/normalize.css-10.1.0.tgz#f0950bba18819512d42f7197e56c518aa491cf18"
   integrity sha512-ij4wRiunFfaJxjB0BdrYHIH8FxBJpOwNPhhAcunlmPdXudL1WQV1qoP9un6JsEBAgQH+7UXyyjh0g7jTxXK6tg==
 
+"@davidmarkclements/hsl-to-hex@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@davidmarkclements/hsl-to-hex/-/hsl-to-hex-1.0.2.tgz#87b8dcc18ccc37acfb3cd5e056eadead11d9e58c"
+  integrity sha1-h7jcwYzMN6z7PNXgVurerRHZ5Yw=
+  dependencies:
+    debug "^2.2.0"
+    hsl-to-rgb-for-reals "^1.1.0"
+
 "@egoist/vue-to-react@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@egoist/vue-to-react/-/vue-to-react-1.1.0.tgz#83c884b8608e8ee62e76c03e91ce9c26063a91ad"
@@ -8623,6 +8631,19 @@ hex-color-regex@^1.1.0:
   resolved "https://registry.yarnpkg.com/hex-color-regex/-/hex-color-regex-1.1.0.tgz#4c06fccb4602fe2602b3c93df82d7e7dbf1a8a8e"
   integrity sha512-l9sfDFsuqtOqKDsQdqrMRk0U85RZc0RtOR9yPI7mRVOa4FsR/BVnZ0shmQRM96Ji99kYZP/7hn1cedc1+ApsTQ==
 
+hex-to-hsl@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/hex-to-hsl/-/hex-to-hsl-1.0.2.tgz#d5c59ece00178444e821c8fc58a430afc09831c2"
+  integrity sha1-1cWezgAXhEToIcj8WKQwr8CYMcI=
+  dependencies:
+    hex-to-rgb "^1.0.1"
+    rgb-to-hsl "0.0.2"
+
+hex-to-rgb@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/hex-to-rgb/-/hex-to-rgb-1.0.1.tgz#100b9df126b32f2762adf8486be68c65ef8ed2a4"
+  integrity sha1-EAud8SazLydirfhIa+aMZe+O0qQ=
+
 highlight.js@~9.13.0:
   version "9.13.1"
   resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-9.13.1.tgz#054586d53a6863311168488a0f58d6c505ce641e"
@@ -8675,6 +8696,11 @@ hsl-regex@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/hsl-regex/-/hsl-regex-1.0.0.tgz#d49330c789ed819e276a4c0d272dffa30b18fe6e"
   integrity sha1-1JMwx4ntgZ4nakwNJy3/owsY/m4=
+
+hsl-to-rgb-for-reals@^1.1.0:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/hsl-to-rgb-for-reals/-/hsl-to-rgb-for-reals-1.1.1.tgz#e1eb23f6b78016e3722431df68197e6dcdc016d9"
+  integrity sha512-LgOWAkrN0rFaQpfdWBQlv/VhkOxb5AsBjk6NQVx4yEzWS923T07X0M1Y0VNko2H52HeSpZrZNNMJ0aFqsdVzQg==
 
 hsla-regex@^1.0.0:
   version "1.0.0"
@@ -14622,6 +14648,11 @@ rgb-regex@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/rgb-regex/-/rgb-regex-1.0.1.tgz#c0e0d6882df0e23be254a475e8edd41915feaeb1"
   integrity sha1-wODWiC3w4jviVKR16O3UGRX+rrE=
+
+rgb-to-hsl@0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/rgb-to-hsl/-/rgb-to-hsl-0.0.2.tgz#36f9fc286376b90acc457e699005b4cb42d350ec"
+  integrity sha1-Nvn8KGN2uQrMRX5pkAW0y0LTUOw=
 
 rgba-regex@^1.0.0:
   version "1.0.0"
