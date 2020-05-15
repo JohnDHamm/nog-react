@@ -56,7 +56,7 @@ export const PickerContainer = styled.div`
 `;
 
 export const SlidersContainer = styled.div`
-  width: 270px;
+  width: 260px;
   /* border: 1px dashed red; */
 `;
 
@@ -77,6 +77,7 @@ export const StyledInput = styled.input.attrs({
   type: 'range',
 })`
   width: 100%;
+  margin: 2px 0;
   &:first-of-type {
     margin-bottom: 1rem;
   }
@@ -84,6 +85,6 @@ export const StyledInput = styled.input.attrs({
 
 export const ButtonContainer = styled.div`
   display: flex;
+  justify-content: right;
   align-items: center;
-  padding-left: 1rem;
 `;

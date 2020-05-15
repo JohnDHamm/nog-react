@@ -16,21 +16,28 @@ import Button from '../Button/Button';
 const hexToHsl = require('hex-to-hsl');
 const hslToHex = require('@davidmarkclements/hsl-to-hex');
 
-interface MultiColorPaletteProps {
-  colors: Array<string>;
+export interface ColorPaletteObject {
+  colorNum: number;
+  colorVal: string;
+}
+
+export interface MultiColorPaletteProps {
+  colors: Array<ColorPaletteObject>;
   onCurrentColorNumChange: (colorNum: number) => void;
-  //   onColorValueChange: ({ colorNum: number, value: string }) => void;
+  onColorChange: (colorObj: ColorPaletteObject) => void;
 }
 
 const MultiColorPalette: React.FC<MultiColorPaletteProps> = ({
   colors,
   onCurrentColorNumChange,
+  onColorChange,
 }) => {
-  const [firstRowColors, setFirstRowColors] = React.useState<string[]>([]);
-  const [secondRowColors, setSecondRowColors] = React.useState<string[]>([]);
+  const [currentPalette, setCurrentPalette] = React.useState<
+    ColorPaletteObject[]
+  >(colors);
   const [currentColorNumber, setCurrentColorNumber] = React.useState<number>(0);
   const [currentColorValue, setCurrentColorValue] = React.useState<string>(
-    colors[0]
+    colors[0].colorVal
   );
   const [showColorPicker, setShowColorPicker] = React.useState<boolean>(false);
   const [hueSliderValue, setHueSliderValue] = React.useState<string>();
@@ -45,7 +52,7 @@ const MultiColorPalette: React.FC<MultiColorPaletteProps> = ({
   const handleCurrentClick = () => {
     if (showColorPicker || currentColorNumber < 8) return;
 
-    if (colors[currentColorNumber]) {
+    if (currentPalette[currentColorNumber].colorVal) {
       setShowColorPicker(true);
     }
   };
@@ -54,45 +61,85 @@ const MultiColorPalette: React.FC<MultiColorPaletteProps> = ({
     setCurrentColorValue(hslToHex(hueSliderValue, 100, luminSliderValue));
   };
 
-  const handleHueSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const hue = e.currentTarget.value;
+  const handleHueSliderChange = (hue: string) => {
     setHueSliderValue(hue);
-    setLuminSliderColor(hslToHex(hue, 100, 50));
+    setLuminSliderColor(hslToHex(parseInt(hue), 100, 50));
     updateCurrentColor();
   };
 
-  const handleLuminSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setLuminSliderValue(e.currentTarget.value);
+  const handleLuminSliderChange = (lumin: string) => {
+    setLuminSliderValue(lumin);
     updateCurrentColor();
   };
 
   const handleSaveColor = () => {
+    const updateColorObj: ColorPaletteObject = {
+      colorNum: currentColorNumber,
+      colorVal: currentColorValue,
+    };
+    const updatePalette = Array.from(currentPalette);
+    updatePalette[currentColorNumber] = updateColorObj;
+    setCurrentPalette(updatePalette);
     setShowColorPicker(false);
+    onColorChange(updateColorObj);
+  };
+
+  const renderFirstRow = () => {
+    return currentPalette.slice(0, 8).map(colorObj => {
+      return (
+        <ColorWell
+          key={colorObj.colorNum}
+          value={colorObj.colorVal}
+          onClick={() => handleWellClick(colorObj.colorNum)}
+        />
+      );
+    });
+  };
+
+  const renderSecondRow = () => {
+    return currentPalette.slice(8, 16).map(colorObj => {
+      return colorObj.colorVal ? (
+        <ColorWell
+          key={colorObj.colorNum}
+          value={colorObj.colorVal}
+          onClick={() => handleWellClick(colorObj.colorNum)}
+        />
+      ) : (
+        <ColorWell
+          key={colorObj.colorNum}
+          value={'black'}
+          onClick={() => handleWellClick(colorObj.colorNum)}
+        >
+          +
+        </ColorWell>
+      );
+    });
   };
 
   React.useEffect(() => {
-    setFirstRowColors(colors.slice(0, 8));
-    setSecondRowColors(colors.slice(8, 16));
-  }, [colors]);
-
-  React.useEffect(() => {
     if (currentColorNumber < 8) {
-      setCurrentColorValue(colors[currentColorNumber]);
-    } else {
-      let hue;
-      if (colors[currentColorNumber]) {
-        hue = hexToHsl(colors[currentColorNumber])[0];
-        setCurrentColorValue(colors[currentColorNumber]);
-        setHueSliderValue(hue);
-        setLuminSliderValue(hexToHsl(colors[currentColorNumber])[2]);
-      } else {
-        hue = 180;
-        setHueSliderValue('180');
-        setLuminSliderValue('50');
-      }
-      setLuminSliderColor(hslToHex(hue, 100, 50));
+      setCurrentColorValue(currentPalette[currentColorNumber].colorVal);
+      return;
     }
-  }, [colors, currentColorNumber]);
+
+    let hue: number;
+    if (currentPalette[currentColorNumber].colorVal) {
+      setCurrentColorValue(currentPalette[currentColorNumber].colorVal);
+      const hsl: number[] = hexToHsl(
+        currentPalette[currentColorNumber].colorVal
+      );
+      hue = hsl[0];
+      setHueSliderValue(hue.toString());
+      setLuminSliderValue(hsl[2].toString());
+    } else {
+      hue = 180;
+      setHueSliderValue(hue.toString());
+      setLuminSliderValue('50');
+      setCurrentColorValue(hslToHex(hue, 100, 50));
+      setShowColorPicker(true);
+    }
+    setLuminSliderColor(hslToHex(hue, 100, 50));
+  }, [currentColorNumber, currentPalette]);
 
   return (
     <>
@@ -104,37 +151,8 @@ const MultiColorPalette: React.FC<MultiColorPaletteProps> = ({
         />
         {!showColorPicker ? (
           <ColorWellsContainer>
-            <ColorRow>
-              {firstRowColors.map((color, idx) => {
-                return (
-                  <ColorWell
-                    key={idx}
-                    value={color}
-                    onClick={() => handleWellClick(idx)}
-                  />
-                );
-              })}
-            </ColorRow>
-            <ColorRow>
-              {secondRowColors.map((color, idx) => {
-                const colorNum = idx + 8;
-                return color ? (
-                  <ColorWell
-                    key={colorNum}
-                    value={color}
-                    onClick={() => handleWellClick(colorNum)}
-                  />
-                ) : (
-                  <ColorWell
-                    key={colorNum}
-                    value={'black'}
-                    onClick={() => handleWellClick(colorNum)}
-                  >
-                    +
-                  </ColorWell>
-                );
-              })}
-            </ColorRow>
+            <ColorRow>{renderFirstRow()}</ColorRow>
+            <ColorRow>{renderSecondRow()}</ColorRow>
           </ColorWellsContainer>
         ) : (
           <PickerContainer>
@@ -145,7 +163,7 @@ const MultiColorPalette: React.FC<MultiColorPaletteProps> = ({
                 min={0}
                 max={360}
                 step={1}
-                onChange={e => handleHueSliderChange(e)}
+                onChange={e => handleHueSliderChange(e.currentTarget.value)}
               />
               <LuminRange value={luminSliderColor} />
               <StyledInput
@@ -153,16 +171,13 @@ const MultiColorPalette: React.FC<MultiColorPaletteProps> = ({
                 min={0}
                 max={100}
                 step={1}
-                onChange={e => handleLuminSliderChange(e)}
+                onChange={e => handleLuminSliderChange(e.currentTarget.value)}
               />
             </SlidersContainer>
             <Button onClick={handleSaveColor}>save</Button>
           </PickerContainer>
         )}
       </Container>
-      <div style={{ color: 'white' }}>{currentColorValue}</div>
-      <div style={{ color: 'white' }}>hue: {hueSliderValue}</div>
-      <div style={{ color: 'white' }}>lumin: {luminSliderValue}</div>
     </>
   );
 };
