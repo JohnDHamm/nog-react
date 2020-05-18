@@ -32,7 +32,6 @@ const SnowflakeInstance: React.FC<SnowflakeInstanceProps> = ({
     const lightDia = instanceSize * (20 / 420);
     const lightOffset = lightDia / 2;
     const lightLocations = snowflakeLightLocations(lightOffset);
-    console.log('lightLocations', lightLocations);
 
     return lightsColors.map((lightColor, idx) => {
       return (
@@ -55,13 +54,13 @@ const SnowflakeInstance: React.FC<SnowflakeInstanceProps> = ({
   };
 
   React.useEffect(() => {
-    console.log('lightsColors for snowflake', lightsColors);
+    // console.log('lightsColors for snowflake', lightsColors);
   }, [lightsColors]);
 
   return (
     <Container size={instanceSize}>
       <CurrentBG alt="flake" src={bgSrc} />
-      <Number>{instanceNum + 1}</Number>
+      {instanceType === 'current' && <Number>{instanceNum + 1}</Number>}
       {renderLights()}
     </Container>
   );

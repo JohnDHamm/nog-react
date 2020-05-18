@@ -14,10 +14,13 @@ export const CurrentBG = styled.img`
 
 export const Number = styled.div`
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: calc(50% - 18px);
+  left: calc(50% - 28px);
   color: ${COLORS.NOG_GREEN};
-  /* border: 1px dashed red; */
+  font-size: 1.75rem;
+  font-weight: 700;
+  width: 56px;
+  text-align: center;
 `;
 
 export const Light = styled.div<{
