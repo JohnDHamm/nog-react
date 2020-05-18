@@ -53,10 +53,6 @@ const SnowflakeInstance: React.FC<SnowflakeInstanceProps> = ({
     });
   };
 
-  React.useEffect(() => {
-    // console.log('lightsColors for snowflake', lightsColors);
-  }, [lightsColors]);
-
   return (
     <Container size={instanceSize}>
       <CurrentBG alt="flake" src={bgSrc} />

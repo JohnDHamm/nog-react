@@ -2,6 +2,7 @@ import React from 'react';
 import SnowflakeInstance from './SnowflakeInstance';
 import { storyPathHelper } from '../../storybook';
 import { ComponentStoryWrapper } from 'storybook-helpers';
+import { PropsTableProps } from 'storybook-helpers/dist/components/StoryPropsTable/StoryPropsTable';
 
 export default {
   title: storyPathHelper('components/SnowflakeInstance')
@@ -46,14 +47,52 @@ const baseProps = {
     console.log('light num', lightNum, 'clicked')
 };
 
+const ComponentWrapper: React.FC = ({ children }) => (
+  <div style={{ padding: '2rem', backgroundColor: '#1a1a1a' }}>{children}</div>
+);
+
+const componentProps: PropsTableProps[] = [
+  {
+    propName: 'instanceNum',
+    propType: 'number',
+    description: 'index of instance (starts at 0) - used for label',
+    required: true
+  },
+  {
+    propName: 'instanceSize',
+    propType: 'number',
+    description: 'used for width (px)',
+    required: true
+  },
+  {
+    propName: 'instanceType',
+    propType: '"current" | "other"',
+    description: '',
+    required: true
+  },
+  {
+    propName: 'lightsColors',
+    propType: 'Array<string>',
+    description: 'Colors for the lights (hexadecimal format)',
+    required: true
+  },
+  {
+    propName: 'onLightClick',
+    propType: '(lightNum: number) => void',
+    description: 'callback for clicking on a light in the instance',
+    required: true
+  }
+];
+
 export const Current = () => (
   <ComponentStoryWrapper
     name="SnowflakeInstance"
     component={
-      <div style={{ padding: '2rem', backgroundColor: '#1a1a1a' }}>
+      <ComponentWrapper>
         <SnowflakeInstance {...baseProps} instanceType="current" />
-      </div>
+      </ComponentWrapper>
     }
+    componentProps={componentProps}
   />
 );
 
@@ -61,11 +100,14 @@ export const Other = () => (
   <ComponentStoryWrapper
     name="SnowflakeInstance"
     component={
-      <SnowflakeInstance
-        {...baseProps}
-        instanceSize={200}
-        instanceType="other"
-      />
+      <ComponentWrapper>
+        <SnowflakeInstance
+          {...baseProps}
+          instanceSize={200}
+          instanceType="other"
+        />
+      </ComponentWrapper>
     }
+    componentProps={componentProps}
   />
 );
