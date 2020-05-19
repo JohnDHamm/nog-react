@@ -3,13 +3,23 @@ import { Link } from 'react-router-dom';
 import {
   EmptyInstance,
   InstanceBlock,
-  TopSection,
   MainContent,
-  PatternTitle
+  NavBlock,
+  Page,
+  PatternTitle,
+  TopSection
 } from './CreatePage.styles';
 import SnowflakeInstance from '../../components/SnowflakeInstance/SnowflakeInstance';
 import { mockInstances, Instance } from './mockInstances';
-import { ColorPaletteObject, MultiColorPalette } from 'ui-library';
+import {
+  ColorPaletteObject,
+  EndIconButton,
+  MultiColorPalette,
+  NextIconButton,
+  PlayIconButton,
+  PreviousIconButton,
+  StartIconButton
+} from 'ui-library';
 import { DesktopWrapper, MobileWrapper } from 'design-system';
 
 const initialColors: Array<ColorPaletteObject> = [
@@ -40,15 +50,9 @@ const CreatePage: React.FC = () => {
   const [instances, setInstances] = React.useState<Instance[]>(mockInstances);
   const [currentInstanceNum, setCurrentInstanceNum] = React.useState<number>(0);
   type DisplayInstanceNumber = number | null;
-  const [displayInstanceNumbers] = React.useState<DisplayInstanceNumber[]>([
-    null,
-    null,
-    null,
-    0,
-    1,
-    2,
-    3
-  ]);
+  const [displayInstanceNumbers, setDisplayInstanceNumbers] = React.useState<
+    DisplayInstanceNumber[]
+  >([null, null, null, 0, 1, 2, 3]);
 
   // MultiColorPalette handlers
   const handleColNumChange = (colNum: number) => {
@@ -68,7 +72,44 @@ const CreatePage: React.FC = () => {
     setInstances(updateInstances);
   };
 
+  // navigation handlers
+  const updateDisplayArray = (newCurrentNum: number) => {
+    const numInstances = instances.length;
+    const newArray: Array<DisplayInstanceNumber> = [newCurrentNum];
+    for (let i = 1; i < 4; i++) {
+      newCurrentNum + i < numInstances
+        ? newArray.push(newCurrentNum + i)
+        : newArray.push(null);
+      newCurrentNum - i > -1
+        ? newArray.unshift(newCurrentNum - i)
+        : newArray.unshift(null);
+    }
+    setDisplayInstanceNumbers(newArray);
+  };
+
+  const handleStartNavClick = () => {
+    if (displayInstanceNumbers[2] === null) return;
+    updateDisplayArray(0);
+  };
+  const handlePrevNavClick = () => {
+    if (displayInstanceNumbers[2] === null) return;
+    updateDisplayArray(displayInstanceNumbers[2]);
+  };
+  const handleNextNavClick = () => {
+    if (displayInstanceNumbers[4] === null) return;
+    updateDisplayArray(displayInstanceNumbers[4]);
+  };
+  const handleEndNavClick = () => {
+    if (displayInstanceNumbers[4] === null) return;
+    updateDisplayArray(instances.length - 1);
+  };
+
   // rendering
+  const navButtonBaseProps = {
+    fill: '#555',
+    hoverFill: '#bada55'
+  };
+
   const createLightsColors = (instanceNum: number) => {
     const lights = instances[instanceNum].lightColors.map(lightColNum => {
       return colorPalette[lightColNum].colorVal;
@@ -102,7 +143,7 @@ const CreatePage: React.FC = () => {
   }, [displayInstanceNumbers]);
 
   return (
-    <div>
+    <Page>
       <DesktopWrapper>
         <TopSection>
           <PatternTitle>demo pattern</PatternTitle>
@@ -130,11 +171,35 @@ const CreatePage: React.FC = () => {
             {renderOtherInstance(displayInstanceNumbers[5], 100)}
             {renderOtherInstance(displayInstanceNumbers[6], 50)}
           </InstanceBlock>
-          <Link to="/play">play</Link>
+          <NavBlock>
+            <StartIconButton
+              {...navButtonBaseProps}
+              width={25}
+              onClick={() => handleStartNavClick()}
+            />
+            <PreviousIconButton
+              {...navButtonBaseProps}
+              width={30}
+              onClick={() => handlePrevNavClick()}
+            />
+            <Link to="/play">
+              <PlayIconButton {...navButtonBaseProps} width={75} />
+            </Link>
+            <NextIconButton
+              {...navButtonBaseProps}
+              width={30}
+              onClick={() => handleNextNavClick()}
+            />
+            <EndIconButton
+              {...navButtonBaseProps}
+              width={25}
+              onClick={() => handleEndNavClick()}
+            />
+          </NavBlock>
         </MainContent>
       </DesktopWrapper>
       <MobileWrapper>please use on a larger screen</MobileWrapper>
-    </div>
+    </Page>
   );
 };
 

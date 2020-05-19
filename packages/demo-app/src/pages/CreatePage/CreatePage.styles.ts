@@ -1,11 +1,16 @@
 import styled from 'styled-components';
 import { COLORS } from 'design-system';
 
+export const Page = styled.div`
+  min-height: 100vh;
+  background-color: #1a1a1a;
+`;
+
 export const TopSection = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 1rem 1.5rem;
-  background-color: ${COLORS.BLACK};
+  /* background-color: ${COLORS.BLACK}; */
 `;
 
 export const PatternTitle = styled.div`
@@ -13,10 +18,9 @@ export const PatternTitle = styled.div`
 `;
 
 export const MainContent = styled.div`
-  width: 100%;
-  height: 100vh;
-  background: #1a1a1a;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const InstanceBlock = styled.div`
@@ -29,4 +33,12 @@ export const InstanceBlock = styled.div`
 export const EmptyInstance = styled.div<{ size: number }>`
   width: ${props => props.size + 'px'};
   height: ${props => props.size + 'px'};
+`;
+
+export const NavBlock = styled.div`
+  display: flex;
+  width: 400px;
+  margin-top: 1rem;
+  justify-content: space-between;
+  align-items: center;
 `;
