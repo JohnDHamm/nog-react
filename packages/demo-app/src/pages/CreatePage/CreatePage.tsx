@@ -1,13 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import {
+  ColorContainer,
   EmptyInstance,
   InstanceBlock,
   MainContent,
   NavBlock,
   Page,
   PatternTitle,
-  TopSection
+  ToolContainer
 } from './CreatePage.styles';
 import SnowflakeInstance from '../../components/SnowflakeInstance/SnowflakeInstance';
 import {
@@ -134,14 +135,15 @@ const CreatePage: React.FC = () => {
   return (
     <Page>
       <DesktopWrapper>
-        <TopSection>
-          <PatternTitle>demo pattern</PatternTitle>
+        <PatternTitle>demo pattern</PatternTitle>
+        <ColorContainer>
           <MultiColorPalette
             colors={colorPalette}
             onCurrentColorNumChange={colNum => handleColNumChange(colNum)}
             onColorChange={colObj => handleColorChange(colObj)}
           />
-        </TopSection>
+        </ColorContainer>
+        <ToolContainer></ToolContainer>
         <MainContent>
           <InstanceBlock>
             {renderOtherInstance(displayInstanceNumbers[0], 50)}
@@ -163,25 +165,25 @@ const CreatePage: React.FC = () => {
           <NavBlock>
             <StartIconButton
               {...navButtonBaseProps}
-              width={25}
+              width={20}
               onClick={() => handleStartNavClick()}
             />
             <PreviousIconButton
               {...navButtonBaseProps}
-              width={30}
+              width={25}
               onClick={() => handlePrevNavClick()}
             />
             <Link to="/play">
-              <PlayIconButton {...navButtonBaseProps} width={75} />
+              <PlayIconButton {...navButtonBaseProps} width={60} />
             </Link>
             <NextIconButton
               {...navButtonBaseProps}
-              width={30}
+              width={25}
               onClick={() => handleNextNavClick()}
             />
             <EndIconButton
               {...navButtonBaseProps}
-              width={25}
+              width={20}
               onClick={() => handleEndNavClick()}
             />
           </NavBlock>
