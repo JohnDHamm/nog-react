@@ -95,12 +95,11 @@ const CreatePage: React.FC = () => {
 
   // rendering
   const navButtonBaseProps = {
-    color: '#555',
+    color: COLORS.NAV_GREY,
     hoverColor: COLORS.BADASS
   };
 
   const createLightsColors = (instanceNum: number) => {
-    // console.log('createLightsColors');
     const lights = instances[instanceNum].lightColors.map(lightColNum => {
       return colorPalette[lightColNum].colorVal;
     });
