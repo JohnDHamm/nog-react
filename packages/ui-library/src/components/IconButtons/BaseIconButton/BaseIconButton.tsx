@@ -4,8 +4,8 @@ import { StyledIcon } from './BaseIconButton.styles';
 export interface BaseIconProps {
   viewbox: string;
   width: number;
-  fill?: string;
-  hoverFill?: string;
+  color?: string;
+  hoverColor?: string;
   onClick?: () => void;
   children: React.ReactNode;
 }
@@ -13,16 +13,16 @@ const BaseIconButton: React.FC<BaseIconProps> = ({
   children,
   viewbox,
   width,
-  fill,
-  hoverFill,
+  color,
+  hoverColor,
   onClick,
 }) => {
   return (
     <StyledIcon
       viewBox={viewbox}
       width={width}
-      fill={fill}
-      hoverFill={hoverFill}
+      color={color}
+      hoverColor={hoverColor}
       onClick={onClick}
     >
       {children}

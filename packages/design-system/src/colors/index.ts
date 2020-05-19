@@ -1,13 +1,17 @@
+const BACKGROUND_GREY = '#1a1a1a';
 const BADASS = '#BADA55';
 const BLACK = '#000';
-const TEXT = '#333';
+const NAV_GREY = '#555';
 const NOG_GREEN = '#215C2E';
 const NOG_RED = '#701626';
+const TEXT = '#333';
 const WHITE = '#FFF';
 
 export type ColorNameType =
+  | 'BACKGROUND_GREY'
   | 'BADASS'
   | 'BLACK'
+  | 'NAV_GREY'
   | 'NOG_GREEN'
   | 'NOG_RED'
   | 'TEXT'
@@ -18,6 +22,8 @@ export const COLOR_NAMES: ColorNameType[] = [
   'NOG_GREEN',
   'NOG_RED',
   'TEXT',
+  'BACKGROUND_GREY',
+  'NAV_GREY',
   'BLACK',
   'WHITE',
   'BADASS'
@@ -28,8 +34,10 @@ export type ColorsType = {
 };
 
 export const COLORS: ColorsType = {
+  BACKGROUND_GREY,
   BADASS,
   BLACK,
+  NAV_GREY,
   NOG_GREEN,
   NOG_RED,
   TEXT,

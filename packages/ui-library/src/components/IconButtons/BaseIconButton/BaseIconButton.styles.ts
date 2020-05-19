@@ -1,15 +1,16 @@
 import styled from 'styled-components';
+import { COLORS } from 'design-system';
 
 export const StyledIcon = styled.svg<{
   width: number;
-  fill?: string;
-  hoverFill?: string;
+  color?: string;
+  hoverColor?: string;
 }>`
   width: ${props => props.width + 'px'};
-  fill: ${props => (props.fill ? props.fill : 'black')};
+  fill: ${props => (props.color ? props.color : COLORS.BLACK)};
 
   &:hover {
     cursor: pointer;
-    fill: ${props => (props.hoverFill ? props.hoverFill : props.fill)};
+    fill: ${props => (props.hoverColor ? props.hoverColor : props.color)};
   }
 `;

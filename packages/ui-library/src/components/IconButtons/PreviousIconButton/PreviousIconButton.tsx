@@ -3,23 +3,23 @@ import BaseIconButton from '../BaseIconButton/BaseIconButton';
 
 interface IconButtonProps {
   width: number;
-  fill?: string;
-  hoverFill?: string;
+  color?: string;
+  hoverColor?: string;
   onClick?: () => void;
 }
 
 const PreviousIconButton: React.FC<IconButtonProps> = ({
   width,
-  fill,
-  hoverFill,
+  color,
+  hoverColor,
   onClick,
 }) => {
   return (
     <BaseIconButton
       viewbox="0 0 84.84 146.29"
       width={width}
-      fill={fill || '#000'}
-      hoverFill={hoverFill}
+      color={color || '#000'}
+      hoverColor={hoverColor}
       onClick={onClick}
     >
       <polygon

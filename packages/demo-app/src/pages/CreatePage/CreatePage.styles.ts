@@ -3,14 +3,13 @@ import { COLORS } from 'design-system';
 
 export const Page = styled.div`
   min-height: 100vh;
-  background-color: #1a1a1a;
+  background-color: ${COLORS.BACKGROUND_GREY};
 `;
 
 export const TopSection = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 1rem 1.5rem;
-  /* background-color: ${COLORS.BLACK}; */
 `;
 
 export const PatternTitle = styled.div`
