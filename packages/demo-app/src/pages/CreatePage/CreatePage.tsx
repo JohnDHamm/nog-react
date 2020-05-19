@@ -10,7 +10,11 @@ import {
   TopSection
 } from './CreatePage.styles';
 import SnowflakeInstance from '../../components/SnowflakeInstance/SnowflakeInstance';
-import { mockInstances, Instance } from './mockInstances';
+import {
+  getNewPatternValues,
+  Instance
+} from '../../functions/getNewPatternValues';
+// import { mockPatternValues, Instance } from '../../mocks/mockPatternValues';
 import {
   ColorPaletteObject,
   EndIconButton,
@@ -20,34 +24,19 @@ import {
   PreviousIconButton,
   StartIconButton
 } from 'ui-library';
-import { DesktopWrapper, MobileWrapper } from 'design-system';
+import { COLORS, DesktopWrapper, MobileWrapper } from 'design-system';
 
-const initialColors: Array<ColorPaletteObject> = [
-  { colorNum: 0, colorVal: '#ff0000' },
-  { colorNum: 1, colorVal: '#ffff00' },
-  { colorNum: 2, colorVal: '#00ff00' },
-  { colorNum: 3, colorVal: '#00ffff' },
-  { colorNum: 4, colorVal: '#0000ff' },
-  { colorNum: 5, colorVal: '#ff00ff' },
-  { colorNum: 6, colorVal: '#ffffff' },
-  { colorNum: 7, colorVal: '#000000' },
-  { colorNum: 8, colorVal: '' },
-  { colorNum: 9, colorVal: '#cc00ff' },
-  { colorNum: 10, colorVal: '' },
-  { colorNum: 11, colorVal: '' },
-  { colorNum: 12, colorVal: '' },
-  { colorNum: 13, colorVal: '' },
-  { colorNum: 14, colorVal: '' },
-  { colorNum: 15, colorVal: '' }
-];
+const initialPattern = getNewPatternValues();
 
 const CreatePage: React.FC = () => {
   // Page State
   const [currentColNum, setCurrentColNum] = React.useState<number>(0);
   const [colorPalette, setColorPalette] = React.useState<ColorPaletteObject[]>(
-    initialColors
+    initialPattern.colors
   );
-  const [instances, setInstances] = React.useState<Instance[]>(mockInstances);
+  const [instances, setInstances] = React.useState<Instance[]>(
+    initialPattern.instances
+  );
   const [currentInstanceNum, setCurrentInstanceNum] = React.useState<number>(0);
   type DisplayInstanceNumber = number | null;
   const [displayInstanceNumbers, setDisplayInstanceNumbers] = React.useState<
@@ -107,10 +96,11 @@ const CreatePage: React.FC = () => {
   // rendering
   const navButtonBaseProps = {
     color: '#555',
-    hoverColor: '#bada55'
+    hoverColor: COLORS.BADASS
   };
 
   const createLightsColors = (instanceNum: number) => {
+    // console.log('createLightsColors');
     const lights = instances[instanceNum].lightColors.map(lightColNum => {
       return colorPalette[lightColNum].colorVal;
     });
