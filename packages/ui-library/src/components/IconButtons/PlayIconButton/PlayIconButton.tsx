@@ -3,23 +3,23 @@ import BaseIconButton from '../BaseIconButton/BaseIconButton';
 
 interface IconButtonProps {
   width: number;
-  fill?: string;
-  hoverFill?: string;
+  color?: string;
+  hoverColor?: string;
   onClick?: () => void;
 }
 
 const PlayIconButton: React.FC<IconButtonProps> = ({
   width,
-  fill,
-  hoverFill,
+  color,
+  hoverColor,
   onClick,
 }) => {
   return (
     <BaseIconButton
       viewbox="0 0 164.57 164.57"
       width={width}
-      fill={fill || '#000'}
-      hoverFill={hoverFill}
+      color={color || '#000'}
+      hoverColor={hoverColor}
       onClick={onClick}
     >
       <path

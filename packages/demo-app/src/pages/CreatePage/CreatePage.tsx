@@ -106,8 +106,8 @@ const CreatePage: React.FC = () => {
 
   // rendering
   const navButtonBaseProps = {
-    fill: '#555',
-    hoverFill: '#bada55'
+    color: '#555',
+    hoverColor: '#bada55'
   };
 
   const createLightsColors = (instanceNum: number) => {
