@@ -9,8 +9,8 @@ export const StyledContainer = styled.div`
   background-color: ${COLORS.NOG_RED};
 `;
 
-export const Logo = styled.img`
-  height: 40px;
+export const LogoContainer = styled.div`
+  width: 36px;
   &:hover {
     cursor: pointer;
   }

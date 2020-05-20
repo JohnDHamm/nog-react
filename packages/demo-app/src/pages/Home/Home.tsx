@@ -1,9 +1,8 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import { CenteredContent, Info, StyledLogo, StyledPage } from './Home.styles';
+import { CenteredContent, Info, LogoWrapper, StyledPage } from './Home.styles';
 import { ContentContainer } from 'design-system';
-import { Button } from 'ui-library';
-import Logo from '../../assets/logo_red-on-white.svg';
+import { Button, NogLogo } from 'ui-library';
 
 const Home: React.FC = () => {
   const history = useHistory();
@@ -17,7 +16,9 @@ const Home: React.FC = () => {
     <StyledPage>
       <ContentContainer>
         <CenteredContent>
-          <StyledLogo src={Logo} alt="Nog logo" />
+          <LogoWrapper>
+            <NogLogo />
+          </LogoWrapper>
         </CenteredContent>
         <Info>
           The approach will not be easy. You are required to maneuver straight
