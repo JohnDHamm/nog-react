@@ -25,9 +25,11 @@ export const ToolContainer = styled.div`
   position: absolute;
   top: 1rem;
   right: 1.5rem;
-  width: 80px;
-  height: 160px;
-  border: 1px solid grey;
+  width: 140px;
+
+  button {
+    margin-bottom: 0.25rem;
+  }
 `;
 
 export const MainContent = styled.div`
