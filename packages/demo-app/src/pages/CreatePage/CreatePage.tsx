@@ -1,13 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import {
+  ColorContainer,
   EmptyInstance,
   InstanceBlock,
   MainContent,
   NavBlock,
   Page,
   PatternTitle,
-  TopSection
+  ToolContainer
 } from './CreatePage.styles';
 import SnowflakeInstance from '../../components/SnowflakeInstance/SnowflakeInstance';
 import {
@@ -22,7 +23,13 @@ import {
   NextIconButton,
   PlayIconButton,
   PreviousIconButton,
-  StartIconButton
+  StartIconButton,
+  AddIcon,
+  CopyIcon,
+  DeleteIcon,
+  FillIcon,
+  PasteIcon,
+  ToolButton
 } from 'ui-library';
 import { COLORS, DesktopWrapper, MobileWrapper } from 'design-system';
 
@@ -134,14 +141,46 @@ const CreatePage: React.FC = () => {
   return (
     <Page>
       <DesktopWrapper>
-        <TopSection>
-          <PatternTitle>demo pattern</PatternTitle>
+        <PatternTitle>demo pattern</PatternTitle>
+        <ColorContainer>
           <MultiColorPalette
             colors={colorPalette}
             onCurrentColorNumChange={colNum => handleColNumChange(colNum)}
             onColorChange={colObj => handleColorChange(colObj)}
           />
-        </TopSection>
+        </ColorContainer>
+        <ToolContainer>
+          <ToolButton
+            icon={<AddIcon />}
+            label="add"
+            onClick={() => console.log('add')}
+          />
+          <ToolButton
+            icon={<DeleteIcon />}
+            label="delete"
+            onClick={() => console.log('delete')}
+          />
+          <ToolButton
+            icon={<CopyIcon />}
+            iconWidth={48}
+            label="copy"
+            onClick={() => console.log('copy')}
+          />
+          <ToolButton
+            icon={<PasteIcon />}
+            iconWidth={48}
+            label="paste"
+            onClick={() => console.log('paste')}
+          />
+          <ToolButton
+            icon={
+              <FillIcon extraColor={colorPalette[currentColNum].colorVal} />
+            }
+            iconWidth={30}
+            label="fill"
+            onClick={() => console.log('fill')}
+          />
+        </ToolContainer>
         <MainContent>
           <InstanceBlock>
             {renderOtherInstance(displayInstanceNumbers[0], 50)}
@@ -163,25 +202,25 @@ const CreatePage: React.FC = () => {
           <NavBlock>
             <StartIconButton
               {...navButtonBaseProps}
-              width={25}
+              width={20}
               onClick={() => handleStartNavClick()}
             />
             <PreviousIconButton
               {...navButtonBaseProps}
-              width={30}
+              width={25}
               onClick={() => handlePrevNavClick()}
             />
             <Link to="/play">
-              <PlayIconButton {...navButtonBaseProps} width={75} />
+              <PlayIconButton {...navButtonBaseProps} width={60} />
             </Link>
             <NextIconButton
               {...navButtonBaseProps}
-              width={30}
+              width={25}
               onClick={() => handleNextNavClick()}
             />
             <EndIconButton
               {...navButtonBaseProps}
-              width={25}
+              width={20}
               onClick={() => handleEndNavClick()}
             />
           </NavBlock>

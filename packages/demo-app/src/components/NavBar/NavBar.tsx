@@ -1,15 +1,16 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import {
-  Logo,
+  LogoContainer,
   ProfileAvatar,
   ProfileText,
   Row,
   StyledContainer
 } from './NavBar.styles';
+import { NogLogo } from 'ui-library';
+import { COLORS } from 'design-system';
 
 const GuestAvatar = require('../../assets/guest_avatar.png');
-const NogLogo = require('../../assets/logo_white.svg');
 
 const NavBar: React.FC = () => {
   const history = useHistory();
@@ -20,10 +21,12 @@ const NavBar: React.FC = () => {
 
   return (
     <StyledContainer>
-      <Logo src={NogLogo} alt="Nog logo" onClick={handleLogoClick} />
+      <LogoContainer onClick={handleLogoClick}>
+        <NogLogo borderColor={COLORS.WHITE} lettersColor={COLORS.WHITE} />
+      </LogoContainer>
       <Row>
         <ProfileText>Guest</ProfileText>
-        <ProfileAvatar src={GuestAvatar} />
+        <ProfileAvatar src={GuestAvatar} alt="Guest avatar" />
       </Row>
     </StyledContainer>
   );

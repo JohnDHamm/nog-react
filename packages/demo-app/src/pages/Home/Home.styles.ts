@@ -8,12 +8,13 @@ export const StyledPage = styled.div`
 `;
 
 export const CenteredContent = styled.div`
-  text-align: center;
+  display: flex;
+  justify-content: center;
   padding: 2rem 0;
 `;
 
-export const StyledLogo = styled.img`
-  height: 200px;
+export const LogoWrapper = styled.div`
+  width: 180px;
 `;
 
 export const Info = styled.p`

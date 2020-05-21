@@ -2,24 +2,41 @@ import styled from 'styled-components';
 import { COLORS } from 'design-system';
 
 export const Page = styled.div`
+  position: relative;
   min-height: 100vh;
   background-color: ${COLORS.BACKGROUND_GREY};
 `;
 
-export const TopSection = styled.div`
-  display: flex;
-  justify-content: space-between;
-  padding: 1rem 1.5rem;
+export const PatternTitle = styled.div`
+  position: absolute;
+  top: 1rem;
+  left: 1.5rem;
+  color: ${COLORS.WHITE};
 `;
 
-export const PatternTitle = styled.div`
-  color: ${COLORS.WHITE};
+export const ColorContainer = styled.div`
+  position: absolute;
+  width: 456px;
+  top: 1rem;
+  left: calc(50% - 228px);
+`;
+
+export const ToolContainer = styled.div`
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  width: 140px;
+
+  button {
+    margin-bottom: 0.25rem;
+  }
 `;
 
 export const MainContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 8rem;
 `;
 
 export const InstanceBlock = styled.div`
@@ -36,7 +53,7 @@ export const EmptyInstance = styled.div<{ size: number }>`
 
 export const NavBlock = styled.div`
   display: flex;
-  width: 400px;
+  width: 480px;
   margin-top: 1rem;
   justify-content: space-between;
   align-items: center;
