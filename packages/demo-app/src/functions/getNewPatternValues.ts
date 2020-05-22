@@ -24,146 +24,31 @@ const initialColors: Array<ColorPaletteObject> = [
   { colorNum: 15, colorVal: '' }
 ];
 
+// TODO: move this to own file? add param for color? use for new and fill
+export const createInitialLightColors = (): Array<number> => {
+  const newLightColors = [];
+  for (let i = 0; i < 30; i++) {
+    newLightColors.push(7);
+  }
+  return newLightColors;
+};
+
 const initialInstances: Array<Instance> = [
   {
     instanceNum: 0,
-    lightColors: [
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7
-    ]
+    lightColors: createInitialLightColors()
   },
   {
     instanceNum: 1,
-    lightColors: [
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7
-    ]
+    lightColors: createInitialLightColors()
   },
   {
     instanceNum: 2,
-    lightColors: [
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7
-    ]
+    lightColors: createInitialLightColors()
   },
   {
     instanceNum: 3,
-    lightColors: [
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7
-    ]
+    lightColors: createInitialLightColors()
   }
 ];
 
