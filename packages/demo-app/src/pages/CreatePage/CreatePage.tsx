@@ -12,6 +12,7 @@ import {
 } from './CreatePage.styles';
 import SnowflakeInstance from '../../components/SnowflakeInstance/SnowflakeInstance';
 import {
+  createInitialLightColors,
   getNewPatternValues,
   Instance
 } from '../../functions/getNewPatternValues';
@@ -104,7 +105,23 @@ const CreatePage: React.FC = () => {
   };
 
   // tools
-  const addInstance = () => {};
+  const addInstance = () => {
+    const newLightColors = createInitialLightColors();
+    const updateInstance: Instance = {
+      instanceNum: currentInstanceNum + 1,
+      lightColors: newLightColors
+    };
+    const updateInstances = Array.from(instances);
+    updateInstances.splice(currentInstanceNum + 1, 0, updateInstance);
+    if (currentInstanceNum !== instances.length - 1) {
+      for (let i = currentInstanceNum + 2; i < instances.length + 1; i++) {
+        updateInstances[i].instanceNum = i;
+      }
+    }
+    const newInstanceLength = instances.length + 1;
+    setInstances(updateInstances);
+    updateDisplayArray(currentInstanceNum + 1, newInstanceLength);
+  };
 
   const deleteInstance = () => {
     const updateInstances = Array.from(instances);
