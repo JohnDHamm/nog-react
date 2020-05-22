@@ -37,7 +37,7 @@ const initialPattern = getNewPatternValues();
 
 const CreatePage: React.FC = () => {
   // Page State
-  const [currentColNum, setCurrentColNum] = React.useState<number>(0);
+  const [currentColorNum, setCurrentColorNum] = React.useState<number>(0);
   const [colorPalette, setColorPalette] = React.useState<ColorPaletteObject[]>(
     initialPattern.colors
   );
@@ -49,10 +49,11 @@ const CreatePage: React.FC = () => {
   const [displayInstanceNumbers, setDisplayInstanceNumbers] = React.useState<
     DisplayInstanceNumber[]
   >([null, null, null, 0, 1, 2, 3]);
+  const [copiedLights, setCopiedLights] = React.useState<number[]>([]);
 
   // MultiColorPalette handlers
   const handleColNumChange = (colNum: number) => {
-    setCurrentColNum(colNum);
+    setCurrentColorNum(colNum);
   };
 
   const handleColorChange = (colObj: ColorPaletteObject) => {
@@ -64,7 +65,7 @@ const CreatePage: React.FC = () => {
   // SnowflakeInstance handler
   const handleLightClick = (lightNum: number) => {
     const updateInstances = Array.from(instances);
-    updateInstances[currentInstanceNum].lightColors[lightNum] = currentColNum;
+    updateInstances[currentInstanceNum].lightColors[lightNum] = currentColorNum;
     setInstances(updateInstances);
   };
 
@@ -98,6 +99,40 @@ const CreatePage: React.FC = () => {
   const handleEndNavClick = () => {
     if (displayInstanceNumbers[4] === null) return;
     updateDisplayArray(instances.length - 1);
+  };
+
+  // tools
+  const addInstance = () => {};
+
+  const deleteInstance = () => {};
+
+  const copyInstance = () => {
+    const lightsToCopy = Array.from(instances[currentInstanceNum].lightColors);
+    setCopiedLights(lightsToCopy);
+  };
+
+  const pasteInstance = () => {
+    const updateInstance: Instance = {
+      instanceNum: currentInstanceNum,
+      lightColors: copiedLights
+    };
+    const updateInstances = Array.from(instances);
+    updateInstances[currentInstanceNum] = updateInstance;
+    setInstances(updateInstances);
+  };
+
+  const fillInstance = () => {
+    const updateLightColors = [];
+    for (let i = 0; i < 30; i++) {
+      updateLightColors.push(currentColorNum);
+    }
+    const updateInstance: Instance = {
+      instanceNum: currentInstanceNum,
+      lightColors: updateLightColors
+    };
+    const updateInstances = Array.from(instances);
+    updateInstances[currentInstanceNum] = updateInstance;
+    setInstances(updateInstances);
   };
 
   // rendering
@@ -153,32 +188,32 @@ const CreatePage: React.FC = () => {
           <ToolButton
             icon={<AddIcon />}
             label="add"
-            onClick={() => console.log('add')}
+            onClick={() => addInstance()}
           />
           <ToolButton
             icon={<DeleteIcon />}
             label="delete"
-            onClick={() => console.log('delete')}
+            onClick={() => deleteInstance()}
           />
           <ToolButton
             icon={<CopyIcon />}
-            iconWidth={48}
+            iconWidth={50}
             label="copy"
-            onClick={() => console.log('copy')}
+            onClick={() => copyInstance()}
           />
           <ToolButton
             icon={<PasteIcon />}
-            iconWidth={48}
+            iconWidth={50}
             label="paste"
-            onClick={() => console.log('paste')}
+            onClick={() => pasteInstance()}
           />
           <ToolButton
             icon={
-              <FillIcon extraColor={colorPalette[currentColNum].colorVal} />
+              <FillIcon extraColor={colorPalette[currentColorNum].colorVal} />
             }
             iconWidth={30}
             label="fill"
-            onClick={() => console.log('fill')}
+            onClick={() => fillInstance()}
           />
         </ToolContainer>
         <MainContent>
