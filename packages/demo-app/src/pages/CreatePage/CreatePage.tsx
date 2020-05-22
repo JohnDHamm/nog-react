@@ -70,8 +70,10 @@ const CreatePage: React.FC = () => {
   };
 
   // navigation handlers
-  const updateDisplayArray = (newCurrentNum: number) => {
-    const numInstances = instances.length;
+  const updateDisplayArray = (
+    newCurrentNum: number,
+    numInstances: number = instances.length
+  ) => {
     const newArray: Array<DisplayInstanceNumber> = [newCurrentNum];
     for (let i = 1; i < 4; i++) {
       newCurrentNum + i < numInstances
@@ -104,7 +106,19 @@ const CreatePage: React.FC = () => {
   // tools
   const addInstance = () => {};
 
-  const deleteInstance = () => {};
+  const deleteInstance = () => {
+    const updateInstances = Array.from(instances);
+    updateInstances.splice(currentInstanceNum, 1);
+    for (let i = currentInstanceNum; i < instances.length - 1; i++) {
+      updateInstances[i].instanceNum = i;
+    }
+    const updateInstanceNum =
+      currentInstanceNum !== instances.length - 1
+        ? currentInstanceNum
+        : currentInstanceNum - 1;
+    updateDisplayArray(updateInstanceNum, instances.length - 1);
+    setInstances(updateInstances);
+  };
 
   const copyInstance = () => {
     const lightsToCopy = Array.from(instances[currentInstanceNum].lightColors);
