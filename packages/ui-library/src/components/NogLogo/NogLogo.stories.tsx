@@ -68,6 +68,7 @@ export const Default = () => (
 export const CustomColors = () => (
   <ComponentStoryWrapper
     name="NogLogo"
+    subName="custom colors"
     description="SVG component."
     component={
       <ComponentWrapper>
