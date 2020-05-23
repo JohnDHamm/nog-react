@@ -1,21 +1,43 @@
 import React from 'react';
 import NogLogo from './NogLogo';
-import { ComponentStoryWrapper, PropsTableProps } from 'storybook-helpers';
+import {
+  ComponentStoryWrapper,
+  PropsTableProps,
+  StoryCodeLineProps,
+} from 'storybook-helpers';
 import { componentStoryPath } from '../../storybook';
+
+const usage: StoryCodeLineProps[] = [
+  {
+    text: 'import { NogLogo } from "ui-library";',
+  },
+  {
+    text: '',
+    format: 'blank',
+  },
+  {
+    text: '<div style={{ width: "100px" }} >',
+  },
+  {
+    text: '<NogLogo borderColor="navy" lettersColor="gold" />',
+    indent: true,
+  },
+  {
+    text: '</div>',
+  },
+];
 
 const componentProps: Array<PropsTableProps> = [
   {
     propName: 'borderColor',
     propType: 'string',
-    description:
-      'border color (hexadecimal format) - default: {COLORS.NOG_RED}',
+    description: 'border color - default: {COLORS.NOG_RED}',
     required: false,
   },
   {
     propName: 'lettersColor',
     propType: 'string',
-    description:
-      'letters color (hexadecimal format) - default: {COLORS.NOG_GREEN}',
+    description: 'letters color - default: {COLORS.NOG_GREEN}',
     required: false,
   },
 ];
@@ -39,6 +61,7 @@ export const Default = () => (
     }
     componentProps={componentProps}
     notes="Wrap this component in a component with a defined width."
+    code={usage}
   />
 );
 
@@ -53,5 +76,6 @@ export const CustomColors = () => (
     }
     componentProps={componentProps}
     notes="Wrap this component in a component with a defined width."
+    code={usage}
   />
 );
