@@ -1,11 +1,50 @@
 import React from 'react';
 import SnowflakeInstance from './SnowflakeInstance';
-import { storyPathHelper } from '../../storybook';
-import { ComponentStoryWrapper } from 'storybook-helpers';
-import { PropsTableProps } from 'storybook-helpers/dist/components/StoryPropsTable/StoryPropsTable';
+import { componentStoryPath } from '../../storybook';
+import {
+  ComponentStoryWrapper,
+  PropsTableProps,
+  StoryCodeLineProps,
+} from 'storybook-helpers';
+
+const usage: StoryCodeLineProps[] = [
+  {
+    text: 'import { SnowflakeInstance } from "ui-library";',
+  },
+  {
+    text: '',
+    format: 'blank',
+  },
+  {
+    text: '<SnowflakeInstance',
+  },
+  {
+    text: 'instanceNum={0}',
+    indent: true,
+  },
+  {
+    text: 'instanceSize={400}',
+    indent: true,
+  },
+  {
+    text: 'instanceType="current"',
+    indent: true,
+  },
+  {
+    text: 'lightsColors={lightsColors}',
+    indent: true,
+  },
+  {
+    text: 'onLightClick={lightNum => handleLightClick(lightNum)}',
+    indent: true,
+  },
+  {
+    text: '/>',
+  },
+];
 
 export default {
-  title: storyPathHelper('components/SnowflakeInstance')
+  title: componentStoryPath('SnowflakeInstance'),
 };
 
 const baseProps = {
@@ -40,11 +79,11 @@ const baseProps = {
     '#ff0000',
     '#000000',
     '#ff0000',
-    '#000000'
+    '#000000',
   ],
-  instanceSize: 400,
+  instanceSize: 348,
   onLightClick: (lightNum: number) =>
-    console.log('light num', lightNum, 'clicked')
+    console.log('light num', lightNum, 'clicked'),
 };
 
 const ComponentWrapper: React.FC = ({ children }) => (
@@ -56,32 +95,32 @@ const componentProps: PropsTableProps[] = [
     propName: 'instanceNum',
     propType: 'number',
     description: 'index of instance (starts at 0) - used for label',
-    required: true
+    required: true,
   },
   {
     propName: 'instanceSize',
     propType: 'number',
     description: 'used for width (px)',
-    required: true
+    required: true,
   },
   {
     propName: 'instanceType',
     propType: '"current" | "other"',
     description: '',
-    required: true
+    required: true,
   },
   {
     propName: 'lightsColors',
     propType: 'Array<string>',
     description: 'Colors for the lights (hexadecimal format)',
-    required: true
+    required: true,
   },
   {
     propName: 'onLightClick',
     propType: '(lightNum: number) => void',
     description: 'callback for clicking on a light in the instance',
-    required: true
-  }
+    required: true,
+  },
 ];
 
 export const Current = () => (
@@ -93,6 +132,7 @@ export const Current = () => (
       </ComponentWrapper>
     }
     componentProps={componentProps}
+    code={usage}
   />
 );
 
@@ -109,5 +149,6 @@ export const Other = () => (
       </ComponentWrapper>
     }
     componentProps={componentProps}
+    code={usage}
   />
 );

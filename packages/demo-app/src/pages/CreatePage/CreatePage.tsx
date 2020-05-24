@@ -10,7 +10,6 @@ import {
   PatternTitle,
   ToolContainer
 } from './CreatePage.styles';
-import SnowflakeInstance from '../../components/SnowflakeInstance/SnowflakeInstance';
 import {
   createInitialLightColors,
   getNewPatternValues,
@@ -24,6 +23,7 @@ import {
   NextIconButton,
   PlayIconButton,
   PreviousIconButton,
+  SnowflakeInstance,
   StartIconButton,
   AddIcon,
   CopyIcon,

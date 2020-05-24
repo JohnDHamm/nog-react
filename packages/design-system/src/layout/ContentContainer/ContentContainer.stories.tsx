@@ -18,7 +18,7 @@ const StoryComponent: JSX.Element = (
   </ContentContainer>
 );
 export default {
-  title: 'design-system/layout/ContentCreator'
+  title: 'design-system/layout/ContentContainer'
 };
 
 export const Default = () => (
