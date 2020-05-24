@@ -1,5 +1,5 @@
 import CreatePage from './CreatePage/CreatePage';
 import Home from './Home/Home';
-import Play from './Play/Play';
+import PlayPage from './PlayPage/PlayPage';
 
-export { CreatePage, Home, Play };
+export { CreatePage, Home, PlayPage };
