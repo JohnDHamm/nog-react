@@ -139,6 +139,7 @@ export const Current = () => (
 export const Other = () => (
   <ComponentStoryWrapper
     name="SnowflakeInstance"
+    subName="other"
     component={
       <ComponentWrapper>
         <SnowflakeInstance
