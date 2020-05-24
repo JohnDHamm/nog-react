@@ -1,14 +1,8 @@
 import React from 'react';
-import {
-  Container,
-  CurrentBG,
-  Light,
-  Number
-} from './SnowflakeInstance.styles';
-import { snowflakeLightLocations } from './snowflake-lightLocations';
-
-const CurrentSnowflakeBG = require('../../assets/snowflake_current_bgImage.png');
-const OtherSnowflakeBG = require('../../assets/snowflake_other_bgImage.png');
+import { Container, Light, Number } from './SnowflakeInstance.styles';
+import { getSnowflakeLightLocations } from './getSnowflakeLightLocations';
+import { Snowflake } from 'ui-library';
+import { COLORS } from 'design-system';
 
 export interface SnowflakeInstanceProps {
   lightsColors: Array<string>;
@@ -25,13 +19,22 @@ const SnowflakeInstance: React.FC<SnowflakeInstanceProps> = ({
   instanceType,
   onLightClick
 }) => {
-  const bgSrc =
-    instanceType === 'current' ? CurrentSnowflakeBG : OtherSnowflakeBG;
+  let innerBorderColor: string, outerBorderColor: string;
+
+  switch (instanceType) {
+    case 'current':
+      innerBorderColor = COLORS.BLACK;
+      outerBorderColor = COLORS.NOG_GREEN;
+      break;
+    case 'other':
+      innerBorderColor = COLORS.NAV_GREY;
+      outerBorderColor = COLORS.NAV_GREY;
+  }
 
   const renderLights = () => {
     const lightDia = instanceSize * (20 / 420);
-    const lightOffset = lightDia / 2;
-    const lightLocations = snowflakeLightLocations(lightOffset);
+    const lightOffset = lightDia / 2 + 1;
+    const lightLocations = getSnowflakeLightLocations(lightOffset);
 
     return lightsColors.map((lightColor, idx) => {
       return (
@@ -55,7 +58,11 @@ const SnowflakeInstance: React.FC<SnowflakeInstanceProps> = ({
 
   return (
     <Container size={instanceSize}>
-      <CurrentBG alt="flake" src={bgSrc} />
+      <Snowflake
+        innerColor="black"
+        innerBorderColor={innerBorderColor}
+        outerBorderColor={outerBorderColor}
+      />
       {instanceType === 'current' && <Number>{instanceNum + 1}</Number>}
       {renderLights()}
     </Container>

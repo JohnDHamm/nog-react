@@ -1,15 +1,10 @@
 import styled from 'styled-components';
 import { COLORS } from 'design-system';
-import { LightPosition } from './snowflake-lightLocations';
+import { LightPositionInterface } from './getSnowflakeLightLocations';
 
 export const Container = styled.div<{ size: number }>`
   position: relative;
   width: ${props => props.size + 'px'};
-`;
-
-export const CurrentBG = styled.img`
-  width: 100%;
-  height: 100%;
 `;
 
 export const Number = styled.div`
@@ -25,7 +20,7 @@ export const Number = styled.div`
 
 export const Light = styled.div<{
   color: string;
-  position: LightPosition;
+  position: LightPositionInterface;
   size: number;
 }>`
   position: absolute;

@@ -1,8 +1,44 @@
 import React from 'react';
 import SnowflakeInstance from './SnowflakeInstance';
 import { storyPathHelper } from '../../storybook';
-import { ComponentStoryWrapper } from 'storybook-helpers';
+import { ComponentStoryWrapper, StoryCodeLineProps } from 'storybook-helpers';
 import { PropsTableProps } from 'storybook-helpers/dist/components/StoryPropsTable/StoryPropsTable';
+
+const usage: StoryCodeLineProps[] = [
+  {
+    text: 'import { SnowflakeInstance } from "ui-library";'
+  },
+  {
+    text: '',
+    format: 'blank'
+  },
+  {
+    text: '<SnowflakeInstance'
+  },
+  {
+    text: 'instanceNum={0}',
+    indent: true
+  },
+  {
+    text: 'instanceSize={400}',
+    indent: true
+  },
+  {
+    text: 'instanceType="current"',
+    indent: true
+  },
+  {
+    text: 'lightsColors={lightsColors}',
+    indent: true
+  },
+  {
+    text: 'onLightClick={lightNum => handleLightClick(lightNum)}',
+    indent: true
+  },
+  {
+    text: '/>'
+  }
+];
 
 export default {
   title: storyPathHelper('components/SnowflakeInstance')
@@ -42,7 +78,7 @@ const baseProps = {
     '#ff0000',
     '#000000'
   ],
-  instanceSize: 400,
+  instanceSize: 348,
   onLightClick: (lightNum: number) =>
     console.log('light num', lightNum, 'clicked')
 };
@@ -93,6 +129,7 @@ export const Current = () => (
       </ComponentWrapper>
     }
     componentProps={componentProps}
+    code={usage}
   />
 );
 
@@ -109,5 +146,6 @@ export const Other = () => (
       </ComponentWrapper>
     }
     componentProps={componentProps}
+    code={usage}
   />
 );
