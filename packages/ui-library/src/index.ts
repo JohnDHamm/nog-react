@@ -3,6 +3,7 @@ import MultiColorPalette, {
   ColorPaletteObject,
 } from './components/MultiColorPalette/MultiColorPalette';
 import NogLogo from './components/NogLogo/NogLogo';
+import Snowflake from './components/Snowflake/Snowflake';
 import TestComponent from './components/TestComponent/TestComponent';
 import ToolButton from './components/ToolButton/ToolButton';
 // IconButtons
@@ -23,6 +24,7 @@ export {
   ColorPaletteObject,
   MultiColorPalette,
   NogLogo,
+  Snowflake,
   TestComponent,
   ToolButton,
   EndIconButton,
