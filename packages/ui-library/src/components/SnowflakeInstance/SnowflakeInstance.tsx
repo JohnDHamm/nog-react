@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Light, Number } from './SnowflakeInstance.styles';
 import { getSnowflakeLightLocations } from './getSnowflakeLightLocations';
-import { Snowflake } from 'ui-library';
+import Snowflake from '../Snowflake/Snowflake';
 import { COLORS } from 'design-system';
 
 export interface SnowflakeInstanceProps {
@@ -17,7 +17,7 @@ const SnowflakeInstance: React.FC<SnowflakeInstanceProps> = ({
   instanceNum,
   instanceSize,
   instanceType,
-  onLightClick
+  onLightClick,
 }) => {
   let innerBorderColor: string, outerBorderColor: string;
 
