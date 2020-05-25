@@ -46,7 +46,9 @@ const MultiColorPalette: React.FC<MultiColorPaletteProps> = ({
 
   const handleWellClick = (colorNum: number) => {
     setCurrentColorNumber(colorNum);
-    onCurrentColorNumChange(colorNum);
+    if (currentPalette[colorNum].colorVal) {
+      onCurrentColorNumChange(colorNum);
+    }
   };
 
   const handleCurrentClick = () => {
@@ -81,6 +83,7 @@ const MultiColorPalette: React.FC<MultiColorPaletteProps> = ({
     updatePalette[currentColorNumber] = updateColorObj;
     setCurrentPalette(updatePalette);
     setShowColorPicker(false);
+    onCurrentColorNumChange(currentColorNumber);
     onColorChange(updateColorObj);
   };
 
