@@ -15,7 +15,6 @@ import {
   getNewPatternValues,
   Instance
 } from '../../functions/getNewPatternValues';
-// import { mockPatternValues, Instance } from '../../mocks/mockPatternValues';
 import {
   ColorPaletteObject,
   EndIconButton,
