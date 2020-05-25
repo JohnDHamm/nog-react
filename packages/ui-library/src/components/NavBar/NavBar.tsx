@@ -5,14 +5,17 @@ import {
   ProfileAvatar,
   ProfileText,
   Row,
-  StyledContainer
+  StyledContainer,
 } from './NavBar.styles';
-import { NogLogo } from 'ui-library';
+import NogLogo from '../NogLogo/NogLogo';
 import { COLORS } from 'design-system';
 
-const GuestAvatar = require('../../assets/guest_avatar.png');
+interface NavBarInterface {
+  avatarSrc: string;
+  userName: string;
+}
 
-const NavBar: React.FC = () => {
+const NavBar: React.FC<NavBarInterface> = ({ avatarSrc, userName }) => {
   const history = useHistory();
 
   const handleLogoClick = (): void => {
@@ -25,8 +28,8 @@ const NavBar: React.FC = () => {
         <NogLogo borderColor={COLORS.WHITE} lettersColor={COLORS.WHITE} />
       </LogoContainer>
       <Row>
-        <ProfileText>Guest</ProfileText>
-        <ProfileAvatar src={GuestAvatar} alt="Guest avatar" />
+        <ProfileText>{userName}</ProfileText>
+        <ProfileAvatar src={avatarSrc} alt="Guest avatar" />
       </Row>
     </StyledContainer>
   );

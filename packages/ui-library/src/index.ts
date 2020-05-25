@@ -2,6 +2,7 @@ import Button from './components/Button/Button';
 import MultiColorPalette, {
   ColorPaletteObject,
 } from './components/MultiColorPalette/MultiColorPalette';
+import NavBar from './components/NavBar/NavBar';
 import NogLogo from './components/NogLogo/NogLogo';
 import Snowflake from './components/Snowflake/Snowflake';
 import SnowflakeInstance from './components/SnowflakeInstance/SnowflakeInstance';
@@ -24,6 +25,7 @@ export {
   Button,
   ColorPaletteObject,
   MultiColorPalette,
+  NavBar,
   NogLogo,
   Snowflake,
   SnowflakeInstance,
