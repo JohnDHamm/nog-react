@@ -1,35 +1,40 @@
 import React from 'react';
 import { Container, Light, Number } from './SnowflakeInstance.styles';
 import { getSnowflakeLightLocations } from './getSnowflakeLightLocations';
-import Snowflake from '../Snowflake/Snowflake';
+import Snowflake, { SnowflakeInterface } from '../Snowflake/Snowflake';
 import { COLORS } from 'design-system';
 
-export interface SnowflakeInstanceProps {
+interface LightStyle {
+  border: string;
+  cursor: 'pointer' | 'auto';
+}
+
+export interface SnowflakeInstanceInterface {
   lightsColors: Array<string>;
   instanceNum: number;
   instanceSize: number;
-  instanceType: 'current' | 'other';
+  instanceType: 'current' | 'playback' | 'other';
   onLightClick: (lightNum: number) => void;
 }
 
-const SnowflakeInstance: React.FC<SnowflakeInstanceProps> = ({
+const SnowflakeInstance: React.FC<SnowflakeInstanceInterface> = ({
   lightsColors,
   instanceNum,
   instanceSize,
   instanceType,
   onLightClick,
 }) => {
-  let innerBorderColor: string, outerBorderColor: string;
-
-  switch (instanceType) {
-    case 'current':
-      innerBorderColor = COLORS.BLACK;
-      outerBorderColor = COLORS.NOG_GREEN;
-      break;
-    case 'other':
-      innerBorderColor = COLORS.NAV_GREY;
-      outerBorderColor = COLORS.NAV_GREY;
-  }
+  const [snowflakeProps, setSnowflakeProps] = React.useState<
+    SnowflakeInterface
+  >({
+    innerColor: COLORS.BLACK,
+    innerBorderColor: COLORS.BLACK,
+    outerBorderColor: COLORS.NOG_GREEN,
+  });
+  const [lightStyle, setLightStyle] = React.useState<LightStyle>({
+    border: 'none',
+    cursor: 'auto',
+  });
 
   const renderLights = () => {
     const lightDia = instanceSize * (20 / 420);
@@ -43,11 +48,7 @@ const SnowflakeInstance: React.FC<SnowflakeInstanceProps> = ({
           color={lightColor}
           position={lightLocations[idx]}
           size={lightDia}
-          style={
-            instanceType === 'current'
-              ? { border: '1px solid grey', cursor: 'pointer' }
-              : {}
-          }
+          style={lightStyle}
           onClick={
             instanceType === 'current' ? () => onLightClick(idx) : () => null
           }
@@ -56,13 +57,43 @@ const SnowflakeInstance: React.FC<SnowflakeInstanceProps> = ({
     });
   };
 
+  React.useEffect(() => {
+    switch (instanceType) {
+      case 'current':
+        setSnowflakeProps({
+          innerColor: COLORS.BLACK,
+          innerBorderColor: COLORS.BLACK,
+          outerBorderColor: COLORS.NOG_GREEN,
+        });
+        setLightStyle({
+          border: '1px solid grey',
+          cursor: 'pointer',
+        });
+        break;
+      case 'playback':
+        setSnowflakeProps({
+          innerColor: COLORS.BLACK,
+          innerBorderColor: COLORS.BLACK,
+          outerBorderColor: COLORS.NOG_GREEN,
+        });
+        setLightStyle({
+          border: '1px solid grey',
+          cursor: 'auto',
+        });
+        break;
+      case 'other':
+        setSnowflakeProps({
+          innerColor: COLORS.BLACK,
+          outerBorderColor: COLORS.NAV_GREY,
+          innerBorderColor: COLORS.NAV_GREY,
+        });
+        break;
+    }
+  }, [instanceType]);
+
   return (
     <Container size={instanceSize}>
-      <Snowflake
-        innerColor="black"
-        innerBorderColor={innerBorderColor}
-        outerBorderColor={outerBorderColor}
-      />
+      <Snowflake {...snowflakeProps} />
       {instanceType === 'current' && <Number>{instanceNum + 1}</Number>}
       {renderLights()}
     </Container>

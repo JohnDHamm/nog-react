@@ -1,21 +1,105 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Snowflake } from 'ui-library';
+import { Page, Slider, SliderContainer, SliderLabel } from './PlayPage.styles';
+import { mockPatternValues, Instance } from '../../mocks/mockPatternValues';
+import {
+  SnowflakeInstance,
+  StopIconButton,
+  ColorPaletteObject
+} from 'ui-library';
+import { COLORS } from 'design-system';
 
-const Play: React.FC = () => {
+// mock pattern - TODO: replace with context
+const colorPalette: ColorPaletteObject[] = mockPatternValues().colors;
+const instances: Instance[] = mockPatternValues().instances;
+const initialSpeed: string = '50';
+
+const PlayPage: React.FC = () => {
+  const [currentInstanceNum, setCurrentInstanceNum] = React.useState<number>(0);
+  const [lightColors, setLightColors] = React.useState<string[]>([]);
+  const [currentSpeed, setCurrentSpeed] = React.useState<string>(initialSpeed);
+  const [intervalId, setIntervalId] = React.useState<NodeJS.Timeout>();
+  const [counter, setCounter] = React.useState<number>(0);
+
+  const calcSpeed = (speed: number): number => {
+    return speed > 50 ? (101 - speed) * 10.1 : (51 - speed) * 30.3 + 505;
+  };
+
+  const onInterval = (): void => {
+    setCounter(counter => counter + 1);
+  };
+
+  const handleSlider = (value: string) => {
+    intervalId && clearInterval(intervalId);
+    setCurrentSpeed(value);
+    const intId = setInterval(onInterval, calcSpeed(parseInt(value)));
+    setIntervalId(intId);
+  };
+
+  const handleStop = () => {
+    intervalId && clearInterval(intervalId);
+  };
+
+  React.useEffect(() => {
+    const intId = setInterval(onInterval, calcSpeed(parseInt(currentSpeed)));
+    setIntervalId(intId);
+
+    return () => {
+      intervalId && clearInterval(intervalId);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  React.useEffect(() => {
+    if (counter > 0) {
+      currentInstanceNum < instances.length - 1
+        ? setCurrentInstanceNum(currentInstanceNum => currentInstanceNum + 1)
+        : setCurrentInstanceNum(0);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [counter]);
+
+  React.useEffect(() => {
+    const createLightsColors = (instanceNum: number) => {
+      const lights = instances[instanceNum].lightColors.map(lightColNum => {
+        return colorPalette[lightColNum].colorVal;
+      });
+      return lights;
+    };
+
+    setLightColors(createLightsColors(currentInstanceNum));
+  }, [currentInstanceNum]);
+
   return (
-    <div>
-      <h3>Play page</h3>
-      <Link to="/create">stop</Link>
-      <div style={{ width: '400px' }}>
-        <Snowflake
-          innerColor="white"
-          innerBorderColor="grey"
-          outerBorderColor="green"
+    <Page>
+      <SnowflakeInstance
+        instanceNum={currentInstanceNum}
+        instanceSize={400}
+        instanceType="playback"
+        lightsColors={lightColors}
+        onLightClick={() => null}
+      />
+      <SliderContainer>
+        <SliderLabel value={parseInt(currentSpeed)}>{currentSpeed}</SliderLabel>
+        <Slider
+          type="range"
+          min={'1'}
+          max={'100'}
+          step={'1'}
+          value={currentSpeed}
+          onChange={e => handleSlider(e.target.value)}
         />
-      </div>
-    </div>
+      </SliderContainer>
+      <Link to="/create">
+        <StopIconButton
+          color={COLORS.NAV_GREY}
+          hoverColor={COLORS.BADASS}
+          width={60}
+          onClick={() => handleStop()}
+        />
+      </Link>
+    </Page>
   );
 };
 
-export default Play;
+export default PlayPage;

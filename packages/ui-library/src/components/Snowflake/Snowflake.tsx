@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface SnowflakeInterface {
+export interface SnowflakeInterface {
   outerBorderColor: string;
   innerBorderColor: string;
   innerColor: string;

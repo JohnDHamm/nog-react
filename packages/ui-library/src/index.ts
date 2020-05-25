@@ -12,6 +12,7 @@ import NextIconButton from './components/IconButtons/NextIconButton/NextIconButt
 import PlayIconButton from './components/IconButtons/PlayIconButton/PlayIconButton';
 import PreviousIconButton from './components/IconButtons/PreviousIconButton/PreviousIconButton';
 import StartIconButton from './components/IconButtons/StartIconButton/StartIconButton';
+import StopIconButton from './components/IconButtons/StopIconButton/StopIconButton';
 // Icons
 import AddIcon from './components/Icons/AddIcon/AddIcon';
 import CopyIcon from './components/Icons/CopyIcon/CopyIcon';
@@ -32,6 +33,7 @@ export {
   PlayIconButton,
   PreviousIconButton,
   StartIconButton,
+  StopIconButton,
   AddIcon,
   CopyIcon,
   DeleteIcon,
