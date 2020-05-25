@@ -15,10 +15,14 @@ export const SliderContainer = styled.div`
   margin: 3rem 0 2rem 0;
 `;
 
+const getLeftPosition = (value: number) => {
+  return `calc(${value}% - ${value * 0.28}px)`;
+};
+
 export const SliderLabel = styled.div<{ value: number }>`
   position: absolute;
   top: -1.75rem;
-  left: calc(${props => props.value + '%'} - 12px);
+  left: ${props => getLeftPosition(props.value)};
   color: ${COLORS.BADASS};
   font-size: 1.25rem;
 `;
