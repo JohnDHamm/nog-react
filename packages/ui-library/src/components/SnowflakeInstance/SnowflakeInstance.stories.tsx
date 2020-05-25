@@ -153,3 +153,21 @@ export const Other = () => (
     code={usage}
   />
 );
+
+export const Playback = () => (
+  <ComponentStoryWrapper
+    name="SnowflakeInstance"
+    subName="playback"
+    component={
+      <ComponentWrapper>
+        <SnowflakeInstance
+          {...baseProps}
+          instanceSize={200}
+          instanceType="playback"
+        />
+      </ComponentWrapper>
+    }
+    componentProps={componentProps}
+    code={usage}
+  />
+);
