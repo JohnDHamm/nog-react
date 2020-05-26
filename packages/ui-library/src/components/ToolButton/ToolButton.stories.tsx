@@ -12,6 +12,12 @@ import { COLORS } from 'design-system';
 
 const componentProps: PropsTableProps[] = [
   {
+    propName: 'disabled',
+    propType: 'boolean',
+    description: 'default: false',
+    required: false,
+  },
+  {
     propName: 'icon',
     propType: 'JSX.Element',
     description: 'icon for button',
@@ -79,6 +85,23 @@ export const Default = () => (
     component={
       <div style={{ backgroundColor: COLORS.BACKGROUND_GREY, padding: '2rem' }}>
         <ToolButton
+          icon={<AddIcon />}
+          label="add"
+          onClick={() => console.log('clicked tool button')}
+        />
+      </div>
+    }
+    componentProps={componentProps}
+    code={usage}
+  />
+);
+export const Disabled = () => (
+  <ComponentStoryWrapper
+    name="ToolButton"
+    component={
+      <div style={{ backgroundColor: COLORS.BACKGROUND_GREY, padding: '2rem' }}>
+        <ToolButton
+          disabled
           icon={<AddIcon />}
           label="add"
           onClick={() => console.log('clicked tool button')}
