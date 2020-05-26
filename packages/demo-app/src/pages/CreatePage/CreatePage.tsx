@@ -50,7 +50,10 @@ const CreatePage: React.FC = () => {
     DisplayInstanceNumber[]
   >([null, null, null, 0, 1, 2, 3]);
   const [copiedLights, setCopiedLights] = React.useState<number[]>([]);
-  const [hasCopy, setHasCopy] = React.useState<boolean>(false);
+  const [disablePasteTool, setDisablePasteTool] = React.useState<boolean>(true);
+  const [disableDeleteTool, setDisableDeleteTool] = React.useState<boolean>(
+    false
+  );
 
   // MultiColorPalette handlers
   const handleColNumChange = (colNum: number) => {
@@ -121,6 +124,9 @@ const CreatePage: React.FC = () => {
     const newInstanceLength = instances.length + 1;
     setInstances(updateInstances);
     updateDisplayArray(currentInstanceNum + 1, newInstanceLength);
+    if (updateInstances.length > 1) {
+      setDisableDeleteTool(false);
+    }
   };
 
   const deleteInstance = () => {
@@ -135,12 +141,15 @@ const CreatePage: React.FC = () => {
         : currentInstanceNum - 1;
     updateDisplayArray(updateInstanceNum, instances.length - 1);
     setInstances(updateInstances);
+    if (updateInstances.length === 1) {
+      setDisableDeleteTool(true);
+    }
   };
 
   const copyInstance = () => {
     const lightsToCopy = Array.from(instances[currentInstanceNum].lightColors);
     setCopiedLights(lightsToCopy);
-    setHasCopy(true);
+    setDisablePasteTool(false);
   };
 
   const pasteInstance = () => {
@@ -223,6 +232,7 @@ const CreatePage: React.FC = () => {
             onClick={() => addInstance()}
           />
           <ToolButton
+            disabled={disableDeleteTool}
             icon={<DeleteIcon />}
             label="delete"
             onClick={() => deleteInstance()}
@@ -234,7 +244,7 @@ const CreatePage: React.FC = () => {
             onClick={() => copyInstance()}
           />
           <ToolButton
-            disabled={!hasCopy}
+            disabled={disablePasteTool}
             icon={<PasteIcon />}
             iconWidth={50}
             label="paste"
