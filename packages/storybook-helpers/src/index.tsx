@@ -1,4 +1,5 @@
 import ComponentStoryWrapper from './components/ComponentStoryWrapper/ComponentStoryWrapper';
+import FunctionStoryWrapper from './components/FunctionStoryWrapper/FunctionStoryWrapper';
 import StoryCodeBlock, {
   StoryCodeLineProps
 } from './components/StoryCodeBlock/StoryCodeBlock';
@@ -12,6 +13,7 @@ import StoryTitle from './components/StoryTitle/StoryTitle';
 
 export {
   ComponentStoryWrapper,
+  FunctionStoryWrapper,
   PropsTableProps,
   StoryCodeBlock,
   StoryCodeLineProps,

@@ -1,11 +1,10 @@
 import React from 'react';
-import {
-  StoryCodeBlock,
-  StoryCodeLineProps,
-  StoryFunctionTitle,
-  StoryNotes,
-  StorySectionTitle
-} from 'storybook-helpers';
+import StoryCodeBlock, {
+  StoryCodeLineProps
+} from '../StoryCodeBlock/StoryCodeBlock';
+import StoryFunctionTitle from '../StoryFunctionTitle/StoryFunctionTitle';
+import StoryNotes from '../StoryNotes/StoryNotes';
+import StorySectionTitle from '../StorySectionTitle/StorySectionTitle';
 
 interface FunctionStoryWrapperProps {
   name: string;
