@@ -1,41 +1,34 @@
 import React from 'react';
-
-export interface Instance {
-  instanceNum: number;
-  lightColors: Array<number>;
-}
+import getNewInstanceLightColors from '../../functions/getNewInstanceLightColors/getNewInstanceLightColors';
 
 declare global {
+  interface Instance {
+    instanceNum: number;
+    lightColors: Array<number>;
+  }
+
   interface InstancesContextInterface {
     instances: Array<Instance>;
     setCurrentInstances: (instances: Array<Instance>) => void;
   }
 }
 
-export const createInitialLightColors = (): Array<number> => {
-  const newLightColors = [];
-  for (let i = 0; i < 30; i++) {
-    newLightColors.push(7);
-  }
-  return newLightColors;
-};
-
 export const initialInstances: Array<Instance> = [
   {
     instanceNum: 0,
-    lightColors: createInitialLightColors()
+    lightColors: getNewInstanceLightColors()
   },
   {
     instanceNum: 1,
-    lightColors: createInitialLightColors()
+    lightColors: getNewInstanceLightColors()
   },
   {
     instanceNum: 2,
-    lightColors: createInitialLightColors()
+    lightColors: getNewInstanceLightColors()
   },
   {
     instanceNum: 3,
-    lightColors: createInitialLightColors()
+    lightColors: getNewInstanceLightColors()
   }
 ];
 
