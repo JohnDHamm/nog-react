@@ -10,10 +10,9 @@ import {
   PatternTitle,
   ToolContainer
 } from './CreatePage.styles';
-import { InstancesContext } from '../../contexts';
+import { ColorPaletteContext, InstancesContext } from '../../contexts';
 import {
   createInitialLightColors,
-  getNewPatternValues,
   Instance
 } from '../../functions/getNewPatternValues';
 import {
@@ -34,16 +33,14 @@ import {
 } from 'ui-library';
 import { COLORS, DesktopWrapper, MobileWrapper } from 'design-system';
 
-const initialPattern = getNewPatternValues();
-
 const CreatePage: React.FC = () => {
   // Contexts
   const { instances, setCurrentInstances } = React.useContext(InstancesContext);
+  const { colorPalette, setCurrentColorPalette } = React.useContext(
+    ColorPaletteContext
+  );
   // Page State
   const [currentColorNum, setCurrentColorNum] = React.useState<number>(0);
-  const [colorPalette, setColorPalette] = React.useState<ColorPaletteObject[]>(
-    initialPattern.colors
-  );
   const [currentInstanceNum, setCurrentInstanceNum] = React.useState<number>(0);
   type DisplayInstanceNumber = number | null;
   const [displayInstanceNumbers, setDisplayInstanceNumbers] = React.useState<
@@ -63,7 +60,7 @@ const CreatePage: React.FC = () => {
   const handleColorChange = (colObj: ColorPaletteObject) => {
     const updatePalette = Array.from(colorPalette);
     updatePalette[colObj.colorNum] = colObj;
-    setColorPalette(updatePalette);
+    setCurrentColorPalette(updatePalette);
   };
 
   // SnowflakeInstance handler
