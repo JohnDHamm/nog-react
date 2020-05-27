@@ -1,21 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Page, Slider, SliderContainer, SliderLabel } from './PlayPage.styles';
-import { InstancesContext, SpeedContext } from '../../contexts';
-import { mockPatternValues } from '../../mocks/mockPatternValues';
 import {
-  SnowflakeInstance,
-  StopIconButton,
-  ColorPaletteObject
-} from 'ui-library';
+  ColorPaletteContext,
+  InstancesContext,
+  SpeedContext
+} from '../../contexts';
+import { SnowflakeInstance, StopIconButton } from 'ui-library';
 import { COLORS } from 'design-system';
-
-// mock pattern - TODO: replace with context
-const colorPalette: ColorPaletteObject[] = mockPatternValues().colors;
 
 const PlayPage: React.FC = () => {
   // Contexts
   const { instances } = React.useContext(InstancesContext);
+  const { colorPalette } = React.useContext(ColorPaletteContext);
   const { speed, setCurrentSpeed } = React.useContext(SpeedContext);
   // State
   const [currentInstanceNum, setCurrentInstanceNum] = React.useState<number>(0);
