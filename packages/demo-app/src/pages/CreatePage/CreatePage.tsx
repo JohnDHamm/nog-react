@@ -11,7 +11,7 @@ import {
   ToolContainer
 } from './CreatePage.styles';
 import { ColorPaletteContext, InstancesContext } from '../../contexts';
-import getNewInstanceLightColors from '../../functions/getNewInstanceLightColors/getNewInstanceLightColors';
+import { getNewInstanceLightColors } from 'function-library';
 import {
   ColorPaletteObject,
   EndIconButton,

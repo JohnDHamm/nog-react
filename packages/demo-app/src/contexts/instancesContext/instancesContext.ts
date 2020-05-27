@@ -1,5 +1,5 @@
 import React from 'react';
-import getNewInstanceLightColors from '../../functions/getNewInstanceLightColors/getNewInstanceLightColors';
+import { getNewInstanceLightColors } from 'function-library';
 
 declare global {
   interface Instance {
