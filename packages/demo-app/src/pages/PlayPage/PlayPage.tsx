@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Page, Slider, SliderContainer, SliderLabel } from './PlayPage.styles';
-import { instancesContext, SpeedContext } from '../../contexts';
+import { InstancesContext, SpeedContext } from '../../contexts';
 import { mockPatternValues } from '../../mocks/mockPatternValues';
 import {
   SnowflakeInstance,
@@ -15,7 +15,7 @@ const colorPalette: ColorPaletteObject[] = mockPatternValues().colors;
 
 const PlayPage: React.FC = () => {
   // Contexts
-  const { instances } = React.useContext(instancesContext);
+  const { instances } = React.useContext(InstancesContext);
   const { speed, setCurrentSpeed } = React.useContext(SpeedContext);
   // State
   const [currentInstanceNum, setCurrentInstanceNum] = React.useState<number>(0);

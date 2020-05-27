@@ -1,4 +1,5 @@
 import React from 'react';
+import { storyPathHelper } from '../../storybook';
 import { FunctionStoryWrapper, StoryCodeLineProps } from 'storybook-helpers';
 
 const usage: StoryCodeLineProps[] = [
@@ -7,7 +8,7 @@ const usage: StoryCodeLineProps[] = [
     format: 'comment'
   },
   {
-    text: "import { instancesContext } from './context';"
+    text: "import { InstancesContext } from './context';"
   },
   {
     text: "import { useInstances } from './hooks';"
@@ -23,7 +24,7 @@ const usage: StoryCodeLineProps[] = [
     text: 'return ('
   },
   {
-    text: '<instancesContext.Provider value={instances}>',
+    text: '<InstancesContext.Provider value={instances}>',
     indent: true
   },
   {
@@ -40,11 +41,15 @@ const usage: StoryCodeLineProps[] = [
     indent: true
   },
   {
-    text: '</instancesContext.Provider>'
+    text: '</InstancesContext.Provider>',
+    indent: true
+  },
+  {
+    text: ');'
   }
 ];
 export default {
-  title: 'demo-app/hooks/useInstances()'
+  title: storyPathHelper('hooks/useInstances')
 };
 
 export const Default = () => (

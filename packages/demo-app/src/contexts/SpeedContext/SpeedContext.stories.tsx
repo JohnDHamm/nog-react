@@ -1,4 +1,5 @@
 import React from 'react';
+import { storyPathHelper } from '../../storybook';
 import { ComponentStoryWrapper, StoryCodeLineProps } from 'storybook-helpers';
 
 const usage: StoryCodeLineProps[] = [
@@ -19,7 +20,7 @@ const usage: StoryCodeLineProps[] = [
 ];
 
 export default {
-  title: 'demo-app/contexts/SpeedContext'
+  title: storyPathHelper('contexts/SpeedContext')
 };
 
 export const Default = () => (

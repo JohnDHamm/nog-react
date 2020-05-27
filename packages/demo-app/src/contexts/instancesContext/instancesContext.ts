@@ -44,6 +44,6 @@ export const INSTANCES_DEFAULT_VALUE: InstancesContextInterface = {
   setCurrentInstances: () => {}
 };
 
-export const instancesContext = React.createContext<InstancesContextInterface>(
+export const InstancesContext = React.createContext<InstancesContextInterface>(
   INSTANCES_DEFAULT_VALUE
 );

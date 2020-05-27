@@ -1,4 +1,4 @@
-import { instancesContext } from './instancesContext/instancesContext';
+import { InstancesContext } from './InstancesContext/InstancesContext';
 import { SpeedContext } from './SpeedContext/SpeedContext';
 
-export { instancesContext, SpeedContext };
+export { InstancesContext, SpeedContext };

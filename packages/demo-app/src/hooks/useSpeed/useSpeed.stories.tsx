@@ -1,4 +1,5 @@
 import React from 'react';
+import { storyPathHelper } from '../../storybook';
 import { FunctionStoryWrapper, StoryCodeLineProps } from 'storybook-helpers';
 
 const usage: StoryCodeLineProps[] = [
@@ -48,7 +49,7 @@ const usage: StoryCodeLineProps[] = [
   }
 ];
 export default {
-  title: 'demo-app/hooks/useSpeed()'
+  title: storyPathHelper('hooks/useSpeed')
 };
 
 export const Default = () => (

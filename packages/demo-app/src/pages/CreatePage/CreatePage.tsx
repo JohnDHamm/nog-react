@@ -10,7 +10,7 @@ import {
   PatternTitle,
   ToolContainer
 } from './CreatePage.styles';
-import { instancesContext } from '../../contexts';
+import { InstancesContext } from '../../contexts';
 import {
   createInitialLightColors,
   getNewPatternValues,
@@ -38,7 +38,7 @@ const initialPattern = getNewPatternValues();
 
 const CreatePage: React.FC = () => {
   // Contexts
-  const { instances, setCurrentInstances } = React.useContext(instancesContext);
+  const { instances, setCurrentInstances } = React.useContext(InstancesContext);
   // Page State
   const [currentColorNum, setCurrentColorNum] = React.useState<number>(0);
   const [colorPalette, setColorPalette] = React.useState<ColorPaletteObject[]>(

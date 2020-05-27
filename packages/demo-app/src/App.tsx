@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { instancesContext, SpeedContext } from './contexts';
+import { InstancesContext, SpeedContext } from './contexts';
 import { useInstances, useSpeed } from './hooks';
 import { CreatePage, Home, PlayPage } from './pages';
 import { NavBar } from 'ui-library';
@@ -12,7 +12,7 @@ function App() {
   const speed = useSpeed();
 
   return (
-    <instancesContext.Provider value={instances}>
+    <InstancesContext.Provider value={instances}>
       <SpeedContext.Provider value={speed}>
         <Router>
           <NavBar avatarSrc={GuestAvatar} userName="Guest" />
@@ -23,7 +23,7 @@ function App() {
           </Switch>
         </Router>
       </SpeedContext.Provider>
-    </instancesContext.Provider>
+    </InstancesContext.Provider>
   );
 }
 
