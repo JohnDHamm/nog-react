@@ -1,5 +1,5 @@
 import React from 'react';
-import { initialInstances } from '../../contexts/InstancesContext/InstancesContext';
+import { initialInstances } from '../../contexts/SInstancesContext/SInstancesContext';
 
 export const useInstances = (): InstancesContextInterface => {
   const [instances, setInstances] = React.useState<Instance[]>(
