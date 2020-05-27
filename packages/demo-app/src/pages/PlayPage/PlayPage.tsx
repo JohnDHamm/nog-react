@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Page, Slider, SliderContainer, SliderLabel } from './PlayPage.styles';
-import { mockPatternValues, Instance } from '../../mocks/mockPatternValues';
+import { instancesContext } from '../../contexts';
+import { mockPatternValues } from '../../mocks/mockPatternValues';
 import {
   SnowflakeInstance,
   StopIconButton,
@@ -11,10 +12,10 @@ import { COLORS } from 'design-system';
 
 // mock pattern - TODO: replace with context
 const colorPalette: ColorPaletteObject[] = mockPatternValues().colors;
-const instances: Instance[] = mockPatternValues().instances;
 const initialSpeed: string = '50';
 
 const PlayPage: React.FC = () => {
+  const { instances } = React.useContext(instancesContext);
   const [currentInstanceNum, setCurrentInstanceNum] = React.useState<number>(0);
   const [lightColors, setLightColors] = React.useState<string[]>([]);
   const [currentSpeed, setCurrentSpeed] = React.useState<string>(initialSpeed);
@@ -68,6 +69,7 @@ const PlayPage: React.FC = () => {
     };
 
     setLightColors(createLightsColors(currentInstanceNum));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentInstanceNum]);
 
   return (
