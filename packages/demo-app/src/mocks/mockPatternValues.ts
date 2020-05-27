@@ -1,10 +1,5 @@
 import { ColorPaletteObject } from 'ui-library';
 
-export interface Instance {
-  instanceNum: number;
-  lightColors: Array<number>;
-}
-
 const mockColors: Array<ColorPaletteObject> = [
   { colorNum: 0, colorVal: '#ff0000' },
   { colorNum: 1, colorVal: '#ffff00' },

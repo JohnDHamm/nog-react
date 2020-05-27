@@ -11,10 +11,7 @@ import {
   ToolContainer
 } from './CreatePage.styles';
 import { ColorPaletteContext, InstancesContext } from '../../contexts';
-import {
-  createInitialLightColors,
-  Instance
-} from '../../functions/getNewPatternValues';
+import { getNewInstanceLightColors } from 'function-library';
 import {
   ColorPaletteObject,
   EndIconButton,
@@ -106,7 +103,7 @@ const CreatePage: React.FC = () => {
 
   // tools
   const addInstance = () => {
-    const newLightColors = createInitialLightColors();
+    const newLightColors = getNewInstanceLightColors();
     const updateInstance: Instance = {
       instanceNum: currentInstanceNum + 1,
       lightColors: newLightColors
