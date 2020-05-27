@@ -1,8 +1,8 @@
 import React from 'react';
-import { FunctionStoryWrapper } from '../../storybook';
+import { FunctionStoryWrapper } from 'storybook-helpers';
 
 export default {
-  title: 'function-library/example',
+  title: 'function-library/example'
 };
 
 export const SayHello = () => (
@@ -13,21 +13,21 @@ export const SayHello = () => (
     args={'name: string;'}
     usage={[
       {
-        text: 'sayHello("John");',
+        text: 'sayHello("John");'
       },
       {
         text: 'a second line, indented',
-        indent: true,
+        indent: true
       },
       {
         text: '// "Hello, John."',
-        format: 'comment',
-      },
+        format: 'comment'
+      }
     ]}
     notes="You can add some notes if needed here."
   />
 );
 
 SayHello.story = {
-  name: 'sayHello()',
+  name: 'sayHello()'
 };

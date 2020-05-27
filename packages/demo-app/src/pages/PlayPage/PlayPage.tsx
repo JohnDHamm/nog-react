@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Page, Slider, SliderContainer, SliderLabel } from './PlayPage.styles';
-import { mockPatternValues, Instance } from '../../mocks/mockPatternValues';
+import { InstancesContext, SpeedContext } from '../../contexts';
+import { mockPatternValues } from '../../mocks/mockPatternValues';
 import {
   SnowflakeInstance,
   StopIconButton,
@@ -11,13 +12,14 @@ import { COLORS } from 'design-system';
 
 // mock pattern - TODO: replace with context
 const colorPalette: ColorPaletteObject[] = mockPatternValues().colors;
-const instances: Instance[] = mockPatternValues().instances;
-const initialSpeed: string = '50';
 
 const PlayPage: React.FC = () => {
+  // Contexts
+  const { instances } = React.useContext(InstancesContext);
+  const { speed, setCurrentSpeed } = React.useContext(SpeedContext);
+  // State
   const [currentInstanceNum, setCurrentInstanceNum] = React.useState<number>(0);
   const [lightColors, setLightColors] = React.useState<string[]>([]);
-  const [currentSpeed, setCurrentSpeed] = React.useState<string>(initialSpeed);
   const [intervalId, setIntervalId] = React.useState<NodeJS.Timeout>();
   const [counter, setCounter] = React.useState<number>(0);
 
@@ -41,7 +43,7 @@ const PlayPage: React.FC = () => {
   };
 
   React.useEffect(() => {
-    const intId = setInterval(onInterval, calcSpeed(parseInt(currentSpeed)));
+    const intId = setInterval(onInterval, calcSpeed(parseInt(speed)));
     setIntervalId(intId);
 
     return () => {
@@ -68,6 +70,7 @@ const PlayPage: React.FC = () => {
     };
 
     setLightColors(createLightsColors(currentInstanceNum));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentInstanceNum]);
 
   return (
@@ -80,13 +83,13 @@ const PlayPage: React.FC = () => {
         onLightClick={() => null}
       />
       <SliderContainer>
-        <SliderLabel value={parseInt(currentSpeed)}>{currentSpeed}</SliderLabel>
+        <SliderLabel value={parseInt(speed)}>{speed}</SliderLabel>
         <Slider
           type="range"
           min={'1'}
           max={'100'}
           step={'1'}
-          value={currentSpeed}
+          value={speed}
           onChange={e => handleSlider(e.target.value)}
         />
       </SliderContainer>

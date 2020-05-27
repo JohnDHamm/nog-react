@@ -10,6 +10,7 @@ import {
   PatternTitle,
   ToolContainer
 } from './CreatePage.styles';
+import { InstancesContext } from '../../contexts';
 import {
   createInitialLightColors,
   getNewPatternValues,
@@ -36,13 +37,12 @@ import { COLORS, DesktopWrapper, MobileWrapper } from 'design-system';
 const initialPattern = getNewPatternValues();
 
 const CreatePage: React.FC = () => {
+  // Contexts
+  const { instances, setCurrentInstances } = React.useContext(InstancesContext);
   // Page State
   const [currentColorNum, setCurrentColorNum] = React.useState<number>(0);
   const [colorPalette, setColorPalette] = React.useState<ColorPaletteObject[]>(
     initialPattern.colors
-  );
-  const [instances, setInstances] = React.useState<Instance[]>(
-    initialPattern.instances
   );
   const [currentInstanceNum, setCurrentInstanceNum] = React.useState<number>(0);
   type DisplayInstanceNumber = number | null;
@@ -70,7 +70,7 @@ const CreatePage: React.FC = () => {
   const handleLightClick = (lightNum: number) => {
     const updateInstances = Array.from(instances);
     updateInstances[currentInstanceNum].lightColors[lightNum] = currentColorNum;
-    setInstances(updateInstances);
+    setCurrentInstances(updateInstances);
   };
 
   // navigation handlers
@@ -122,7 +122,7 @@ const CreatePage: React.FC = () => {
       }
     }
     const newInstanceLength = instances.length + 1;
-    setInstances(updateInstances);
+    setCurrentInstances(updateInstances);
     updateDisplayArray(currentInstanceNum + 1, newInstanceLength);
     if (updateInstances.length > 1) {
       setDisableDeleteTool(false);
@@ -140,7 +140,7 @@ const CreatePage: React.FC = () => {
         ? currentInstanceNum
         : currentInstanceNum - 1;
     updateDisplayArray(updateInstanceNum, instances.length - 1);
-    setInstances(updateInstances);
+    setCurrentInstances(updateInstances);
     if (updateInstances.length === 1) {
       setDisableDeleteTool(true);
     }
@@ -159,7 +159,7 @@ const CreatePage: React.FC = () => {
     };
     const updateInstances = Array.from(instances);
     updateInstances[currentInstanceNum] = updateInstance;
-    setInstances(updateInstances);
+    setCurrentInstances(updateInstances);
   };
 
   const fillInstance = () => {
@@ -173,7 +173,7 @@ const CreatePage: React.FC = () => {
     };
     const updateInstances = Array.from(instances);
     updateInstances[currentInstanceNum] = updateInstance;
-    setInstances(updateInstances);
+    setCurrentInstances(updateInstances);
   };
 
   // rendering
