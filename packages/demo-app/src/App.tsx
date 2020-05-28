@@ -6,7 +6,7 @@ import {
   SpeedContext
 } from './contexts';
 import { useColorPalette, useInstances, useSpeed } from './hooks';
-import { CreatePage, Home, PlayPage } from './pages';
+import { CreatePage, HomePage, PlayPage } from './pages';
 import { NavBar } from 'ui-library';
 
 const GuestAvatar = require('./assets/guest_avatar.png');
@@ -25,7 +25,7 @@ function App() {
             <Switch>
               <Route path="/create" component={CreatePage} />
               <Route path="/play" component={PlayPage} />
-              <Route path="/" component={Home} />
+              <Route path="/" component={HomePage} />
             </Switch>
           </Router>
         </SpeedContext.Provider>
