@@ -1,10 +1,15 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import { CenteredContent, Info, LogoWrapper, StyledPage } from './Home.styles';
+import {
+  CenteredContent,
+  Info,
+  LogoWrapper,
+  StyledPage
+} from './HomePage.styles';
 import { ContentContainer } from 'design-system';
 import { Button, NogLogo } from 'ui-library';
 
-const Home: React.FC = () => {
+const HomePage: React.FC = () => {
   const history = useHistory();
 
   const handleClick = (): void => {
@@ -40,4 +45,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default HomePage;
