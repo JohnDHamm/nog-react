@@ -25,7 +25,11 @@ const NavBar: React.FC<NavBarInterface> = ({ avatarSrc, userName }) => {
   return (
     <StyledContainer>
       <LogoContainer onClick={handleLogoClick}>
-        <NogLogo borderColor={COLORS.WHITE} lettersColor={COLORS.WHITE} />
+        <NogLogo
+          hasBackground={false}
+          borderColor={COLORS.WHITE}
+          lettersColor={COLORS.WHITE}
+        />
       </LogoContainer>
       <Row>
         <ProfileText>{userName}</ProfileText>

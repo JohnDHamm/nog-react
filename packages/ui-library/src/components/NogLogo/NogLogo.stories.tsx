@@ -19,7 +19,8 @@ const usage: StoryCodeLineProps[] = [
     text: '<div style={{ width: "100px" }} >',
   },
   {
-    text: '<NogLogo borderColor="navy" lettersColor="gold" />',
+    text:
+      '<NogLogo hasBackground={false} borderColor="navy" lettersColor="gold" />',
     indent: true,
   },
   {
@@ -29,9 +30,21 @@ const usage: StoryCodeLineProps[] = [
 
 const componentProps: Array<PropsTableProps> = [
   {
+    propName: 'backgroundColor',
+    propType: 'string',
+    description: 'background color - default: {COLORS.WHITE}',
+    required: false,
+  },
+  {
     propName: 'borderColor',
     propType: 'string',
     description: 'border color - default: {COLORS.NOG_RED}',
+    required: false,
+  },
+  {
+    propName: 'hasBackground',
+    propType: 'boolean',
+    description: 'use for transparent bg - default: true',
     required: false,
   },
   {
@@ -43,7 +56,9 @@ const componentProps: Array<PropsTableProps> = [
 ];
 
 const ComponentWrapper: React.FC = ({ children }) => (
-  <div style={{ width: '200px' }}>{children}</div>
+  <div style={{ width: '200px', backgroundColor: '#777', padding: '2rem' }}>
+    {children}
+  </div>
 );
 
 export default {
@@ -72,7 +87,7 @@ export const CustomColors = () => (
     description="SVG component."
     component={
       <ComponentWrapper>
-        <NogLogo borderColor="navy" lettersColor="gold" />
+        <NogLogo hasBackground={false} borderColor="navy" lettersColor="gold" />
       </ComponentWrapper>
     }
     componentProps={componentProps}
