@@ -10,6 +10,7 @@ import {
   PatternTitle,
   ToolContainer
 } from './CreatePage.styles';
+import MobileMessage from '../../components/MobileMessage/MobileMessage';
 import { ColorPaletteContext, InstancesContext } from '../../contexts';
 import { getNewInstanceLightColors } from 'function-library';
 import {
@@ -298,7 +299,9 @@ const CreatePage: React.FC = () => {
           </NavBlock>
         </MainContent>
       </DesktopWrapper>
-      <MobileWrapper>please use on a larger screen</MobileWrapper>
+      <MobileWrapper>
+        <MobileMessage />
+      </MobileWrapper>
     </Page>
   );
 };
