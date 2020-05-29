@@ -40,7 +40,7 @@ export default {
 export const Default = () => (
   <>
     <StoryTitle title="DesktopWrapper" />
-    <StoryNotes notes="The children of a DesktopWrapper component are only visible at desktop screen width (1024+ px). (resize window to test)" />
+    <StoryNotes notes="The children of a DesktopWrapper component are only visible at desktop screen width (1280+ px). (resize window to test)" />
     <DesktopWrapper>
       <div
         style={{
