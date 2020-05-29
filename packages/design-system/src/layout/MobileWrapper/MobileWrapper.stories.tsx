@@ -40,7 +40,7 @@ export default {
 export const Default = () => (
   <>
     <StoryTitle title="MobileWrapper" />
-    <StoryNotes notes="The children of a MobileWrapper component are only visible at mobile screen width (less than 1024px). (resize window to test)" />
+    <StoryNotes notes="The children of a MobileWrapper component are only visible at mobile screen width (less than 1280px). (resize window to test)" />
     <MobileWrapper>
       <div
         style={{

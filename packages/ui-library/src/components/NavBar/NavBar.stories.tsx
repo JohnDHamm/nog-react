@@ -53,7 +53,7 @@ export default {
 export const Default = () => (
   <ComponentStoryWrapper
     name="NavBar"
-    description="Navigation bar. Includes homr"
+    description="Navigation bar."
     component={<NavBar avatarSrc={GuestAvatar} userName="Guest" />}
     notes="built-in redirect to '/' when clicking the Nog logo"
     componentProps={componentProps}

@@ -2,18 +2,29 @@ import React from 'react';
 import { COLORS } from 'design-system';
 
 interface NogLogoInterface {
+  backgroundColor?: string;
   borderColor?: string;
+  hasBackground?: boolean;
   lettersColor?: string;
 }
 
 const NogLogo: React.FC<NogLogoInterface> = ({
+  backgroundColor = COLORS.WHITE,
   borderColor = COLORS.NOG_RED,
+  hasBackground = true,
   lettersColor = COLORS.NOG_GREEN,
 }) => {
   return (
     <svg viewBox="0 0 226.69 252.42" aria-labelledby="title">
       <title>Nog Logo</title>
       <g>
+        {hasBackground && (
+          <path
+            d="M288,410.21a26.15,26.15,0,0,1-13.09-3.51l-83.16-48A26.25,26.25,0,0,1,178.65,336V240a26.25,26.25,0,0,1,13.1-22.68l83.16-48a26.16,26.16,0,0,1,26.18,0l83.16,48A26.25,26.25,0,0,1,397.35,240v96a26.25,26.25,0,0,1-13.1,22.68l-83.16,48A26.15,26.15,0,0,1,288,410.21Z"
+            transform="translate(-174.65 -161.79)"
+            style={{ fill: backgroundColor }}
+          />
+        )}
         <path
           d="M288,169.79a22.22,22.22,0,0,1,11.09,3l83.16,48A22.25,22.25,0,0,1,393.35,240v96a22.27,22.27,0,0,1-11.1,19.22l-83.16,48a22.19,22.19,0,0,1-22.18,0l-83.16-48A22.27,22.27,0,0,1,182.65,336V240a22.25,22.25,0,0,1,11.1-19.22l83.16-48a22.25,22.25,0,0,1,11.09-3m0-8a30.22,30.22,0,0,0-15.09,4l-83.16,48A30.18,30.18,0,0,0,174.65,240v96a30.21,30.21,0,0,0,15.1,26.15l83.16,48a30.2,30.2,0,0,0,30.18,0l83.16-48A30.21,30.21,0,0,0,401.35,336V240a30.18,30.18,0,0,0-15.1-26.14l-83.16-48a30.19,30.19,0,0,0-15.09-4Z"
           transform="translate(-174.65 -161.79)"
