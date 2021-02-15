@@ -38,7 +38,7 @@ const componentProps: Array<PropsTableProps> = [
   {
     propName: 'borderColor',
     propType: 'string',
-    description: 'border color - default: {COLORS.NOG_RED}',
+    description: 'border color - default: {COLORS.NOG_GREEN}',
     required: false,
   },
   {
@@ -50,7 +50,7 @@ const componentProps: Array<PropsTableProps> = [
   {
     propName: 'lettersColor',
     propType: 'string',
-    description: 'letters color - default: {COLORS.NOG_GREEN}',
+    description: 'letters color - default: {COLORS.NOG_RED + COLORS.NOG_GREEN}',
     required: false,
   },
 ];
