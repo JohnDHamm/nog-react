@@ -10,9 +10,9 @@ interface NogLogoInterface {
 
 const NogLogo: React.FC<NogLogoInterface> = ({
   backgroundColor = COLORS.WHITE,
-  borderColor = COLORS.NOG_RED,
+  borderColor = COLORS.NOG_GREEN,
   hasBackground = true,
-  lettersColor = COLORS.NOG_GREEN,
+  lettersColor,
 }) => {
   return (
     <svg viewBox="0 0 226.69 252.42" aria-labelledby="title">
@@ -33,47 +33,47 @@ const NogLogo: React.FC<NogLogoInterface> = ({
         <path
           d="M267.14,251.49c2.19-1.65-4.19-10.92-6.47-8.64C257.65,245.86,264.4,253.54,267.14,251.49Z"
           transform="translate(-174.65 -161.79)"
-          style={{ fill: lettersColor }}
+          style={{ fill: lettersColor || COLORS.NOG_GREEN }}
         />
         <path
           d="M255.4,303.72c.46,4.34-4.68,7.5-6.5,4.08S254.94,299.39,255.4,303.72Z"
           transform="translate(-174.65 -161.79)"
-          style={{ fill: lettersColor }}
+          style={{ fill: lettersColor || COLORS.NOG_GREEN }}
         />
         <path
           d="M287.77,329c3.42.45,4.63,17.74-.69,16.7C280,344.33,284.35,328.55,287.77,329Z"
           transform="translate(-174.65 -161.79)"
-          style={{ fill: lettersColor }}
+          style={{ fill: lettersColor || COLORS.NOG_GREEN }}
         />
         <path
           d="M319.23,307.55c-2.88,1.06,4,9.46,7.29,6.1C328.58,311.55,323,306.16,319.23,307.55Z"
           transform="translate(-174.65 -161.79)"
-          style={{ fill: lettersColor }}
+          style={{ fill: lettersColor || COLORS.NOG_GREEN }}
         />
         <path
           d="M312.51,250.53c-2.21-3.26,8.21-6.37,8-3.05S314.79,253.9,312.51,250.53Z"
           transform="translate(-174.65 -161.79)"
-          style={{ fill: lettersColor }}
+          style={{ fill: lettersColor || COLORS.NOG_GREEN }}
         />
         <path
           d="M292.9,239.41c-3.45,0-6-20.71,0-18.92C297.41,221.82,298.2,239.41,292.9,239.41Z"
           transform="translate(-174.65 -161.79)"
-          style={{ fill: lettersColor }}
+          style={{ fill: lettersColor || COLORS.NOG_GREEN }}
         />
         <path
           d="M380.82,225c.28-1.93-5.68-3.53-6.8-2.91-.54.3,1.67,6.3.8,8.12-.32.66-3.5-7.05-15.57-7.82-31.73-2-48,60.58-18.53,71,21.53,7.61,32.25-7.65,32.93-7.33,1.39.64.77,27.26-1.19,36.39s-7.9,28.53-27.2,25.5c-21-3.3-16.46-20.63-15.37-20.1,3.13,1.5,12.26-2.78,8.73-8.3-2-3.2-9.05-.86-11.89,3.47-4.62,7-3.61,26,14,30.33,18.33,4.5,35.09-7.59,39.27-28.26C387.22,289.29,380,231.09,380.82,225Zm-7,49.17c-1.57,4.33-12.44,13.6-29.72,8.69-19.75-5.61-12.85-59.26,19-54,9,1.5,11.39,8.24,11.54,10.73C375,246.74,374.68,271.76,373.81,274.17Z"
           transform="translate(-174.65 -161.79)"
-          style={{ fill: lettersColor }}
+          style={{ fill: lettersColor || COLORS.NOG_RED }}
         />
         <path
           d="M295.75,245.26c-39.1-4.83-54.59,78.06-9.65,80.36C329.89,327.86,323.47,248.68,295.75,245.26Zm-5,71.16c-38.61-2.17-28-63.05.16-65.84C313.64,248.34,320.71,318.1,290.78,316.42Z"
           transform="translate(-174.65 -161.79)"
-          style={{ fill: lettersColor }}
+          style={{ fill: lettersColor || COLORS.NOG_GREEN }}
         />
         <path
           d="M193.84,351c-4.78-10.11.81-122.47.08-124.76-.46-1.43,8-3.54,7.33-2.25-1.08,2-1.8,6.85-1.65,9.36,2.32-1.59,15.79-15.69,33.61-10.53,22.46,6.52,19.72,36,13.19,72.9s-11.41,54.69.9,51.73c10.71-2.57,10.22-10.6,9.07-10.49-3.47.34-7.36-7-2.35-9.39,7-3.34,13,10,4.93,19.07-7.49,8.47-14.77,8.5-20.11,4.92-7.88-5.27-3.33-32.87.44-55.72s5.88-66.68-17.48-65.75c-12.94.52-19.6,6.38-21.83,11.21-1.43,3.12,6.73,105.56,1.12,109.7C200.13,351.71,194.52,352.45,193.84,351Z"
           transform="translate(-174.65 -161.79)"
-          style={{ fill: lettersColor }}
+          style={{ fill: lettersColor || COLORS.NOG_RED }}
         />
       </g>
     </svg>
