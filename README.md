@@ -4,6 +4,8 @@
 [![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components)
 ![Storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg)
 
+# ![Nog React](https://github.com/JohnDHamm/nog-react/raw/master/nog_logo.png 'Nog React')
+
 # Nog React monorepo
 
 This monorepo encompasses the React ecosystem for Nog, including components, functions and apps, using `Lerna`, `TypeScript`, `Jest`, `styled-components`, `Storybook`, and `Create React App`.
