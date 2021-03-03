@@ -1,4 +1,5 @@
 import React from 'react';
+import { COLORS } from 'design-system';
 
 interface BarStaffProps {
   height: number;
@@ -9,7 +10,7 @@ interface BarStaffProps {
 const SongStaff: React.FC<BarStaffProps> = ({
   height,
   width,
-  lineColor = '#666',
+  lineColor = COLORS.SONG_GREY,
 }) => {
   const viewboxCalc = `0 0 ${width} ${height}`;
   const staffGapDistance = (height - 1) / 4;
@@ -47,30 +48,6 @@ const SongStaff: React.FC<BarStaffProps> = ({
           x2={width}
           y2="0.5"
         />
-        {/* <line
-        style={{
-          fill: 'none',
-          stroke: lineColor,
-          strokeMiterlimit: 10,
-          strokeWidth: '0.5px',
-        }}
-        x1="359.73"
-        y1="0.5"
-        x2="359.73"
-        y2="72.5"
-        />
-        <line
-        style={{
-          fill: 'none',
-          stroke: lineColor,
-          strokeMiterlimit: 10,
-          strokeWidth: '0.5px',
-        }}
-        x1="0.25"
-        y1="0.5"
-        x2="0.25"
-        y2="72.5"
-      /> */}
       </svg>
     </div>
   );

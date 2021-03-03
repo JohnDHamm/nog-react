@@ -12,8 +12,7 @@ const componentProps: Array<PropsTableProps> = [
   },
   {
     propName: 'length',
-    propType:
-      '"whole" | "half" | "quarter" | "eighth" | "sixteenth" + "-dotted"',
+    propType: 'NoteLength',
     description: 'length of note',
     required: true,
   },
@@ -25,13 +24,13 @@ const componentProps: Array<PropsTableProps> = [
   },
   {
     propName: 'ledgerLine',
-    propType: 'undefined | "above" | "through" | "below"',
+    propType: 'LedgerLine',
     description: 'adds ledger line to note',
     required: false,
   },
   {
     propName: 'noteKey',
-    propType: '"flat" | "sharp" | "natural"',
+    propType: 'NoteKey',
     description: 'adds key to note',
     required: false,
   },
@@ -306,6 +305,21 @@ export const DottedRest = () => (
         style={{ width: '100px', backgroundColor: 'black', padding: '1rem' }}
       >
         <SongNote type="rest" length="quarter-dotted" />
+      </div>
+    }
+    componentProps={componentProps}
+  />
+);
+export const CustomColor = () => (
+  <ComponentStoryWrapper
+    name="SongNote"
+    subName="custom color"
+    description="A musical note or rest"
+    component={
+      <div
+        style={{ width: '100px', backgroundColor: 'black', padding: '1rem' }}
+      >
+        <SongNote type="rest" length="quarter" color="#bada55" />
       </div>
     }
     componentProps={componentProps}

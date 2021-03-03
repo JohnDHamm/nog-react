@@ -1,4 +1,5 @@
 import React from 'react';
+import { COLORS } from 'design-system';
 
 declare global {
   type NoteLength =
@@ -27,7 +28,7 @@ interface SongNoteProps {
 }
 
 const SongNote: React.FC<SongNoteProps> = ({
-  color = '#fff',
+  color = COLORS.SONG_GREY,
   type,
   length,
   ledgerLine,
