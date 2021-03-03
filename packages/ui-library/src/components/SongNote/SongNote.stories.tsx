@@ -7,12 +7,13 @@ const componentProps: Array<PropsTableProps> = [
   {
     propName: 'type',
     propType: '"note" | "rest"',
-    description: 'default: "note"',
-    required: false,
+    description: 'note or rest',
+    required: true,
   },
   {
     propName: 'length',
-    propType: '"whole" | "half" | "quarter" | "eighth" | "sixteenth"',
+    propType:
+      '"whole" | "half" | "quarter" | "eighth" | "sixteenth" + "-dotted"',
     description: 'length of note',
     required: true,
   },
@@ -23,14 +24,8 @@ const componentProps: Array<PropsTableProps> = [
     required: false,
   },
   {
-    propName: 'dotted',
-    propType: 'boolean',
-    description: 'for a dotted note/rest - default: false',
-    required: false,
-  },
-  {
     propName: 'ledgerLine',
-    propType: '"above" | "through" | "below"',
+    propType: 'undefined | "above" | "through" | "below"',
     description: 'adds ledger line to note',
     required: false,
   },
@@ -54,7 +49,7 @@ export const WholeNote = () => (
       <div
         style={{ width: '100px', backgroundColor: 'black', padding: '1rem' }}
       >
-        <SongNote length="whole" />
+        <SongNote type="note" length="whole" />
       </div>
     }
     componentProps={componentProps}
@@ -70,7 +65,7 @@ export const HalfNote = () => (
       <div
         style={{ width: '100px', backgroundColor: 'black', padding: '1rem' }}
       >
-        <SongNote length="half" />
+        <SongNote type="note" length="half" />
       </div>
     }
     componentProps={componentProps}
@@ -85,7 +80,7 @@ export const QuarterNote = () => (
       <div
         style={{ width: '100px', backgroundColor: 'black', padding: '1rem' }}
       >
-        <SongNote length="quarter" />
+        <SongNote type="note" length="quarter" />
       </div>
     }
     componentProps={componentProps}
@@ -100,7 +95,7 @@ export const EighthNote = () => (
       <div
         style={{ width: '100px', backgroundColor: 'black', padding: '1rem' }}
       >
-        <SongNote length="eighth" />
+        <SongNote type="note" length="eighth" />
       </div>
     }
     componentProps={componentProps}
@@ -115,7 +110,7 @@ export const SixteenthNote = () => (
       <div
         style={{ width: '100px', backgroundColor: 'black', padding: '1rem' }}
       >
-        <SongNote length="sixteenth" />
+        <SongNote type="note" length="sixteenth" />
       </div>
     }
     componentProps={componentProps}
@@ -130,7 +125,7 @@ export const DottedNote = () => (
       <div
         style={{ width: '100px', backgroundColor: 'black', padding: '1rem' }}
       >
-        <SongNote length="quarter" dotted={true} />
+        <SongNote type="note" length="quarter-dotted" />
       </div>
     }
     componentProps={componentProps}
@@ -145,7 +140,7 @@ export const FlatNote = () => (
       <div
         style={{ width: '100px', backgroundColor: 'black', padding: '1rem' }}
       >
-        <SongNote length="quarter" noteKey="flat" />
+        <SongNote type="note" length="quarter" noteKey="flat" />
       </div>
     }
     componentProps={componentProps}
@@ -160,7 +155,7 @@ export const SharpNote = () => (
       <div
         style={{ width: '100px', backgroundColor: 'black', padding: '1rem' }}
       >
-        <SongNote length="quarter" noteKey="sharp" />
+        <SongNote type="note" length="quarter" noteKey="sharp" />
       </div>
     }
     componentProps={componentProps}
@@ -175,7 +170,7 @@ export const NaturalNote = () => (
       <div
         style={{ width: '100px', backgroundColor: 'black', padding: '1rem' }}
       >
-        <SongNote length="quarter" noteKey="natural" />
+        <SongNote type="note" length="quarter" noteKey="natural" />
       </div>
     }
     componentProps={componentProps}
@@ -190,7 +185,7 @@ export const LedgerLineAboveNote = () => (
       <div
         style={{ width: '100px', backgroundColor: 'black', padding: '1rem' }}
       >
-        <SongNote length="quarter" ledgerLine="above" />
+        <SongNote type="note" length="quarter" ledgerLine="above" />
       </div>
     }
     componentProps={componentProps}
@@ -205,7 +200,7 @@ export const LedgerLineThroughNote = () => (
       <div
         style={{ width: '100px', backgroundColor: 'black', padding: '1rem' }}
       >
-        <SongNote length="quarter" ledgerLine="through" />
+        <SongNote type="note" length="quarter" ledgerLine="through" />
       </div>
     }
     componentProps={componentProps}
@@ -220,7 +215,7 @@ export const LedgerLineBelowNote = () => (
       <div
         style={{ width: '100px', backgroundColor: 'black', padding: '1rem' }}
       >
-        <SongNote length="quarter" ledgerLine="below" />
+        <SongNote type="note" length="quarter" ledgerLine="below" />
       </div>
     }
     componentProps={componentProps}
@@ -310,7 +305,7 @@ export const DottedRest = () => (
       <div
         style={{ width: '100px', backgroundColor: 'black', padding: '1rem' }}
       >
-        <SongNote type="rest" length="quarter" dotted={true} />
+        <SongNote type="rest" length="quarter-dotted" />
       </div>
     }
     componentProps={componentProps}

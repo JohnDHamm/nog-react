@@ -7,7 +7,7 @@ const componentProps: Array<PropsTableProps> = [
   {
     propName: 'height',
     propType: 'number',
-    description: 'hieght of staff',
+    description: 'height of staff',
     required: true,
   },
   {

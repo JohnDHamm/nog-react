@@ -1,22 +1,40 @@
 import React from 'react';
 
+declare global {
+  type NoteLength =
+    | 'whole'
+    | 'half'
+    | 'quarter'
+    | 'eighth'
+    | 'sixteenth'
+    | 'whole-dotted'
+    | 'half-dotted'
+    | 'quarter-dotted'
+    | 'eighth-dotted'
+    | 'sixteenth-dotted';
+
+  type LedgerLine = undefined | 'through' | 'above' | 'below';
+
+  type NoteKey = undefined | 'flat' | 'sharp' | 'natural';
+}
+
 interface SongNoteProps {
   color?: string;
-  type?: 'note' | 'rest';
-  length: 'whole' | 'half' | 'quarter' | 'eighth' | 'sixteenth';
-  dotted?: boolean;
-  ledgerLine?: undefined | 'through' | 'above' | 'below';
-  noteKey?: undefined | 'flat' | 'sharp' | 'natural';
+  type: 'note' | 'rest';
+  length: NoteLength;
+  ledgerLine?: LedgerLine;
+  noteKey?: NoteKey;
 }
 
 const SongNote: React.FC<SongNoteProps> = ({
   color = '#fff',
-  type = 'note',
+  type,
   length,
-  dotted = false,
   ledgerLine,
   noteKey,
 }) => {
+  const noteLength = length.split('-')[0];
+  const dotted = length.split('-')[1];
   const style1 = { fill: color };
   const style2 = { fill: 'none', stroke: color, strokeMiterlimit: 10 };
   const style3 = { strokeWidth: '0.75px', ...style2 };
@@ -26,7 +44,7 @@ const SongNote: React.FC<SongNoteProps> = ({
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 57.37 89.95">
         {type === 'note' && (
           <g id="note">
-            {length === 'whole' || length === 'half' ? (
+            {noteLength === 'whole' || noteLength === 'half' ? (
               <path
                 id="openNoteBody"
                 style={style1}
@@ -44,10 +62,10 @@ const SongNote: React.FC<SongNoteProps> = ({
                 transform="translate(-90.15 -38.94) rotate(-18.13)"
               />
             )}
-            {length !== 'whole' && (
+            {noteLength !== 'whole' && (
               <line id="tail" style={style2} x1="40.49" y1="61.61" x2="40.49" />
             )}
-            {length === 'eighth' && (
+            {noteLength === 'eighth' && (
               <path
                 id="eighthFlag"
                 style={style1}
@@ -55,7 +73,7 @@ const SongNote: React.FC<SongNoteProps> = ({
                 transform="translate(-52.2 -70.94)"
               />
             )}
-            {length === 'sixteenth' && (
+            {noteLength === 'sixteenth' && (
               <g id="sixteenthFlags">
                 <path
                   id="flag"
@@ -171,65 +189,65 @@ const SongNote: React.FC<SongNoteProps> = ({
         )}
         {type === 'rest' && (
           <g id="rest">
-            {length === 'whole' && (
+            {noteLength === 'whole' && (
               <rect
                 id="wholeRest"
                 style={style1}
-                x="17.69"
+                x="18.69"
                 y="18.55"
                 width="21.98"
                 height="7.03"
               />
             )}
-            {length === 'half' && (
+            {noteLength === 'half' && (
               <rect
                 id="halfRest"
                 style={style1}
-                x="17.69"
+                x="18.69"
                 y="30.51"
                 width="21.98"
                 height="7.03"
               />
             )}
-            {length === 'quarter' && (
+            {noteLength === 'quarter' && (
               <path
                 id="quarterRest"
                 style={style1}
-                d="M77.84,79.59s6.61,9.9,10,14.39c-12.37,14-2.78,19.68-1.93,23.37-2.91-.86-10.82-4-4.75,12.59-12.71-15.68-6.07-19.46.66-17.27-3.38-4.43-4.37-5.82-7.08-9.79C84.19,94,77.84,79.59,77.84,79.59Z"
+                d="M78.84,79.59s6.61,9.9,10,14.39c-12.37,14-2.78,19.68-1.93,23.37-2.91-.86-10.82-4-4.75,12.59-12.71-15.68-6.07-19.46.66-17.27-3.38-4.43-4.37-5.82-7.08-9.79C85.19,94,78.84,79.59,78.84,79.59Z"
                 transform="translate(-52.2 -70.94)"
               />
             )}
-            {length === 'eighth' && (
+            {noteLength === 'eighth' && (
               <g id="eighthRest">
-                <line style={style2} x1="24.75" y1="53.63" x2="35" y2="21.79" />
-                <circle style={style1} cx="23.69" cy="25.03" r="4.42" />
+                <line style={style2} x1="25.75" y1="53.63" x2="36" y2="21.79" />
+                <circle style={style1} cx="24.69" cy="25.03" r="4.42" />
                 <path
                   style={style2}
-                  d="M87.21,92.73c-.76,2.36-5.55,7.14-11.32,7.14"
+                  d="M88.21,92.73c-.76,2.36-5.55,7.14-11.32,7.14"
                   transform="translate(-52.2 -70.94)"
                 />
               </g>
             )}
-            {length === 'sixteenth' && (
+            {noteLength === 'sixteenth' && (
               <g id="sixteenthRest">
-                <line style={style2} x1="24.75" y1="53.63" x2="35" y2="21.79" />
-                <circle style={style1} cx="23.69" cy="25.03" r="4.42" />
+                <line style={style2} x1="25.75" y1="53.63" x2="36" y2="21.79" />
+                <circle style={style1} cx="24.69" cy="25.03" r="4.42" />
                 <path
                   style={style2}
-                  d="M87.21,92.73c-.76,2.36-5.55,7.14-11.32,7.14"
+                  d="M88.21,92.73c-.76,2.36-5.55,7.14-11.32,7.14"
                   transform="translate(-52.2 -70.94)"
                 />
                 <line
                   style={style2}
-                  x1="30.56"
+                  x1="31.56"
                   y1="35.6"
-                  x2="40.81"
+                  x2="41.81"
                   y2="3.77"
                 />
-                <circle style={style1} cx="29.49" cy="7" r="4.42" />
+                <circle style={style1} cx="30.49" cy="7" r="4.42" />
                 <path
                   style={style2}
-                  d="M93,74.71c-.76,2.36-5.54,7.13-11.31,7.13"
+                  d="M94,74.71c-.76,2.36-5.54,7.13-11.31,7.13"
                   transform="translate(-52.2 -70.94)"
                 />
               </g>
@@ -239,7 +257,7 @@ const SongNote: React.FC<SongNoteProps> = ({
                 id="dot-2"
                 data-name="dot"
                 style={style1}
-                cx="41.97"
+                cx="42.97"
                 cy="27.83"
                 r="2.47"
               />
