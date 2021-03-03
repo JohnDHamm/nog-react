@@ -6,6 +6,8 @@ import NavBar from './components/NavBar/NavBar';
 import NogLogo from './components/NogLogo/NogLogo';
 import Snowflake from './components/Snowflake/Snowflake';
 import SnowflakeInstance from './components/SnowflakeInstance/SnowflakeInstance';
+import SongNote from './components/SongNote/SongNote';
+import SongStaff from './components/SongStaff/SongStaff';
 import ToolButton from './components/ToolButton/ToolButton';
 // IconButtons
 import EndIconButton from './components/IconButtons/EndIconButton/EndIconButton';
@@ -29,6 +31,8 @@ export {
   NogLogo,
   Snowflake,
   SnowflakeInstance,
+  SongNote,
+  SongStaff,
   ToolButton,
   EndIconButton,
   NextIconButton,

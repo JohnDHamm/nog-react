@@ -5,6 +5,7 @@ const GREY = '#808080';
 const NAV_GREY = '#555';
 const NOG_GREEN = '#215C2E';
 const NOG_RED = '#701626';
+const SONG_GREY = '#888';
 const TEXT = '#333';
 const WHITE = '#FFF';
 
@@ -16,6 +17,7 @@ export type ColorNameType =
   | 'NAV_GREY'
   | 'NOG_GREEN'
   | 'NOG_RED'
+  | 'SONG_GREY'
   | 'TEXT'
   | 'WHITE';
 
@@ -26,6 +28,7 @@ export const COLOR_NAMES: ColorNameType[] = [
   'TEXT',
   'BACKGROUND_GREY',
   'NAV_GREY',
+  'SONG_GREY',
   'GREY',
   'BLACK',
   'WHITE',
@@ -44,6 +47,7 @@ export const COLORS: ColorsType = {
   NAV_GREY,
   NOG_GREEN,
   NOG_RED,
+  SONG_GREY,
   TEXT,
   WHITE
 };
