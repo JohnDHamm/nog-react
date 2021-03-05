@@ -17,11 +17,13 @@ declare global {
   type LedgerLine = undefined | 'through' | 'above' | 'below';
 
   type NoteKey = undefined | 'flat' | 'sharp' | 'natural';
+
+  type NoteType = 'note' | 'rest';
 }
 
 interface SongNoteProps {
   color?: string;
-  type: 'note' | 'rest';
+  type: NoteType;
   length: NoteLength;
   ledgerLine?: LedgerLine;
   noteKey?: NoteKey;

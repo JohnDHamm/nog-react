@@ -6,7 +6,7 @@ import { ComponentStoryWrapper, PropsTableProps } from 'storybook-helpers';
 const componentProps: Array<PropsTableProps> = [
   {
     propName: 'type',
-    propType: '"note" | "rest"',
+    propType: 'NoteType',
     description: 'note or rest',
     required: true,
   },
