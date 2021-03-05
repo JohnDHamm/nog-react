@@ -27,6 +27,7 @@ export const Default = () => (
         style={{
           backgroundColor: COLORS.BACKGROUND_GREY,
           padding: '7rem 2rem',
+          overflow: 'scroll',
         }}
       >
         <SongDisplay

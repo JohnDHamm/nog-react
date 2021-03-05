@@ -57,9 +57,11 @@ const SongDisplay: React.FC<SongDisplayProps> = ({
     return preparedBars;
   };
 
+  const tempTimeSigWidth = 100;
+
   return (
-    <Container>
-      <SongStaff height={barHeight} width={100} />
+    <Container width={bars.length * barWidth + tempTimeSigWidth}>
+      <SongStaff height={barHeight} width={tempTimeSigWidth} />
       {renderBars()}
     </Container>
   );
