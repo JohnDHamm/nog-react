@@ -2,6 +2,7 @@ export const FrostyMockSong: Song = {
   name: 'Frosty the Snowman',
   tempo: 120,
   timeSignature: '4:4',
+  audioFileUrl: 'temp',
   bars: [
     {
       barNumber: 1,

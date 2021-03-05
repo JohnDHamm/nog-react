@@ -7,9 +7,33 @@ import { FrostyMockSong } from '../../mocks/songs/FrostyMockSong';
 
 const componentProps: Array<PropsTableProps> = [
   {
-    propName: 'name',
-    propType: 'string',
-    description: 'Name for song',
+    propName: 'song',
+    propType: 'Song',
+    description: 'song',
+    required: true,
+  },
+  {
+    propName: 'currentBar',
+    propType: 'number',
+    description: 'current measure',
+    required: true,
+  },
+  {
+    propName: 'currentTimePosition',
+    propType: 'number',
+    description: 'current position in measure',
+    required: true,
+  },
+  {
+    propName: 'barHeight',
+    propType: 'number',
+    description: 'height',
+    required: true,
+  },
+  {
+    propName: 'barWidth',
+    propType: 'number',
+    description: 'width',
     required: true,
   },
 ];

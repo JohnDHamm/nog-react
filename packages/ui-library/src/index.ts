@@ -6,8 +6,12 @@ import NavBar from './components/NavBar/NavBar';
 import NogLogo from './components/NogLogo/NogLogo';
 import Snowflake from './components/Snowflake/Snowflake';
 import SnowflakeInstance from './components/SnowflakeInstance/SnowflakeInstance';
+import SongBar from './components/SongBar/SongBar';
+import SongDisplay from './components/SongDisplay/SongDisplay';
+import SongGClef from './components/SongGClef/SongGClef';
 import SongNote from './components/SongNote/SongNote';
 import SongStaff from './components/SongStaff/SongStaff';
+import SongTimeSig from './components/SongTimeSig/SongTimeSig';
 import ToolButton from './components/ToolButton/ToolButton';
 // IconButtons
 import EndIconButton from './components/IconButtons/EndIconButton/EndIconButton';
@@ -31,8 +35,12 @@ export {
   NogLogo,
   Snowflake,
   SnowflakeInstance,
+  SongBar,
+  SongDisplay,
+  SongGClef,
   SongNote,
   SongStaff,
+  SongTimeSig,
   ToolButton,
   EndIconButton,
   NextIconButton,

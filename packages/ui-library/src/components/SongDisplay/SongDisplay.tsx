@@ -1,15 +1,17 @@
 import React from 'react';
-import SongStaff from '../SongStaff/SongStaff';
+import SongTimeSig from '../SongTimeSig/SongTimeSig';
 import SongBar from '../SongBar/SongBar';
 import { Container } from './SongDisplay.styles';
 
 declare global {
+  type TimeSignature = '3:4' | '4:4';
+
   interface Song {
     name: string;
     tempo: number;
-    timeSignature: '3:4' | '4:4';
+    timeSignature: TimeSignature;
     bars: Bar[];
-    // audioFileUrl: string;
+    audioFileUrl: string;
   }
 }
 
@@ -57,11 +59,15 @@ const SongDisplay: React.FC<SongDisplayProps> = ({
     return preparedBars;
   };
 
-  const tempTimeSigWidth = 100;
+  const timeSigWidth = barWidth * 0.33;
 
   return (
-    <Container width={bars.length * barWidth + tempTimeSigWidth}>
-      <SongStaff height={barHeight} width={tempTimeSigWidth} />
+    <Container width={bars.length * barWidth + timeSigWidth}>
+      <SongTimeSig
+        height={barHeight}
+        width={timeSigWidth}
+        timeSignature={song.timeSignature}
+      />
       {renderBars()}
     </Container>
   );
