@@ -13,11 +13,8 @@ import SongStaff from '../SongStaff/SongStaff';
 declare global {
   interface Bar {
     barNumber: number;
-    beatsPerBar?: number;
     notes: Note[];
     lyrics: Lyric[];
-    isCurrentBar: boolean;
-    currentTimePosition?: number | undefined;
   }
 
   interface Note {
@@ -32,9 +29,17 @@ declare global {
     timePosition: number;
     text: string;
   }
+
+  interface BarDisplayProps {
+    height: number;
+    width: number;
+    beatsPerBar?: number;
+    isCurrentBar: boolean;
+    currentTimePosition?: number | undefined;
+  }
 }
 
-type SongBarProps = Bar & { height: number; width: number };
+type SongBarProps = Bar & BarDisplayProps;
 
 const SongBar: React.FC<SongBarProps> = ({
   barNumber,
