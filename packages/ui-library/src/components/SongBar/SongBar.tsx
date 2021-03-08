@@ -10,33 +10,12 @@ import {
 import SongNote from '../SongNote/SongNote';
 import SongStaff from '../SongStaff/SongStaff';
 
-declare global {
-  interface Bar {
-    barNumber: number;
-    notes: Note[];
-    lyrics: Lyric[];
-  }
-
-  interface Note {
-    type: 'note' | 'rest';
-    timePosition: number;
-    scalePosition: number;
-    length: NoteLength;
-    noteKey?: NoteKey;
-  }
-
-  interface Lyric {
-    timePosition: number;
-    text: string;
-  }
-
-  interface BarDisplayProps {
-    height: number;
-    width: number;
-    beatsPerBar?: number;
-    isCurrentBar: boolean;
-    currentTimePosition?: number | undefined;
-  }
+interface BarDisplayProps {
+  height: number;
+  width: number;
+  beatsPerBar?: number;
+  isCurrentBar: boolean;
+  currentTimePosition?: number | undefined;
 }
 
 type SongBarProps = Bar & BarDisplayProps;

@@ -1,26 +1,6 @@
 import React from 'react';
 import { COLORS } from 'design-system';
 
-declare global {
-  type NoteLength =
-    | 'whole'
-    | 'half'
-    | 'quarter'
-    | 'eighth'
-    | 'sixteenth'
-    | 'whole-dotted'
-    | 'half-dotted'
-    | 'quarter-dotted'
-    | 'eighth-dotted'
-    | 'sixteenth-dotted';
-
-  type LedgerLine = undefined | 'through' | 'above' | 'below';
-
-  type NoteKey = undefined | 'flat' | 'sharp' | 'natural';
-
-  type NoteType = 'note' | 'rest';
-}
-
 interface SongNoteProps {
   color?: string;
   type: NoteType;
