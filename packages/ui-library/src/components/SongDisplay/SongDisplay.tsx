@@ -3,18 +3,6 @@ import SongTimeSig from '../SongTimeSig/SongTimeSig';
 import SongBar from '../SongBar/SongBar';
 import { Container } from './SongDisplay.styles';
 
-declare global {
-  type TimeSignature = '3:4' | '4:4';
-
-  interface Song {
-    name: string;
-    tempo: number;
-    timeSignature: TimeSignature;
-    bars: Bar[];
-    audioFileUrl: string;
-  }
-}
-
 interface SongDisplayProps {
   song: Song;
   currentBar: number;
