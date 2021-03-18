@@ -8,7 +8,11 @@ const CopyIcon: React.FC<BaseIconInterface> = ({
   hoverColor,
 }) => {
   return (
-    <svg viewBox="0 0 80.93 38.9" aria-labelledby="title">
+    <svg
+      viewBox="0 0 80.93 38.9"
+      aria-labelledby="title"
+      data-testid="CopyIcon"
+    >
       <title>Copy Icon</title>
       <g>
         <StyledPath

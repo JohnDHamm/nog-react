@@ -21,6 +21,7 @@ const StopIconButton: React.FC<IconButtonProps> = ({
       color={color || '#000'}
       hoverColor={hoverColor}
       onClick={onClick}
+      testid="StopIconButton"
     >
       <g>
         <path

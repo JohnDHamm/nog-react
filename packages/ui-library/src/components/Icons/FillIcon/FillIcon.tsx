@@ -9,7 +9,11 @@ const FillIcon: React.FC<BaseIconInterface> = ({
   hoverColor,
 }) => {
   return (
-    <svg viewBox="0 0 49.98 40.7" aria-labelledby="title">
+    <svg
+      viewBox="0 0 49.98 40.7"
+      aria-labelledby="title"
+      data-testid="FillIcon"
+    >
       <title>Fill Icon</title>
       <g>
         <circle cx="24.99" cy="8.66" r="8.16" style={{ fill: extraColor }} />
