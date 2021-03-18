@@ -3,6 +3,10 @@ import { TimeNumberBottom, TimeNumberTop } from './SongTimeSig.styles';
 import SongStaff from '../SongStaff/SongStaff';
 import SongGClef from '../SongGClef/SongGClef';
 
+declare global {
+  type TimeSignature = '3:4' | '4:4';
+}
+
 interface SongTimeSigProps {
   height: number;
   width: number;

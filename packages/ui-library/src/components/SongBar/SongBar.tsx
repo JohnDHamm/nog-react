@@ -10,6 +10,27 @@ import {
 import SongNote from '../SongNote/SongNote';
 import SongStaff from '../SongStaff/SongStaff';
 
+declare global {
+  interface Lyric {
+    timePosition: number;
+    text: string;
+  }
+
+  interface Note {
+    type: 'note' | 'rest';
+    timePosition: number;
+    scalePosition: number;
+    length: NoteLength;
+    noteKey?: NoteKey;
+  }
+
+  interface Bar {
+    barNumber: number;
+    notes: Note[];
+    lyrics: Lyric[];
+  }
+}
+
 interface BarDisplayProps {
   height: number;
   width: number;
