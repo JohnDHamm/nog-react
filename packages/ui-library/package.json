@@ -16,7 +16,7 @@
     "start": "tsdx watch",
     "build": "tsdx build",
     "watch": "tsdx watch --noClean",
-    "test": "tsdx test --passWithNoTests",
+    "test": "tsdx test --passWithNoTests --watchAll --coverage",
     "lint": "tsdx lint",
     "prepare": "tsdx build",
     "storybook": "start-storybook -p 6006",
@@ -64,5 +64,13 @@
     "hex-to-hsl": "^1.0.2",
     "storybook-helpers": "0.1.0",
     "styled-components": "^5.1.0"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/components/**/*.{ts,tsx}",
+      "!**/node_modules/**",
+      "!**/*.stories.tsx",
+      "!**/*.styles.ts"
+    ]
   }
 }
