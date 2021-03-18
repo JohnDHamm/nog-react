@@ -8,7 +8,7 @@ export interface TestComponentProps {
 
 const TestComponent: React.FC<TestComponentProps> = ({ altStyle, text }) => {
   return (
-    <StyledWrapper altStyle={altStyle}>
+    <StyledWrapper data-testid="TestComponent" altStyle={altStyle}>
       <StyledText altStyle={altStyle}>{text}</StyledText>
     </StyledWrapper>
   );

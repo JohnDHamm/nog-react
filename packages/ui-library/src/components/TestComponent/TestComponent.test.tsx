@@ -1,11 +1,16 @@
 import React from 'react';
-import * as ReactDOM from 'react-dom';
 import TestComponent from './TestComponent';
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
 
 describe('TestComponent', () => {
-  it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<TestComponent text="some text" />, div);
-    ReactDOM.unmountComponentAtNode(div);
+  it('should render without crashing', () => {
+    render(<TestComponent text="here is the text!" />);
+    expect(screen.getByTestId('TestComponent')).toBeInTheDocument();
+  });
+
+  it('should render the supplied text prop', () => {
+    render(<TestComponent text="here is the text!" />);
+    expect(screen.getByText('here is the text!')).toBeInTheDocument();
   });
 });
