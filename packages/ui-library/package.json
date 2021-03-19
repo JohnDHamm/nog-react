@@ -61,6 +61,7 @@
     "@davidmarkclements/hsl-to-hex": "^1.0.2",
     "@types/styled-components": "^5.1.0",
     "design-system": "0.1.0",
+    "function-library": "0.1.0",
     "hex-to-hsl": "^1.0.2",
     "storybook-helpers": "0.1.0",
     "styled-components": "^5.1.0"
