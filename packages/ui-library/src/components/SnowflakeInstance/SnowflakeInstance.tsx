@@ -3,6 +3,10 @@ import { Container, Light, Number } from './SnowflakeInstance.styles';
 import { getSnowflakeLightLocations } from './getSnowflakeLightLocations';
 import Snowflake, { SnowflakeInterface } from '../Snowflake/Snowflake';
 import { COLORS } from 'design-system';
+import { subTestIdInit } from 'function-library';
+
+const testid = 'SnowflakeInstance';
+const subTestid = subTestIdInit(testid);
 
 interface LightStyle {
   border: string;
@@ -52,6 +56,7 @@ const SnowflakeInstance: React.FC<SnowflakeInstanceInterface> = ({
           onClick={
             instanceType === 'current' ? () => onLightClick(idx) : () => null
           }
+          data-testid={subTestid(`Light-${idx}`)}
         />
       );
     });
@@ -92,9 +97,13 @@ const SnowflakeInstance: React.FC<SnowflakeInstanceInterface> = ({
   }, [instanceType]);
 
   return (
-    <Container size={instanceSize}>
-      <Snowflake {...snowflakeProps} />
-      {instanceType === 'current' && <Number>{instanceNum + 1}</Number>}
+    <Container size={instanceSize} data-testid={testid}>
+      <Snowflake {...snowflakeProps} data-testid={'Snowflake'} />
+      {instanceType === 'current' && (
+        <Number data-testid={subTestid('CurrentNumber')}>
+          {instanceNum + 1}
+        </Number>
+      )}
       {renderLights()}
     </Container>
   );
