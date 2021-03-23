@@ -11,6 +11,7 @@ const SongGClef: React.FC<SongGClefProps> = ({ color = COLORS.SONG_GREY }) => {
       id="gClef"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 47.94 127.79"
+      data-testid="SongGClef"
     >
       <path
         style={{ fill: color }}
