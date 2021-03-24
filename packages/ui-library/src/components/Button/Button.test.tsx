@@ -5,16 +5,17 @@ import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
 
 describe('Button', () => {
-  const onButtonClick = jest.fn();
+  const mockOnClick = jest.fn();
+
   it('should render with children as button text', () => {
     render(<Button onClick={jest.fn()}>submit</Button>);
     expect(screen.getByRole('button')).toBeInTheDocument();
     expect(screen.getByText('submit')).toBeInTheDocument();
   });
 
-  it("should call it's onClick prop when button is clicked", () => {
-    render(<Button onClick={onButtonClick}>submit</Button>);
+  it('should call the "onClick" prop when button is clicked', () => {
+    render(<Button onClick={mockOnClick}>submit</Button>);
     userEvent.click(screen.getByRole('button'));
-    expect(onButtonClick).toHaveBeenCalledTimes(1);
+    expect(mockOnClick).toHaveBeenCalledTimes(1);
   });
 });

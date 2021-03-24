@@ -5,16 +5,31 @@ import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
 
 describe('EndIconButton', () => {
-  const onButtonClick = jest.fn();
+  const testid = 'EndIconButton';
+  const mockOnClick = jest.fn();
 
   it('should render', () => {
-    render(<EndIconButton width={40} onClick={jest.fn()} />);
-    expect(screen.getByTestId('EndIconButton')).toBeInTheDocument();
+    render(<EndIconButton width={40} />);
+    expect(screen.getByTestId(testid)).toBeInTheDocument();
   });
 
-  it("should call it's onClick prop when button is clicked", () => {
-    render(<EndIconButton width={40} onClick={onButtonClick} />);
-    userEvent.click(screen.getByTestId('EndIconButton'));
-    expect(onButtonClick).toHaveBeenCalledTimes(1);
+  it('should render with optional props', () => {
+    render(
+      <EndIconButton
+        width={40}
+        color="#bada55"
+        hoverColor="white"
+        onClick={mockOnClick}
+      >
+        <p>children</p>
+      </EndIconButton>
+    );
+    expect(screen.getByTestId(testid)).toBeInTheDocument();
+  });
+
+  it('should call the optional "onClick" prop when clicked', () => {
+    render(<EndIconButton width={40} onClick={mockOnClick} />);
+    userEvent.click(screen.getByTestId(testid));
+    expect(mockOnClick).toHaveBeenCalledTimes(1);
   });
 });
