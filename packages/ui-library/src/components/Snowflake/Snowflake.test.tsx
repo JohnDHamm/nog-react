@@ -4,7 +4,7 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 describe('Snowflake', () => {
-  it('should render by default with background', () => {
+  it('should render', () => {
     render(
       <Snowflake
         innerColor="white"

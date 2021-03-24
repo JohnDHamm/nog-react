@@ -14,4 +14,16 @@ describe('NogLogo', () => {
     render(<NogLogo hasBackground={false} />);
     expect(screen.queryByTestId('NogLogo-background')).not.toBeInTheDocument();
   });
+
+  it('should render with optional color props', () => {
+    render(
+      <NogLogo
+        backgroundColor="green"
+        borderColor="red"
+        lettersColor="#bada55"
+      />
+    );
+    expect(screen.getByTestId('NogLogo')).toBeInTheDocument();
+    expect(screen.getByTestId('NogLogo-background')).toBeInTheDocument();
+  });
 });

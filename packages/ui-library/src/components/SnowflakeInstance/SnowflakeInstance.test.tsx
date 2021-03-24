@@ -11,7 +11,8 @@ describe('SnowflakeInstance', () => {
   const testid = 'SnowflakeInstance';
   const subTestid = subTestIdInit(testid);
 
-  const handleLightClick = jest.fn();
+  const mockOnLightClick = jest.fn();
+
   const testProps: SnowflakeInstanceInterface = {
     lightsColors: [
       '#ff0000',
@@ -48,7 +49,7 @@ describe('SnowflakeInstance', () => {
     instanceNum: 42,
     instanceSize: 400,
     instanceType: 'current',
-    onLightClick: handleLightClick,
+    onLightClick: mockOnLightClick,
   };
 
   it('should render a "current" type snowflake with current instance number and lights', () => {
@@ -81,21 +82,21 @@ describe('SnowflakeInstance', () => {
   it('should call the "onLightClick" property of a "current" type snowflake with the light number when a light button is clicked', () => {
     render(<SnowflakeInstance {...testProps} />);
     userEvent.click(screen.getByTestId(subTestid('Light-4')));
-    expect(handleLightClick).toHaveBeenCalledTimes(1);
-    expect(handleLightClick).toHaveBeenCalledWith(4);
+    expect(mockOnLightClick).toHaveBeenCalledTimes(1);
+    expect(mockOnLightClick).toHaveBeenCalledWith(4);
   });
 
   it('should not call the "onLightClick" property of a "playback" type snowflake when a light button is clicked', () => {
     jest.clearAllMocks();
     render(<SnowflakeInstance {...testProps} instanceType="playback" />);
     userEvent.click(screen.getByTestId(subTestid('Light-6')));
-    expect(handleLightClick).toHaveBeenCalledTimes(0);
+    expect(mockOnLightClick).toHaveBeenCalledTimes(0);
   });
 
   it('should not call the "onLightClick" property of a "other" type snowflake when a light button is clicked', () => {
     jest.clearAllMocks();
     render(<SnowflakeInstance {...testProps} instanceType="other" />);
     userEvent.click(screen.getByTestId(subTestid('Light-15')));
-    expect(handleLightClick).toHaveBeenCalledTimes(0);
+    expect(mockOnLightClick).toHaveBeenCalledTimes(0);
   });
 });
