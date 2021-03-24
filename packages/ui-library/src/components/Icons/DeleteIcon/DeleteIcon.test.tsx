@@ -8,4 +8,9 @@ describe('DeleteIcon', () => {
     render(<DeleteIcon />);
     expect(screen.getByTestId('DeleteIcon')).toBeInTheDocument();
   });
+
+  it('should render with optional color prop', () => {
+    render(<DeleteIcon color="#bada55" />);
+    expect(screen.getByTestId('DeleteIcon')).toBeInTheDocument();
+  });
 });

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledPath } from '../styles';
+import { StyledPath } from '../styles/Icons.styles';
 import { BaseIconInterface } from '../types';
 import { COLORS } from 'design-system';
 

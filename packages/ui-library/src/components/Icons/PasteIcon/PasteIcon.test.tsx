@@ -8,4 +8,9 @@ describe('PasteIcon', () => {
     render(<PasteIcon />);
     expect(screen.getByTestId('PasteIcon')).toBeInTheDocument();
   });
+
+  it('should render with optional color prop', () => {
+    render(<PasteIcon color="#bada55" />);
+    expect(screen.getByTestId('PasteIcon')).toBeInTheDocument();
+  });
 });

@@ -8,4 +8,9 @@ describe('AddIcon', () => {
     render(<AddIcon />);
     expect(screen.getByTestId('AddIcon')).toBeInTheDocument();
   });
+
+  it('should render with optional color prop', () => {
+    render(<AddIcon color="#bada55" />);
+    expect(screen.getByTestId('AddIcon')).toBeInTheDocument();
+  });
 });
