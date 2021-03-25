@@ -94,7 +94,7 @@ const SongBar: React.FC<SongBarProps> = ({
           width={noteWidth}
           left={leftPosition}
           bottom={bottomPosition}
-          key={note.timePosition}
+          key={`${barNumber}-${note.timePosition}`}
           data-testid={subTestid(`Note-${note.timePosition}`)}
         >
           <SongNote
@@ -120,7 +120,7 @@ const SongBar: React.FC<SongBarProps> = ({
       const bottomPosition = -(height * 0.75);
       return (
         <LyricText
-          key={lyric.text}
+          key={`${barNumber}-${lyric.timePosition}`}
           left={leftPosition}
           bottom={bottomPosition}
           isCurrent={lyric.timePosition === currentTimePosition}
