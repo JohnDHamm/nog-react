@@ -3,7 +3,7 @@ import MultiColorPalette, {
   ColorPaletteObject,
   MultiColorPaletteProps,
 } from './MultiColorPalette';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import { subTestIdInit } from 'function-library';
@@ -62,6 +62,10 @@ describe('MultiColorPalette', () => {
     render(<MultiColorPalette {...baseProps} />);
     userEvent.click(screen.getByTestId(subTestid('ColorWell-8')));
     expect(screen.getByTestId(subTestid('ColorPicker'))).toBeInTheDocument();
+    expect(screen.getByRole('slider', { name: 'hue' })).toBeInTheDocument();
+    expect(
+      screen.getByRole('slider', { name: 'luminosity' })
+    ).toBeInTheDocument();
     expect(
       screen.queryByTestId(subTestid('ColorWells'))
     ).not.toBeInTheDocument();
@@ -70,6 +74,16 @@ describe('MultiColorPalette', () => {
   it('should call the "onColorChange" prop when a custom color is saved and close the color picker', () => {
     render(<MultiColorPalette {...baseProps} />);
     userEvent.click(screen.getByTestId(subTestid('ColorWell-8')));
+    fireEvent.change(screen.getByRole('slider', { name: 'hue' }), {
+      target: { value: 42 },
+    });
+    expect(screen.getByRole('slider', { name: 'hue' })).toHaveValue('42');
+    fireEvent.change(screen.getByRole('slider', { name: 'luminosity' }), {
+      target: { value: 82 },
+    });
+    expect(screen.getByRole('slider', { name: 'luminosity' })).toHaveValue(
+      '82'
+    );
     userEvent.click(screen.getByText('save'));
     expect(mockOnColorChange).toHaveBeenCalledTimes(1);
     expect(screen.getByTestId(subTestid('ColorWells'))).toBeInTheDocument();
@@ -85,6 +99,34 @@ describe('MultiColorPalette', () => {
     expect(screen.getByTestId(subTestid('ColorPicker'))).toBeInTheDocument();
     expect(
       screen.queryByTestId(subTestid('ColorWells'))
+    ).not.toBeInTheDocument();
+  });
+
+  it('should not open the color picker when clicking on a previously defined custom color well', () => {
+    render(<MultiColorPalette {...baseProps} />);
+    userEvent.click(screen.getByTestId(subTestid('ColorWell-15')));
+    expect(screen.getByTestId(subTestid('ColorWells'))).toBeInTheDocument();
+    expect(
+      screen.queryByTestId(subTestid('ColorPicker'))
+    ).not.toBeInTheDocument();
+  });
+
+  it('should not open the color picker when clicking on a default color well', () => {
+    render(<MultiColorPalette {...baseProps} />);
+    userEvent.click(screen.getByTestId(subTestid('ColorWell-1')));
+    expect(screen.getByTestId(subTestid('ColorWells'))).toBeInTheDocument();
+    expect(
+      screen.queryByTestId(subTestid('ColorPicker'))
+    ).not.toBeInTheDocument();
+  });
+
+  it('should not open the color picker when clicking on the current color well with a default color selected', () => {
+    render(<MultiColorPalette {...baseProps} />);
+    userEvent.click(screen.getByTestId(subTestid('ColorWell-1')));
+    userEvent.click(screen.getByTestId(subTestid('CurrentColorWell')));
+    expect(screen.getByTestId(subTestid('ColorWells'))).toBeInTheDocument();
+    expect(
+      screen.queryByTestId(subTestid('ColorPicker'))
     ).not.toBeInTheDocument();
   });
 });

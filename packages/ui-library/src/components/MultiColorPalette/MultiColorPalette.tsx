@@ -174,6 +174,7 @@ const MultiColorPalette: React.FC<MultiColorPaletteProps> = ({
             <SlidersContainer>
               <HueRange />
               <StyledInput
+                aria-label="hue"
                 value={hueSliderValue}
                 min={0}
                 max={360}
@@ -182,6 +183,7 @@ const MultiColorPalette: React.FC<MultiColorPaletteProps> = ({
               />
               <LuminRange value={luminSliderColor} />
               <StyledInput
+                aria-label="luminosity"
                 value={luminSliderValue}
                 min={0}
                 max={100}
