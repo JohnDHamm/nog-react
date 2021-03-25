@@ -16,7 +16,7 @@ const SongStaff: React.FC<BarStaffProps> = ({
   const staffGapDistance = (height - 1) / 4;
 
   return (
-    <div style={{ height: height, width: width }}>
+    <div style={{ height: height, width: width }} data-testid="SongStaff">
       <svg id="bar" xmlns="http://www.w3.org/2000/svg" viewBox={viewboxCalc}>
         <line
           style={{ fill: 'none', stroke: lineColor, strokeMiterlimit: 10 }}

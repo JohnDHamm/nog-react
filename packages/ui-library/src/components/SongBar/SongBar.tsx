@@ -9,6 +9,10 @@ import {
 } from './SongBar.styles';
 import SongNote from '../SongNote/SongNote';
 import SongStaff from '../SongStaff/SongStaff';
+import { subTestIdInit } from 'function-library';
+
+const testid = 'SongBar';
+const subTestid = subTestIdInit(testid);
 
 declare global {
   interface Lyric {
@@ -39,7 +43,7 @@ interface BarDisplayProps {
   currentTimePosition?: number | undefined;
 }
 
-type SongBarProps = Bar & BarDisplayProps;
+export type SongBarProps = Bar & BarDisplayProps;
 
 const SongBar: React.FC<SongBarProps> = ({
   barNumber,
@@ -91,6 +95,7 @@ const SongBar: React.FC<SongBarProps> = ({
           left={leftPosition}
           bottom={bottomPosition}
           key={note.timePosition}
+          data-testid={subTestid(`Note-${note.timePosition}`)}
         >
           <SongNote
             type={note.type}
@@ -119,6 +124,7 @@ const SongBar: React.FC<SongBarProps> = ({
           left={leftPosition}
           bottom={bottomPosition}
           isCurrent={lyric.timePosition === currentTimePosition}
+          data-testid={subTestid(`Lyric-${lyric.timePosition}`)}
         >
           {lyric.text}
         </LyricText>
@@ -127,8 +133,13 @@ const SongBar: React.FC<SongBarProps> = ({
   };
 
   return (
-    <Container height={height} width={width}>
-      <BarNumber isCurrentBar={isCurrentBar}>{barNumber}</BarNumber>
+    <Container height={height} width={width} data-testid={testid}>
+      <BarNumber
+        isCurrentBar={isCurrentBar}
+        data-testid={subTestid('BarNumber')}
+      >
+        {barNumber}
+      </BarNumber>
       <StaffBackground height={height} width={width}>
         <SongStaff height={height} width={width} />
       </StaffBackground>

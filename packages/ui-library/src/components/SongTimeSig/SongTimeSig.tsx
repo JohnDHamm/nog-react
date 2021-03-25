@@ -2,6 +2,10 @@ import React from 'react';
 import { TimeNumberBottom, TimeNumberTop } from './SongTimeSig.styles';
 import SongStaff from '../SongStaff/SongStaff';
 import SongGClef from '../SongGClef/SongGClef';
+import { subTestIdInit } from 'function-library';
+
+const testid = 'SongTimeSig';
+const subTestid = subTestIdInit(testid);
 
 declare global {
   type TimeSignature = '3:4' | '4:4';
@@ -18,7 +22,6 @@ const SongTimeSig: React.FC<SongTimeSigProps> = ({
   width,
   timeSignature,
 }) => {
-  console.log('timeSignature', timeSignature);
   const topTime = timeSignature.split(':')[0];
   const bottomTime = timeSignature.split(':')[1];
 
@@ -28,6 +31,7 @@ const SongTimeSig: React.FC<SongTimeSigProps> = ({
         position: 'relative',
         width: width,
       }}
+      data-testid={'SongTimeSig'}
     >
       <SongStaff height={height} width={width} />
       <div
@@ -40,8 +44,15 @@ const SongTimeSig: React.FC<SongTimeSigProps> = ({
       >
         <SongGClef />
       </div>
-      <TimeNumberTop height={height}>{topTime}</TimeNumberTop>
-      <TimeNumberBottom height={height}>{bottomTime}</TimeNumberBottom>
+      <TimeNumberTop height={height} data-testid={subTestid('TimeNumberTop')}>
+        {topTime}
+      </TimeNumberTop>
+      <TimeNumberBottom
+        height={height}
+        data-testid={subTestid('TimeNumberBottom')}
+      >
+        {bottomTime}
+      </TimeNumberBottom>
     </div>
   );
 };
