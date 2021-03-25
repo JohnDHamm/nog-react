@@ -6,7 +6,7 @@ export default {
   title: functionStoryPath('instanceFunctions')
 };
 
-export const GetNewInstanceLightColors = () => (
+export const Default = () => (
   <FunctionStoryWrapper
     name="getNewInstanceLightColors"
     description="Used to get the initial light colors for a new instance, returns an array of 30 values of 7 (the color number for black)."
@@ -30,6 +30,6 @@ export const GetNewInstanceLightColors = () => (
   />
 );
 
-GetNewInstanceLightColors.story = {
+Default.story = {
   name: 'getNewInstanceLightColors()'
 };

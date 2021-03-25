@@ -1,2 +1,3 @@
-export const functionStoryPath = (path: string): string =>
-  `function-library/${path}`;
+import { functionStoryPath } from './functionStoryPath/functionStoryPath';
+
+export { functionStoryPath };

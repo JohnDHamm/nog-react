@@ -16,7 +16,7 @@
     "start": "tsdx watch",
     "build": "tsdx build",
     "watch": "tsdx watch --noClean",
-    "test": "tsdx test --passWithNoTests",
+    "test": "tsdx test --passWithNoTests --watchAll --coverage",
     "lint": "tsdx lint",
     "prepare": "tsdx build",
     "storybook": "start-storybook -p 6006",
@@ -52,5 +52,11 @@
     "@types/styled-components": "^5.1.0",
     "styled-components": "^5.1.0",
     "storybook-helpers": "0.1.0"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/**/*.{ts, tsx}",
+      "!**/index.ts"
+    ]
   }
 }
