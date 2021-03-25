@@ -3,6 +3,8 @@ import SongTimeSig from '../SongTimeSig/SongTimeSig';
 import SongBar from '../SongBar/SongBar';
 import { Container } from './SongDisplay.styles';
 
+const testid = 'SongDisplay';
+
 declare global {
   interface Song {
     name: string;
@@ -28,8 +30,6 @@ const SongDisplay: React.FC<SongDisplayProps> = ({
   barHeight,
   barWidth,
 }) => {
-  console.log('currentBar', currentBar);
-  console.log('currentTimePosition', currentTimePosition);
   const { bars, timeSignature } = song;
   const beatsPerBar = parseInt(timeSignature.split(':')[0]);
 
@@ -60,7 +60,10 @@ const SongDisplay: React.FC<SongDisplayProps> = ({
   const timeSigWidth = barWidth * 0.33;
 
   return (
-    <Container width={bars.length * barWidth + timeSigWidth}>
+    <Container
+      width={bars.length * barWidth + timeSigWidth}
+      data-testid={testid}
+    >
       <SongTimeSig
         height={barHeight}
         width={timeSigWidth}

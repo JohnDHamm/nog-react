@@ -133,7 +133,11 @@ const SongBar: React.FC<SongBarProps> = ({
   };
 
   return (
-    <Container height={height} width={width} data-testid={testid}>
+    <Container
+      height={height}
+      width={width}
+      data-testid={subTestid(barNumber.toString())}
+    >
       <BarNumber
         isCurrentBar={isCurrentBar}
         data-testid={subTestid('BarNumber')}

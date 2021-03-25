@@ -20,7 +20,9 @@ describe('SongBar', () => {
 
   it('should render', () => {
     render(<SongBar {...baseProps} />);
-    expect(screen.getByTestId(testid)).toBeInTheDocument();
+    expect(
+      screen.getByTestId(subTestid(baseProps.barNumber.toString()))
+    ).toBeInTheDocument();
     expect(screen.getByTestId(subTestid('BarNumber'))).toBeInTheDocument();
     expect(screen.getByTestId(subTestid('BarNumber'))).toHaveTextContent(
       baseProps.barNumber.toString()
@@ -87,7 +89,9 @@ describe('SongBar', () => {
 
   it('should render with optional props', () => {
     render(<SongBar {...baseProps} beatsPerBar={3} currentTimePosition={1} />);
-    expect(screen.getByTestId(testid)).toBeInTheDocument();
+    expect(
+      screen.getByTestId(subTestid(baseProps.barNumber.toString()))
+    ).toBeInTheDocument();
     expect(screen.getByTestId(subTestid('BarNumber'))).toBeInTheDocument();
     expect(screen.getByTestId(subTestid('BarNumber'))).toHaveTextContent(
       baseProps.barNumber.toString()
