@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledPath } from '../styles';
+import { StyledPath } from '../styles/Icons.styles';
 import { BaseIconInterface } from '../types';
 import { COLORS } from 'design-system';
 
@@ -8,7 +8,11 @@ const PasteIcon: React.FC<BaseIconInterface> = ({
   hoverColor,
 }) => {
   return (
-    <svg viewBox="0 0 80.93 38.9" aria-labelledby="title">
+    <svg
+      viewBox="0 0 80.93 38.9"
+      aria-labelledby="title"
+      data-testid="PasteIcon"
+    >
       <title>Paste Icon</title>
       <g>
         <StyledPath

@@ -12,7 +12,11 @@ const Snowflake: React.FC<SnowflakeInterface> = ({
   outerBorderColor,
 }) => {
   return (
-    <svg viewBox="0 0 753.92 860.01" aria-labelledby="title">
+    <svg
+      viewBox="0 0 753.92 860.01"
+      aria-labelledby="title"
+      data-testid="Snowflake"
+    >
       <title>Snowflake</title>
       <g>
         <path

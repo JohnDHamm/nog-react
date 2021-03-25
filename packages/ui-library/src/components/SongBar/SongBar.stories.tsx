@@ -1,5 +1,5 @@
 import React from 'react';
-import SongBar from './SongBar';
+import SongBar, { Lyric, Note } from './SongBar';
 import { componentStoryPath } from '../../storybook';
 import { ComponentStoryWrapper, PropsTableProps } from 'storybook-helpers';
 import { COLORS } from 'design-system';

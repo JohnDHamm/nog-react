@@ -10,7 +10,7 @@ import {
   PatternTitle,
   ToolContainer
 } from './CreatePage.styles';
-import MobileMessage from '../../components/MobileMessage/MobileMessage';
+import { MobileMessage } from '../../components';
 import { ColorPaletteContext, InstancesContext } from '../../contexts';
 import { getNewInstanceLightColors } from 'function-library';
 import {

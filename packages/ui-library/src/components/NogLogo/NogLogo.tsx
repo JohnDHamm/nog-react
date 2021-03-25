@@ -15,7 +15,11 @@ const NogLogo: React.FC<NogLogoInterface> = ({
   lettersColor,
 }) => {
   return (
-    <svg viewBox="0 0 226.69 252.42" aria-labelledby="title">
+    <svg
+      viewBox="0 0 226.69 252.42"
+      aria-labelledby="title"
+      data-testid="NogLogo"
+    >
       <title>Nog Logo</title>
       <g>
         {hasBackground && (
@@ -23,6 +27,7 @@ const NogLogo: React.FC<NogLogoInterface> = ({
             d="M288,410.21a26.15,26.15,0,0,1-13.09-3.51l-83.16-48A26.25,26.25,0,0,1,178.65,336V240a26.25,26.25,0,0,1,13.1-22.68l83.16-48a26.16,26.16,0,0,1,26.18,0l83.16,48A26.25,26.25,0,0,1,397.35,240v96a26.25,26.25,0,0,1-13.1,22.68l-83.16,48A26.15,26.15,0,0,1,288,410.21Z"
             transform="translate(-174.65 -161.79)"
             style={{ fill: backgroundColor }}
+            data-testid="NogLogo-background"
           />
         )}
         <path

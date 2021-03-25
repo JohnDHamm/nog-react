@@ -7,8 +7,36 @@ import {
   Note,
   StaffBackground,
 } from './SongBar.styles';
-import SongNote from '../SongNote/SongNote';
+import SongNote, {
+  LedgerLine,
+  NoteKey,
+  NoteLength,
+  NoteType,
+} from '../SongNote/SongNote';
 import SongStaff from '../SongStaff/SongStaff';
+import { subTestIdInit } from 'function-library';
+
+const testid = 'SongBar';
+const subTestid = subTestIdInit(testid);
+
+export interface Lyric {
+  timePosition: number;
+  text: string;
+}
+
+export interface Note {
+  type: NoteType;
+  timePosition: number;
+  scalePosition: number;
+  length: NoteLength;
+  noteKey?: NoteKey;
+}
+
+export interface Bar {
+  barNumber: number;
+  notes: Note[];
+  lyrics: Lyric[];
+}
 
 interface BarDisplayProps {
   height: number;
@@ -18,7 +46,7 @@ interface BarDisplayProps {
   currentTimePosition?: number | undefined;
 }
 
-type SongBarProps = Bar & BarDisplayProps;
+export type SongBarProps = Bar & BarDisplayProps;
 
 const SongBar: React.FC<SongBarProps> = ({
   barNumber,
@@ -69,7 +97,8 @@ const SongBar: React.FC<SongBarProps> = ({
           width={noteWidth}
           left={leftPosition}
           bottom={bottomPosition}
-          key={note.timePosition}
+          key={`${barNumber}-${note.timePosition}`}
+          data-testid={subTestid(`Note-${note.timePosition}`)}
         >
           <SongNote
             type={note.type}
@@ -94,10 +123,11 @@ const SongBar: React.FC<SongBarProps> = ({
       const bottomPosition = -(height * 0.75);
       return (
         <LyricText
-          key={lyric.text}
+          key={`${barNumber}-${lyric.timePosition}`}
           left={leftPosition}
           bottom={bottomPosition}
           isCurrent={lyric.timePosition === currentTimePosition}
+          data-testid={subTestid(`Lyric-${lyric.timePosition}`)}
         >
           {lyric.text}
         </LyricText>
@@ -106,8 +136,17 @@ const SongBar: React.FC<SongBarProps> = ({
   };
 
   return (
-    <Container height={height} width={width}>
-      <BarNumber isCurrentBar={isCurrentBar}>{barNumber}</BarNumber>
+    <Container
+      height={height}
+      width={width}
+      data-testid={subTestid(barNumber.toString())}
+    >
+      <BarNumber
+        isCurrentBar={isCurrentBar}
+        data-testid={subTestid('BarNumber')}
+      >
+        {barNumber}
+      </BarNumber>
       <StaffBackground height={height} width={width}>
         <SongStaff height={height} width={width} />
       </StaffBackground>

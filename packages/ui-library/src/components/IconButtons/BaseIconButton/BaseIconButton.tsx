@@ -8,6 +8,7 @@ export interface BaseIconProps {
   hoverColor?: string;
   onClick?: () => void;
   children: React.ReactNode;
+  testid?: string;
 }
 const BaseIconButton: React.FC<BaseIconProps> = ({
   children,
@@ -16,6 +17,7 @@ const BaseIconButton: React.FC<BaseIconProps> = ({
   color,
   hoverColor,
   onClick,
+  testid = 'BaseIconButton',
 }) => {
   return (
     <StyledIcon
@@ -24,6 +26,7 @@ const BaseIconButton: React.FC<BaseIconProps> = ({
       color={color}
       hoverColor={hoverColor}
       onClick={onClick}
+      data-testid={testid}
     >
       {children}
     </StyledIcon>

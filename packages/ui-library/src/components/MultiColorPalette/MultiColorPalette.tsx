@@ -12,9 +12,13 @@ import {
   LuminRange,
 } from './MultiColorPalette.styles';
 import Button from '../Button/Button';
+import { subTestIdInit } from 'function-library';
 
 const hexToHsl = require('hex-to-hsl');
 const hslToHex = require('@davidmarkclements/hsl-to-hex');
+
+const testid = 'MultiColorPalette';
+const subtestId = subTestIdInit(testid);
 
 export interface ColorPaletteObject {
   colorNum: number;
@@ -94,6 +98,7 @@ const MultiColorPalette: React.FC<MultiColorPaletteProps> = ({
           key={colorObj.colorNum}
           value={colorObj.colorVal}
           onClick={() => handleWellClick(colorObj.colorNum)}
+          data-testid={subtestId(`ColorWell-${colorObj.colorNum}`)}
         />
       );
     });
@@ -106,12 +111,14 @@ const MultiColorPalette: React.FC<MultiColorPaletteProps> = ({
           key={colorObj.colorNum}
           value={colorObj.colorVal}
           onClick={() => handleWellClick(colorObj.colorNum)}
+          data-testid={subtestId(`ColorWell-${colorObj.colorNum}`)}
         />
       ) : (
         <ColorWell
           key={colorObj.colorNum}
           value={'black'}
           onClick={() => handleWellClick(colorObj.colorNum)}
+          data-testid={subtestId(`ColorWell-${colorObj.colorNum}`)}
         >
           +
         </ColorWell>
@@ -150,22 +157,24 @@ const MultiColorPalette: React.FC<MultiColorPaletteProps> = ({
 
   return (
     <>
-      <Container>
+      <Container data-testid={testid}>
         <CurrentColor
           value={currentColorValue}
           isEditable={currentColorNumber > 7}
           onClick={handleCurrentClick}
+          data-testid={subtestId('CurrentColorWell')}
         />
         {!showColorPicker ? (
-          <ColorWellsContainer>
+          <ColorWellsContainer data-testid={subtestId('ColorWells')}>
             <ColorRow>{renderFirstRow()}</ColorRow>
             <ColorRow>{renderSecondRow()}</ColorRow>
           </ColorWellsContainer>
         ) : (
-          <PickerContainer>
+          <PickerContainer data-testid={subtestId('ColorPicker')}>
             <SlidersContainer>
               <HueRange />
               <StyledInput
+                aria-label="hue"
                 value={hueSliderValue}
                 min={0}
                 max={360}
@@ -174,6 +183,7 @@ const MultiColorPalette: React.FC<MultiColorPaletteProps> = ({
               />
               <LuminRange value={luminSliderColor} />
               <StyledInput
+                aria-label="luminosity"
                 value={luminSliderValue}
                 min={0}
                 max={100}
