@@ -1,1 +1,3 @@
-export const storyPathHelper = (path: string) => `demo-app/${path}`;
+import { storyPathHelper } from './storyPathHelper/storyPathHelper';
+
+export { storyPathHelper };

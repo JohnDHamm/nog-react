@@ -1,5 +1,5 @@
 import React from 'react';
-import MobileMessage from './MobileMessage';
+import { MobileMessage } from './MobileMessage';
 import { storyPathHelper } from '../../storybook';
 import { ComponentStoryWrapper } from 'storybook-helpers';
 

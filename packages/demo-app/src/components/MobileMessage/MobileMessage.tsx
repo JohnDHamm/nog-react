@@ -2,9 +2,9 @@ import React from 'react';
 import { Container, LogoContainer, Message } from './MobileMessage.styles';
 import { NogLogo } from 'ui-library';
 
-const MobileMessage: React.FC = () => {
+export const MobileMessage: React.FC = () => {
   return (
-    <Container>
+    <Container data-testid="MobileMessage">
       <LogoContainer>
         <NogLogo />
       </LogoContainer>
@@ -15,5 +15,3 @@ const MobileMessage: React.FC = () => {
     </Container>
   );
 };
-
-export default MobileMessage;

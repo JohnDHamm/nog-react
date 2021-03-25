@@ -1,3 +1,3 @@
-import ExampleComponent from './ExampleComponent/ExampleComponent';
+import { MobileMessage } from './MobileMessage/MobileMessage';
 
-export { ExampleComponent };
+export { MobileMessage };
