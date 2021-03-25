@@ -46,10 +46,8 @@
   },
   "jest": {
     "collectCoverageFrom": [
-      "src/contexts/**/*.{ts,tsx}",
       "src/components/**/*.{ts,tsx}",
       "src/storybook/**/*.{ts,tsx}",
-      "src/hooks/**/*.{ts,tsx}",
       "!**/node_modules/**",
       "!**/*.stories.tsx",
       "!**/*.styles.ts",
