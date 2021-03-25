@@ -7,32 +7,35 @@ import {
   Note,
   StaffBackground,
 } from './SongBar.styles';
-import SongNote from '../SongNote/SongNote';
+import SongNote, {
+  LedgerLine,
+  NoteKey,
+  NoteLength,
+  NoteType,
+} from '../SongNote/SongNote';
 import SongStaff from '../SongStaff/SongStaff';
 import { subTestIdInit } from 'function-library';
 
 const testid = 'SongBar';
 const subTestid = subTestIdInit(testid);
 
-declare global {
-  interface Lyric {
-    timePosition: number;
-    text: string;
-  }
+export interface Lyric {
+  timePosition: number;
+  text: string;
+}
 
-  interface Note {
-    type: 'note' | 'rest';
-    timePosition: number;
-    scalePosition: number;
-    length: NoteLength;
-    noteKey?: NoteKey;
-  }
+export interface Note {
+  type: NoteType;
+  timePosition: number;
+  scalePosition: number;
+  length: NoteLength;
+  noteKey?: NoteKey;
+}
 
-  interface Bar {
-    barNumber: number;
-    notes: Note[];
-    lyrics: Lyric[];
-  }
+export interface Bar {
+  barNumber: number;
+  notes: Note[];
+  lyrics: Lyric[];
 }
 
 interface BarDisplayProps {

@@ -7,9 +7,7 @@ import { subTestIdInit } from 'function-library';
 const testid = 'SongTimeSig';
 const subTestid = subTestIdInit(testid);
 
-declare global {
-  type TimeSignature = '3:4' | '4:4';
-}
+export type TimeSignature = '3:4' | '4:4';
 
 interface SongTimeSigProps {
   height: number;

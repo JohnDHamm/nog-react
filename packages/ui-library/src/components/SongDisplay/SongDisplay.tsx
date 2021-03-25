@@ -1,6 +1,6 @@
 import React from 'react';
-import SongTimeSig from '../SongTimeSig/SongTimeSig';
-import SongBar from '../SongBar/SongBar';
+import SongTimeSig, { TimeSignature } from '../SongTimeSig/SongTimeSig';
+import SongBar, { Bar } from '../SongBar/SongBar';
 import { Container } from './SongDisplay.styles';
 
 const testid = 'SongDisplay';

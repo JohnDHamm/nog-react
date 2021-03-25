@@ -2,25 +2,23 @@ import React from 'react';
 import { COLORS } from 'design-system';
 import { subTestIdInit } from 'function-library';
 
-declare global {
-  type LedgerLine = undefined | 'through' | 'above' | 'below';
+export type LedgerLine = undefined | 'through' | 'above' | 'below';
 
-  type NoteKey = undefined | 'flat' | 'sharp' | 'natural';
+export type NoteKey = undefined | 'flat' | 'sharp' | 'natural';
 
-  type NoteLength =
-    | 'whole'
-    | 'half'
-    | 'quarter'
-    | 'eighth'
-    | 'sixteenth'
-    | 'whole-dotted'
-    | 'half-dotted'
-    | 'quarter-dotted'
-    | 'eighth-dotted'
-    | 'sixteenth-dotted';
+export type NoteLength =
+  | 'whole'
+  | 'half'
+  | 'quarter'
+  | 'eighth'
+  | 'sixteenth'
+  | 'whole-dotted'
+  | 'half-dotted'
+  | 'quarter-dotted'
+  | 'eighth-dotted'
+  | 'sixteenth-dotted';
 
-  type NoteType = 'note' | 'rest';
-}
+export type NoteType = 'note' | 'rest';
 
 export interface SongNoteProps {
   color?: string;
