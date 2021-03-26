@@ -5,15 +5,14 @@ export const StyledContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.25rem 1.5rem;
+  padding: 0.35rem 1.5rem;
   background-color: ${COLORS.NOG_RED};
 `;
 
 export const LogoContainer = styled.div`
   width: 36px;
-  &:hover {
-    cursor: pointer;
-  }
+  display: flex;
+  align-items: center;
 `;
 
 export const Row = styled.div`
