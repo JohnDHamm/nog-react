@@ -1,5 +1,4 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
 import {
   LogoContainer,
   ProfileAvatar,
@@ -20,25 +19,17 @@ interface NavBarInterface {
 }
 
 const NavBar: React.FC<NavBarInterface> = ({ avatarSrc, userName }) => {
-  const history = useHistory();
-
-  //TODO: remove this after adding anchor tag to LogoContainer
-  const handleLogoClick = (): void => {
-    history.push('/');
-  };
-
   return (
     <StyledContainer data-testid={testid}>
-      <LogoContainer
-        onClick={handleLogoClick}
-        data-testid={subtestId('HomeIcon')}
-      >
-        <NogLogo
-          hasBackground={false}
-          borderColor={COLORS.WHITE}
-          lettersColor={COLORS.WHITE}
-        />
-      </LogoContainer>
+      <a href={'/'} data-testid={subtestId('HomeLink')}>
+        <LogoContainer>
+          <NogLogo
+            hasBackground={false}
+            borderColor={COLORS.WHITE}
+            lettersColor={COLORS.WHITE}
+          />
+        </LogoContainer>
+      </a>
       <Row>
         <ProfileText data-testid={subtestId('UserName')}>
           {userName}
